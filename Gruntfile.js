@@ -9,7 +9,10 @@ module.exports = function(grunt) {
   		},
   		css: {
 			    src: ['_build/css/*.css']
-  		}
+  		},
+      docs: {
+          src: ['docs/*']
+      }
 		},
 
   	sass: {
@@ -85,7 +88,7 @@ module.exports = function(grunt) {
       },
       all: {
     		files: [{
-        	'docs/styleguide': '_build/css/screen.doc.css'
+        	'docs': '_build/css/screen.doc.css'
        	}]
   		}
     },
@@ -96,7 +99,7 @@ module.exports = function(grunt) {
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
   // The `documentation` will clean the build folder, compile sass, autoprefix, copy over the overview file, then generate a KSS styleguide
-  grunt.registerTask('documentation', ['clean:css', 'sass:dev', 'autoprefixer', 'copy:overview', 'styleguide']);
+  grunt.registerTask('documentation', ['clean:css', 'clean:docs', 'sass:dev', 'autoprefixer', 'copy:overview', 'styleguide']);
   // Creates the `server` task
   grunt.registerTask('server', ['express', 'open', 'express-keepalive']);
   // The `cleanwipe` task will empty the build folder and subfolders
