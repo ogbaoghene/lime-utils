@@ -1,6 +1,6 @@
 // Px to Em
 //
-// Converts a unitless number to an em, accepts an array.
+// Converts a px value to em, accepts an array.
 //
 // Parameters:
 // ```scss
@@ -17,18 +17,20 @@
 //
 // Adapted from [OOCSS](https://github.com/stubbornella/oocss) by stubbornella
 //
-// Styleguide 1.1
+// Styleguide 1.2
 
 @function pxToEm ($values, $context: $baseFontSize) {
-  $list: ();
-
-  @each $value in $values {
-    @if ($value == 0 or $value == auto) {
-      $list: append($list, $value);
-    } @else {
-      $emValue: ($value/$baseFontSize)+em;
-      $list: append($list, $emValue);
+    $list: ();
+  
+    @each $value in $values {
+        @if ($value == 0 or $value == auto) {
+            $list: append($list, $value);
+        }
+        @else {
+            $emValue: ( stripUnit($value) / stripUnit($context) ) * 1em;
+            $list: append($list, $emValue);
+        }
     }
-  }
-  @return $list;
+    @return $list;
 }
+

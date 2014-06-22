@@ -13,7 +13,9 @@
 //
 // Styleguide 1.0
 
+@import "functions/stripUnit";
 @import "functions/pxToEm";
+@import "functions/pxToRem";
 
 
 // Mixins

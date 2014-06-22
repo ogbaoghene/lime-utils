@@ -30,7 +30,6 @@ module.exports = function (grunt) {
       	sass: {
             dist: {
                 options: {
-                    // imagePath: ,
                     outputStyle: 'compressed'
                 },
                 files: {
@@ -38,10 +37,6 @@ module.exports = function (grunt) {
                 }
             },
             docs: {
-                options: {
-                    // imagePath: ,
-                    outputStyle: 'expanded'
-                },
                 files: {
                     '<%= config.docs %>/public/<%= config.dest %>': '<%= config.sass %>/<%= config.src %>'
                 }

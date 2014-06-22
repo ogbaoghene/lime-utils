@@ -1,0 +1,16 @@
+// Strip Unit
+//
+// Strip the unit from a number..
+//
+// Parameters:
+// ```scss
+// $num : The number whose units you wish to strip
+// ```
+//
+// Adapted from [SCUT](http://davidtheclark.github.io/scut)
+//
+// Styleguide 1.1
+
+@function stripUnit ($num) {
+    @return $num / ($num * 0 + 1);
+}
