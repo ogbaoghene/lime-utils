@@ -1,113 +1,137 @@
-module.exports = function(grunt) {
-  // Project configuration.
-  grunt.initConfig({
-    pkg: grunt.file.readJSON('package.json'),
+module.exports = function (grunt) {
+    require('jit-grunt')(grunt);
 
-    clean: {
-  		wipe: {
-			    src: ['_build/*']
-  		},
-  		css: {
-			    src: ['_build/css/*.css']
-  		},
-      docs: {
-          src: ['docs/*']
-      }
-		},
+    // Project configuration.
+    grunt.initConfig({
+        pkg: grunt.file.readJSON('package.json'),
 
-  	sass: {
-      dev: {
-        options: {
-          style: 'expanded',
-          trace: true
+        // Project settings
+        config: {
+            // Configurable paths
+            docs: 'docs',
+            build: '_build',
+            sass: 'sass',
+            src: 'screen.scss',
+            dist: 'screen.css',
+            dest: 'style.css'
         },
-        files: {
-        '_build/css/screen.doc.css': 'sass/screen.scss'
-        }
-      },
-      dist: {
-        options: {
-          style: 'compressed'
+
+        // 1
+        clean: {
+      		dist: {
+    		    src: ['<%= config.build %>/**/*']
+      		},
+            docs: {
+                src: ['<%= config.docs %>/**/*']
+            }
+    	},
+
+        // 2
+      	sass: {
+            dist: {
+                options: {
+                    // imagePath: ,
+                    outputStyle: 'compressed'
+                },
+                files: {
+                    '<%= config.build %>/css/<%= config.dist %>': '<%= config.sass %>/<%= config.src %>'
+                }
+            },
+            docs: {
+                options: {
+                    // imagePath: ,
+                    outputStyle: 'expanded'
+                },
+                files: {
+                    '<%= config.docs %>/public/<%= config.dest %>': '<%= config.sass %>/<%= config.src %>'
+                }
+            }
         },
-        files: {
-          '_build/css/screen.css': 'sass/screen.scss'
-        }
-      }
-    },
 
-    autoprefixer: {
-      options: {
-        browsers: ['last 3 versions', '> 1%', 'ie 8', 'ie 7']
-      },
-      no_dest: {
-	      src: '_build/css/*.css'
-	    }
-    },
+        // 3
+        autoprefixer: {
+            options: {
+                browsers: ['last 3 versions', '> 1%', 'ie 8', 'ie 7']
+            },
+            no_dest_dist: {
+                src: '<%= config.build %>/**/<%= config.dist %>'
+            },
+            no_dest_docs: {
+                src: '<%= config.docs %>/**/<%= config.dest %>'
+            }
+        },
 
-    express: {
-      all: {
-        options: {
-          port: 9000,
-          hostname: "0.0.0.0",
-          bases: 'docs/styleguide',
-          livereload: true
-        }
-      }
-    },
- 
-    open: {
-      all: {
-        path: 'http://localhost:<%= express.all.options.port%>'
-      }
-    },
+        // 4
+    	watch: {
+            livereload: {
+                options: {
+                    livereload: '<%= connect.options.livereload %>'
+                },
+                files: [
+                    '<%= config.docs %>/{,*/}*.html',
+                    '<%= config.sass %>/**/*.scss'
+                ],
+                tasks: [
+                    'styleguide',
+                    'sass:docs',
+                    'autoprefixer:no_dest_docs'
+                ]
+            }
+        },
 
-		watch: {
-      sass: {
-        files: ['sass/**/*.scss'],
-        tasks: ['sass:dev', 'autoprefixer'],
-        options : {
-	        livereload : true
-	      }
-      },
-    },
+        // 5
+        connect: {
+            options: {
+                port: 9000,
+                livereload: 35729,
+                hostname: 'localhost'
+            },
+            livereload: {
+                options: {
+                    open: true,
+                    base: [
+                        'docs'
+                    ]
+                }
+            },
+        },
 
-		copy: {
-      overview: {
-        files: [{src: ['sass/styleguide.md'], dest: '_build/css/styleguide.md'}]
-      }
-    },
+        // 6
+        styleguide: {
+            options: {
+                //template: {
+                    //src: 'docs/styleguide-template'
+                //},
+                framework: {
+                    name: 'kss'
+                }
+            },
+            all: {
+        		files: [{
+        	       '<%= config.docs %>': '<%= config.sass %>/<%= config.src %>'
+           	    }]
+      		}
+        },
+        
+    });
 
-    styleguide: {
-      options: {
-          //template: {
-          //    src: 'docs/styleguide-template'
-          //},
-          framework: {
-              name: 'kss'
-          }
-      },
-      all: {
-    		files: [{
-        	'docs': '_build/css/screen.doc.css'
-       	}]
-  		}
-    },
-    
-  });
+    // Create the 'purge' task
+    grunt.registerTask('purge', ['clean:dist', 'clean:docs']);
 
-  // Load Grunt plugins
-  require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+    // Create the 'deploy' task
+    grunt.registerTask('deploy', ['clean:dist', 'sass:dist', 'autoprefixer:no_dest_dist']);
 
-  // The `documentation` will clean the build folder, compile sass, autoprefix, copy over the overview file, then generate a KSS styleguide
-  grunt.registerTask('documentation', ['clean:css', 'clean:docs', 'sass:dev', 'autoprefixer', 'copy:overview', 'styleguide']);
-  // Creates the `server` task
-  grunt.registerTask('server', ['express', 'open', 'express-keepalive']);
-  // The `cleanwipe` task will empty the build folder and subfolders
-  grunt.registerTask('cleanwipe', ['clean:wipe']);
-  // The `production` task will clean the build folder, compile sass and compress the outputted CSS, then autoprefix
-  grunt.registerTask('production', ['clean:css', 'sass:dist', 'autoprefixer']);
-  // Using the `grunt development` command will clean the build folder, compile sass, autoprefix, copy over the overview file, then generate a KSS styleguide, after which it will start the server and activate the watch task
-  grunt.registerTask('development', ['clean:css', 'sass:dev', 'autoprefixer', 'copy:overview', 'styleguide', 'express', 'open', 'watch']);
+    // Create the `doc` task
+    grunt.registerTask('doc', ['clean:docs', 'styleguide', 'sass:docs', 'autoprefixer:no_dest_docs']);
 
-  grunt.registerTask('default', ['development']);
+    // Creates the `serve` task
+    grunt.registerTask('serve', function (target) {
+        grunt.task.run([
+            'doc',
+            'connect:livereload',
+            'watch'
+        ]);
+    });
+
+    grunt.registerTask('default', ['serve']);
 };
