@@ -38,7 +38,7 @@ Welcome to the Lime Utilities overview. Before continuing, you should have a gen
 - Nested elements come in at the end of the block with a space between each nesting.
 - Media queries are nested inline with the element, and are placed at the end of the block after the pseudo and combinator selectors and any other nested elements. With a space separating them.
 - If you need to add a comment to part of a block of Sass then you would add a Sass comment (not a CSS comment) after the element.
-- Variablize all common numbers, numbers with meaning, and colors. To eliminate confusion when making changes, a two-tier system is used, first set descriptive variables then set functional variables.
+- Variablize all common numbers, numbers with meaning, and colors. To eliminate confusion when making changes, a two-tier system is used, first set descriptive variables then, functional variables.
 
 ####Misc
 - Document styles with [KSS](https://github.com/kneath/kss).
