@@ -1,0 +1,34 @@
+// Px to Em
+//
+// Converts a unitless number to an em, accepts an array.
+//
+// Parameters:
+// ```scss
+// $values : Number in px
+// $context : Base font size. Predefined as $baseFontSize
+// ```
+// 
+// Usage:
+// ```scss
+// .example {
+//     padding: pxToEm(16 20 20 16, 18);
+// }
+// ```
+//
+// Adapted from [OOCSS](https://github.com/stubbornella/oocss) by stubbornella
+//
+// Styleguide 1.1
+
+@function pxToEm ($values, $context: $baseFontSize) {
+  $list: ();
+
+  @each $value in $values {
+    @if ($value == 0 or $value == auto) {
+      $list: append($list, $value);
+    } @else {
+      $emValue: ($value/$baseFontSize)+em;
+      $list: append($list, $emValue);
+    }
+  }
+  @return $list;
+}
