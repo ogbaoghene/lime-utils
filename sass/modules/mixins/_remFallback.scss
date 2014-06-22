@@ -1,22 +1,28 @@
-// px to rem
+// rem Fallback
 //
-// Converts a px value to rem. Accepts an array.
+// Provide px fallback for rem values. Allows 
 //
 // Parameters:
 // ```scss
 // $values : Number in px
+// $property: CSS property
 // ```
 // 
 // Usage:
 // ```scss
 // .example {
-//     font-size: pxToRem(20);
+//     @include remFallback(
+//         height: 240,
+//         width: 300,
+//         padding: 20,
+//         margin: 0 10,
+
 // }
 // ```
 //
 // Adapted from [OOCSS](https://github.com/stubbornella/oocss) by stubbornella
 //
-// Styleguide 1.3
+// Styleguide 2.1
 
 @function pxToRem ($values) {
     $list: ();

@@ -1,4 +1,4 @@
-// Px to Em
+// px to em
 //
 // Converts a px value to em, accepts an array.
 //
@@ -32,5 +32,9 @@
         }
     }
     @return $list;
+}
+
+.example {
+     padding: pxToEm(16px 20 20% 16, 18);
 }
 
