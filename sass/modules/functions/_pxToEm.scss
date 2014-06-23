@@ -1,40 +1,51 @@
 // px to em
 //
-// Converts a px value to em, accepts an array.
+// Converts a px value to em (no unit = px), accepts an array.
 //
 // Parameters:
 // ```scss
 // $values : Number in px
-// $context : Base font size. Predefined as $baseFontSize
+// $context : Base font size, in em or px. Predefined as $docFontSize
 // ```
 // 
 // Usage:
 // ```scss
 // .example {
-//     padding: pxToEm(16 20 20 16, 18);
+//   padding: pxToEm(12px, 16) * 3;
+// }
+//
+// .example2 {
+//   padding: pxToEm(16px 20 20% 1em, 1em);
 // }
 // ```
 //
-// Adapted from [OOCSS](https://github.com/stubbornella/oocss) by stubbornella
+// Adapted from [SCUT](http://davidtheclark.github.io/scut) and [OOCSS](https://github.com/stubbornella/oocss) by stubbornella
 //
 // Styleguide 1.2
 
-@function pxToEm ($values, $context: $baseFontSize) {
-    $list: ();
-  
-    @each $value in $values {
-        @if ($value == 0 or $value == auto) {
-            $list: append($list, $value);
-        }
-        @else {
-            $emValue: ( stripUnit($value) / stripUnit($context) ) * 1em;
-            $list: append($list, $emValue);
-        }
+@function pxToEm($values, $context: $docFontSize) {
+  // Adjust accordingly to create a $divisor that
+  // serves as context for $pixels.
+  $multiplier: if(unit($context) == em, $docFontSize, 1);
+  $divisor: stripUnit($context) * $multiplier;
+  $list: ();
+  @each $value in $values {
+    @if $value == 0 or $value == auto or unit($value) != px and unitless($value) != true {
+      // Ignore 0, auto, and units except px
+      $list: append($list, $value);
     }
+    @else {
+      $emValue: stripUnit($value) / $divisor * 1em;
+      $list: append($list, $emValue);
+    }
+  }
+  @if length($list) == 1 {
+    // return a single value instead of a list,
+    // so it can be used in calculations
+    @return nth($list, 1);
+  }
+  @else {
     @return $list;
-}
-
-.example {
-     padding: pxToEm(16px 20 20% 16, 18);
+  }
 }
 

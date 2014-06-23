@@ -7,7 +7,7 @@ Welcome to the Lime Utilities overview. Before continuing, you should have a gen
 ###Coding Style
 
 ####Spacing
-- Use soft-tabs with a four space indent. Spaces are the only way to guarantee code renders the same in any person's environment.
+- Use soft-tabs with a two space indent. Spaces are the only way to guarantee code renders the same in any person's environment.
 - Put spaces after `:` in property declarations.
 - Put spaces before `{` in rule declarations.
 - Put line breaks between rulesets.

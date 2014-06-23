@@ -1,41 +1,48 @@
 // rem Fallback
 //
-// Provide px fallback for rem values. Allows 
+// Provide px fallback for rem values, allows multiple property-values pairs. 
 //
 // Parameters:
 // ```scss
-// $values : Number in px
-// $property: CSS property
+// $properties : CSS property with value
 // ```
 // 
 // Usage:
 // ```scss
 // .example {
-//     @include remFallback(
-//         height: 240,
-//         width: 300,
-//         padding: 20,
-//         margin: 0 10,
-
+//   @include remFallback((
+//     (height, (240 / 2)),
+//     (font-size, 13px),
+//     (text-indent, 0),
+//     (left, auto),
+//     (margin, 0 10px 3vh 30%)
+//   ));
 // }
 // ```
 //
-// Adapted from [OOCSS](https://github.com/stubbornella/oocss) by stubbornella
+// _ **Note** : Written to accomodate Libsass compilation, SASS 3.3 option is available on [GitHubGist](https://gist.github.com/ogbaoghene/20222a08fcab548f5593). _
 //
 // Styleguide 2.1
 
-@function pxToRem ($values) {
-    $list: ();
-
-    @each $value in $values {
-        @if ($value == 0 or $value == auto) {
-            $list: append($list, $value);
-        }
-        @else {
-            $remValue: ( stripUnit($value) / stripUnit($baseFontSize) ) * 1rem;
-            $list: append($list, $remValue);
-        }
+@mixin remFallback($properties) {
+  @each $val in $properties {
+    // As Libsass doesn't support multiple assignments,
+    // pass each property:value pair as an item before
+    // isolating the $property and $value variables
+    $property: nth($val, 1);
+    $value: nth($val, 2);
+    @if type-of($value) == list {
+      #{$property}: $value;
+      #{$property}: pxToRem($value);
     }
-    @return $list;
+    @else if $value == 0 or $value == auto or unit($value) != px and unitless($value) != true {
+      // Filter out 0, auto and units except px
+      #{$property}: $value;
+    }
+    @else {
+      #{$property}: $value;
+      #{$property}: pxToRem($value);
+    }
+  }
 }
 

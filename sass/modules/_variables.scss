@@ -1,7 +1,7 @@
-// To eliminate confusion when making changes, use a two-tier system.
-// First set descriptive variables, then functional variables.
-// Global/ project-wide variables are // defined first, before functional
-// variables, grouped into chunks according to modules.
+// To eliminate confusion when making changes, use a two-tier system. First,
+// Define descriptive variables with actual values, then functional variables
+// set to those descriptive variables. Global or project-wide variables are
+// defined before variables grouped according to modules.
 
 // Global Variables
 
@@ -12,5 +12,9 @@ $scale: 1.618; // Golden ratio
 // Font Size
 $fontSize: 16;
 
+$docFontSize: $fontSize;
+
 // Line Height
 $lineHeight: $fontSize * $scale;
+
+$docLineHeight: $lineHeight;

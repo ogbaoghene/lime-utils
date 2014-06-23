@@ -1,6 +1,6 @@
 // px to rem
 //
-// Converts a px value to rem. Accepts an array.
+// Converts a px value to rem (no unit = px), accepts an array.
 //
 // Parameters:
 // ```scss
@@ -10,26 +10,37 @@
 // Usage:
 // ```scss
 // .example {
-//     font-size: pxToRem(20);
+//   font-size: pxToRem(16px) * 4;
 // }
+//
+// .example2 {
+//   padding: pxToRem(16px 12 20% 1em);
+//}
 // ```
 //
 // Adapted from [OOCSS](https://github.com/stubbornella/oocss) by stubbornella
 //
 // Styleguide 1.3
 
-@function pxToRem ($values) {
-    $list: ();
-
-    @each $value in $values {
-        @if ($value == 0 or $value == auto) {
-            $list: append($list, $value);
-        }
-        @else {
-            $remValue: ( stripUnit($value) / stripUnit($baseFontSize) ) * 1rem;
-            $list: append($list, $remValue);
-        }
+@function pxToRem($values) {
+  $list: ();
+  @each $value in $values {
+    @if $value == 0 or $value == auto or unit($value) != px and unitless($value) != true {
+      // Ignore 0, auto, and units except px
+      $list: append($list, $value);
     }
+    @else {
+      $remValue: ( stripUnit($value) / stripUnit($baseFontSize) ) * 1rem;
+      $list: append($list, $remValue);
+    }
+  }
+  @if length($list) == 1 {
+    // return a single value instead of a list,
+    // so it can be used in calculations
+    @return nth($list, 1);
+  }
+  @else {
     @return $list;
+  }
 }
 
