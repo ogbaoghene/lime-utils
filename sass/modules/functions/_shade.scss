@@ -1,0 +1,24 @@
+// Shade
+//
+// Add black to a color.
+//
+// Parameters:
+// ```scss
+// $color : Color
+// $percentage : Amount of black to add
+// ```
+// 
+// Usage:
+// ```scss
+// .box-shade {
+//   background-color: tint($color, 40%);
+// }
+// ```
+//
+// Adapted from [Compass](http://compass-style.org)
+//
+// Styleguide 1.4
+
+@function shade($color, $percent) {
+  @return mix(black, $color, $percent);
+}
