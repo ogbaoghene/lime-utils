@@ -4,17 +4,34 @@
 // defined before variables grouped according to modules.
 
 // Global Variables
+// ================
+
+// Scaling Variables
+$golden:           1.618;
+$minor-second:     1.067;
+$major-second:     1.125;
+$minor-third:      1.2;
+$major-third:      1.25;
+$perfect-fourth:   1.333;
+$augmented-fourth: 1.414;
+$perfect-fifth:    1.5;
+$minor-sixth:      1.6;
+$major-sixth:      1.667;
+$minor-seventh:    1.778;
+$major-seventh:    1.875;
+$octave:           2;
+$major-tenth:      2.5;
+$major-eleventh:   2.667;
+$major-twelfth:    3;
+$double-octave:    4;
+
+$ratio: 1.618;
+
 
 // Type
 $baseFontSize: 16; // Default font size on html element is 100%, equivalent to 16px;
-$scale: 1.618; // Golden ratio
-
-// Font Size
-$fontSize: 16;
+$fontSize: 16; // Font size on body element
+$lineHeight: $fontSize * $ratio;
 
 $docFontSize: $fontSize;
-
-// Line Height
-$lineHeight: $fontSize * $scale;
-
 $docLineHeight: $lineHeight;
