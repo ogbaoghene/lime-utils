@@ -1,0 +1,20 @@
+// Smart RGBa
+//
+// Approximate a transparent color on a light or dark background.
+//
+// Parameters:
+// ```scss
+// $color : Color
+// $percentage : Amount to adjust color by
+// ```
+//
+// Adapted from [Sassifaction](https://github.com/sturobson/sassifaction)
+//
+// Styleguide 1.8
+
+@function smartRgba($color, $percentage) {
+  @return lighten($color, (1-$percentage)*50%);
+}
+@function darkSmartRgba($color, $percentage) {
+  @return darken($color, (1-$percentage)*50%);
+}
