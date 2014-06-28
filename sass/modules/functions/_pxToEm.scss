@@ -5,7 +5,7 @@
 // Parameters:
 // ```scss
 // $values : Number in px
-// $context : Base font size, in em or px. Predefined as $docFontSize
+// $context : Base font size, in em or px. Predefined as `$docFontSize`
 // ```
 // 
 // Usage:
@@ -19,7 +19,7 @@
 // }
 // ```
 //
-// ** Requires ** : _variables, _stripUnit
+// **Requires** : _variables, _stripUnit
 //
 // Adapted from [SCUT](http://davidtheclark.github.io/scut) and [OOCSS](https://github.com/stubbornella/oocss)
 //

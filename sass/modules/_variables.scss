@@ -25,13 +25,14 @@ $major-eleventh:   2.667;
 $major-twelfth:    3;
 $double-octave:    4;
 
-$ratio: 1.618;
+$msValue: 16 480; //  Ideal text size + Important number
+$msRatio: $golden;
 
 
 // Type
 $baseFontSize: 16; // Default font size on html element is 100%, equivalent to 16px;
 $fontSize: 16; // Font size on body element
-$lineHeight: $fontSize * $ratio;
+$lineHeight: $fontSize * $msRatio;
 
 $docFontSize: $fontSize;
 $docLineHeight: $lineHeight;

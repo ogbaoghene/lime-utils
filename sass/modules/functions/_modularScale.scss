@@ -1,0 +1,93 @@
+// Modular Scale
+//
+// Returns a value from a modular scale based upon a given number.
+//
+// Parameters:
+// ```scss
+// $value : Significant base number, can be combined with another number to create a double stranded modular scale. Predefined as `$msValue`
+// $increment : Integer for an increment value
+// $ratio : Value by which the base value is exponentially multiplied and divided. Predefined as `$msRatio`
+// $round: Determine approximation of result. Predefined as null
+// ```
+// 
+// Usage:
+// ```scss
+// .example {
+//   // Increment Up Modular Scale with positive value
+//   font-size: modularScale(1); // returns: 16.534
+//   // Increment Down Modular Scale with negative value
+//   font-size: modularScale(-1); // returns: 10.219
+//   // Can be used with ceil(round up) or floor(round down)
+//   font-size: modularScale(1, floor); // returns: 16
+//   font-size: modularScale(1, ceil); // returns: 16
+// }
+//
+// .example2 {
+//   // With unique values for $value and $ratio
+//   font-size: modularScale(2, $value: 14px, $ratio: 1.667); // returns: 38.904
+// }
+// ```
+//
+// **Requires** : _variables, _stripUnit
+//
+// _**Note** : The function can be wrapped in sass's `abs()`, `floor()`, or `ceil()` functions to get the absolute value, round down, or round up respectively._
+//
+// Adapted from [Bourbon](http://bourbon.io)
+//
+// Styleguide 1.7
+
+@function modularScale($increment, $value: $msValue, $ratio: $msRatio, $round: n) {
+  $v1: stripUnit(nth($value, 1));
+  $v2: stripUnit(nth($value, length($value)));
+  $value: $v1;
+
+  // scale $v2 to just above $v1
+  @while $v2 > $v1 {
+    $v2: ($v2 / $ratio); // will be off-by-1
+  }
+  @while $v2 < $v1 {
+    $v2: ($v2 * $ratio); // will fix off-by-1
+  }
+
+  // check AFTER scaling $v2 to prevent double-counting corner-case
+  $double-stranded: $v2 > $v1;
+
+  @if $increment > 0 {
+    @for $i from 1 through $increment {
+      @if $double-stranded and ($v1 * $ratio) > $v2 {
+        $value: $v2;
+        $v2: ($v2 * $ratio);
+      } @else {
+        $v1: ($v1 * $ratio);
+        $value: $v1;
+      }
+    }
+  }
+
+  @if $increment < 0 {
+    // adjust $v2 to just below $v1
+    @if $double-stranded {
+      $v2: ($v2 / $ratio);
+    }
+
+    @for $i from $increment through -1 {
+      @if $double-stranded and ($v1 / $ratio) < $v2 {
+        $value: $v2;
+        $v2: ($v2 / $ratio);
+      } @else {
+        $v1: ($v1 / $ratio);
+        $value: $v1;
+      }
+    }
+  }
+  
+  @if $round == floor {
+    @return floor($value);
+  }
+  @else if $round == ceil {
+    @return ceil($value);
+  }
+  @else {
+    @return $value;
+  }
+}

@@ -1,6 +1,6 @@
 // Monotone Palette
 //
-// Add black to a color.
+// Returns a tint or shade of a color in increments of 8%, 20%, 50%, or 75%.
 //
 // Parameters:
 // ```scss
@@ -11,13 +11,13 @@
 // Usage:
 // ```scss
 // .example {
-//     color: monotonePalette($accent1);
-//     background: monotonePalette($accent1, shade2);
-//     border: 1px solid monotonePalette($accent2, shade3);
+//   color: monotonePalette($accent1);
+//   background: monotonePalette($accent1, shade2);
+//   border: 1px solid monotonePalette($accent2, shade3);
 // }
 // ```
 //
-// ** Requires ** : _shade, _tint
+// **Requires** : _shade, _tint
 //
 // Adapted from [Sassifaction](https://github.com/sturobson/sassifaction)
 //
