@@ -13,8 +13,9 @@
 // Styleguide 1.8
 
 @function smartRgba($color, $percentage) {
-  @return lighten($color, (1-$percentage)*50%);
+  @return lighten($color, (1 - $percentage) * 50%);
 }
+
 @function darkSmartRgba($color, $percentage) {
-  @return darken($color, (1-$percentage)*50%);
+  @return darken($color, (1 - $percentage) * 50%);
 }

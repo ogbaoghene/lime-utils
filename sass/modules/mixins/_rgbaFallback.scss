@@ -1,0 +1,51 @@
+// RGBa Fallback
+//
+// Provide hexadecimal fallback for backgrounds and colors with RGBa values. 
+//
+// Parameters:
+// ```scss
+// $type : background-color(bg) or color(color)
+// $color: hexadecimal colour
+// $percentage : level of tranparency
+// $darken : Determine if transparent element rests on dark backgound. Predefined as null
+// ```
+// 
+// Usage:
+// ```scss
+// .example {
+//   @include rgbaFallback(bg, #3498db, .5);
+// }
+//
+// .example2 {
+//   @include rgbaFallback(color, #3498db, .5, $darken: true);
+// }
+// ```
+//
+// **Requires** : _smartRgba
+//
+// Adapted from [Sassifaction](https://github.com/sturobson/sassifaction)
+//
+// Styleguide 2.2
+
+@mixin rgbaFallback($type, $color, $percentage, $darken: n) {
+  @if $darken == n {
+    @if $type == color {
+      color: smartRgba($color, $percentage);
+      color: rgba($color, $percentage);
+    }
+    @if $type == bg {
+      background-color: smartRgba($color, $percentage);
+      background-color: rgba($color, $percentage);
+    }
+  }
+  @else {
+     @if $type == color {
+      color: darkSmartRgba($color, $percentage);
+      color: rgba($color, $percentage);
+    }
+    @if $type == bg {
+      background-color: darkSmartRgba($color, $percentage);
+      background-color: rgba($color, $percentage);
+    }
+  }
+}
