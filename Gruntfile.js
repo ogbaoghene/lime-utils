@@ -8,12 +8,12 @@ module.exports = function (grunt) {
         // Project settings
         config: {
             // Configurable paths
-            docs: 'docs',
+            docs: '_docs',
             build: '_build',
             sass: 'sass',
             src: 'screen.scss',
             dist: 'screen.css',
-            dest: 'style.css'
+            dev: 'style.css'
         },
 
         // 1
@@ -38,7 +38,7 @@ module.exports = function (grunt) {
             },
             docs: {
                 files: {
-                    '<%= config.docs %>/public/<%= config.dest %>': '<%= config.sass %>/<%= config.src %>'
+                    '<%= config.docs %>/public/<%= config.dev %>': '<%= config.sass %>/<%= config.src %>'
                 }
             }
         },
@@ -52,7 +52,7 @@ module.exports = function (grunt) {
                 src: '<%= config.build %>/**/<%= config.dist %>'
             },
             no_dest_docs: {
-                src: '<%= config.docs %>/**/<%= config.dest %>'
+                src: '<%= config.docs %>/**/<%= config.dev %>'
             }
         },
 
@@ -85,7 +85,7 @@ module.exports = function (grunt) {
                 options: {
                     open: true,
                     base: [
-                        'docs'
+                        '<%= config.docs %>'
                     ]
                 }
             },
