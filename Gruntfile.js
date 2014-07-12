@@ -11,7 +11,7 @@ module.exports = function (grunt) {
             docs: '_docs',
             build: '_build',
             sass: 'sass',
-            src: 'screen.scss',
+            src: 'limeUtils.scss',
             dist: 'screen.css',
             dev: 'style.css'
         },
@@ -77,7 +77,7 @@ module.exports = function (grunt) {
         // 5
         connect: {
             options: {
-                port: 9000,
+                port: 9001,
                 livereload: 35729,
                 hostname: 'localhost'
             },

@@ -25,14 +25,20 @@ $major-eleventh:   2.667;
 $major-twelfth:    3;
 $double-octave:    4;
 
-$msValue: 16 480; //  Ideal text size + Important number
-$msRatio: $golden;
+$ratio: $golden;
 
 
 // Type
 $baseFontSize: 16; // Default font size on html element is 100%, equivalent to 16px;
 $fontSize: 16; // Font size on body element
-$lineHeight: $fontSize * $msRatio;
+$lineHeight: $ratio;
 
 $docFontSize: $fontSize;
 $docLineHeight: $lineHeight;
+
+
+// Vertical Rhythm
+
+$msRatio: $ratio;
+$msImprtNo: 480;
+$msValue: $docFontSize $msImprtNo; // Ideal text size + Important number
