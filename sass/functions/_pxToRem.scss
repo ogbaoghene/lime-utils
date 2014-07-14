@@ -1,6 +1,6 @@
 // px to rem
 //
-// Converts a px value to rem (no unit = px), accepts an array.
+// Converts a px value to rem, accepts a list.
 //
 // Parameters:
 // ```scss
@@ -27,13 +27,13 @@
 @function pxToRem($values) {
   $list: ();
   @each $value in $values {
-    @if $value == 0 or $value == auto or unit($value) != px and unitless($value) != true {
-      // Ignore 0, auto, and units except px
-      $list: append($list, $value);
-    }
-    @else {
+    @if unit($value) == px {
+      // Ignore unitless values and units except px
       $remValue: ( stripUnit($value) / stripUnit($baseFontSize) ) * 1rem;
       $list: append($list, $remValue);
+    }
+    @else {
+      $list: append($list, $value);
     }
   }
   @if length($list) == 1 {

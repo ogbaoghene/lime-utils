@@ -4,10 +4,10 @@
 //
 // Parameters:
 // ```scss
-// $value : Significant base number, can be combined with another number to create a double stranded modular scale. Predefined as `$msValue`
 // $increment : Integer for an increment value
-// $ratio : Value by which the base value is exponentially multiplied and divided. Predefined as `$msRatio`
 // $round: Determine approximation of result. Predefined as null
+// $value : Significant base number, can be combined with another number to create a double stranded modular scale. Predefined as `$msValue`
+// $ratio : Value by which the base value is exponentially multiplied and divided. Predefined as `$msRatio`
 // ```
 // 
 // Usage:
@@ -34,7 +34,7 @@
 //
 // Styleguide 1.7
 
-@function modularScale($increment, $value: $msValue, $ratio: $msRatio, $round: n) {
+@function modularScale($increment, $round: null, $value: $msValue, $ratio: $msRatio) {
   $v1: stripUnit(nth($value, 1));
   $v2: stripUnit(nth($value, length($value)));
   $value: $v1;
@@ -89,3 +89,4 @@
     @return $value;
   }
 }
+

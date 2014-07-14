@@ -31,14 +31,16 @@ $ratio: $golden;
 // Type
 $baseFontSize: 16; // Default font size on html element is 100%, equivalent to 16px;
 $fontSize: 16; // Font size on body element
-$lineHeight: $ratio;
+$lineHeight: $fontSize * $ratio;
+  //$lineHeight: $ratio;
 
 $docFontSize: $fontSize;
-$docLineHeight: $lineHeight;
+$docLineHeight: pxToEm($lineHeight);
 
 
 // Vertical Rhythm
+$msImprtNo: 528; // Gldilocks approach
 
 $msRatio: $ratio;
-$msImprtNo: 480;
 $msValue: $docFontSize $msImprtNo; // Ideal text size + Important number
+$btmMarg: $lineHeight;

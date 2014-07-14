@@ -1,6 +1,6 @@
 // px to em
 //
-// Converts a px value to em (no unit = px), accepts an array.
+// Converts a px value to em, accepts a list.
 //
 // Parameters:
 // ```scss
@@ -32,13 +32,13 @@
   $divisor: stripUnit($context) * $multiplier;
   $list: ();
   @each $value in $values {
-    @if $value == 0 or $value == auto or unit($value) != px and unitless($value) != true {
-      // Ignore 0, auto, and units except px
-      $list: append($list, $value);
-    }
-    @else {
+    @if unit($value) == px {
+      // Ignore unitless values and units except px
       $emValue: stripUnit($value) / $divisor * 1em;
       $list: append($list, $emValue);
+    }
+    @else {
+      $list: append($list, $value);
     }
   }
   @if length($list) == 1 {

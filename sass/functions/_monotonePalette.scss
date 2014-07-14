@@ -1,6 +1,6 @@
 // Monotone Palette
 //
-// Returns a tint or shade of a color in increments of 8%, 20%, 50%, or 75%.
+// Returns a tint or shade of a color in increments - 8%, 20%, 50%, or 75%.
 //
 // Parameters:
 // ```scss
@@ -11,9 +11,9 @@
 // Usage:
 // ```scss
 // .example {
-//   color: monotonePalette($accent1);
-//   background: monotonePalette($accent1, shade2);
-//   border: 1px solid monotonePalette($accent2, shade3);
+//   color: mPalette($accent1);
+//   background: mPalette($accent1, shade2);
+//   border: 1px solid mPalette($accent2, shade3);
 // }
 // ```
 //
@@ -23,10 +23,7 @@
 //
 // Styleguide 1.6
 
-@function monotonePalette($color, $mix: n) {
-  @if $mix == n {
-    @return $color;
-  }
+@function mPalette($color, $mix: null) {
   @if $mix == tint1 {
     @return tint($color, 8%);
   }
@@ -50,5 +47,9 @@
   }
   @if $mix == shade4 {
     @return shade($color, 75%);
+  }  
+  @else {
+    @return $color;
   }
 }
+

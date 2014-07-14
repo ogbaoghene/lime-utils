@@ -11,10 +11,9 @@
 // ```scss
 // .example {
 //   @include remFallback((
-//     (height, (240 / 2)),
+//     (height, (240px / 2)),
 //     (font-size, 13px),
 //     (text-indent, 0),
-//     (left, auto),
 //     (margin, 0 10px 3vh 30%)
 //   ));
 // }
@@ -37,13 +36,13 @@
       #{$property}: $value;
       #{$property}: pxToRem($value);
     }
-    @else if $value == 0 or $value == auto or unit($value) != px and unitless($value) != true {
+    @else if unit($value) == px {
       // Filter out 0, auto and units except px
       #{$property}: $value;
+      #{$property}: pxToRem($value);
     }
     @else {
       #{$property}: $value;
-      #{$property}: pxToRem($value);
     }
   }
 }

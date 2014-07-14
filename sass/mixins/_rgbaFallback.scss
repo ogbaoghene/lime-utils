@@ -7,7 +7,7 @@
 // $type : background-color(bg) or color(color)
 // $color: hexadecimal colour
 // $percentage : level of tranparency
-// $darken : Determine if transparent element rests on dark backgound. Predefined as null
+// $rgba : Determine if transparent element rests on dark backgound. Predefined as null
 // ```
 // 
 // Usage:
@@ -17,7 +17,7 @@
 // }
 //
 // .example2 {
-//   @include rgbaFallback(color, #3498db, .5, $darken: true);
+//   @include rgbaFallback(color, #3498db, .5, $rgba: dark);
 // }
 // ```
 //
@@ -27,25 +27,24 @@
 //
 // Styleguide 2.2
 
-@mixin rgbaFallback($type, $color, $percentage, $darken: n) {
-  @if $darken == n {
-    @if $type == color {
+@mixin rgbaFallback($type, $color, $percentage, $rgba: lighten) {
+  @if $type == color {
+    @if $rgba == lighten {
       color: smartRgba($color, $percentage);
-      color: rgba($color, $percentage);
     }
-    @if $type == bg {
-      background-color: smartRgba($color, $percentage);
-      background-color: rgba($color, $percentage);
-    }
-  }
-  @else {
-     @if $type == color {
+    @else {
       color: darkSmartRgba($color, $percentage);
-      color: rgba($color, $percentage);
     }
-    @if $type == bg {
+    color: rgba($color, $percentage);
+  }
+  @if $type == bg {
+    @if $rgba == lighten {
+      background-color: smartRgba($color, $percentage);
+    }
+    @else {
       background-color: darkSmartRgba($color, $percentage);
-      background-color: rgba($color, $percentage);
     }
+    background-color: rgba($color, $percentage);
   }
 }
+
