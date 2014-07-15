@@ -1,0 +1,131 @@
+/*------------------------------------*\
+    $LAYOUT PROPERTIES
+\*------------------------------------*/
+
+// Layout Properties
+//
+// Control visibility, position, and behavior of the generated boxes for document elements.
+//
+// Styleguide 3.2
+
+// Display
+%doShow {
+  display: block;
+}
+
+%inlineBlockFix {  
+  display: -moz-inline-stack; // Firefox 2, Wrap everything inside the inline-block element with a <div>.
+  display: inline-block;
+  zoom: 1; // trigger hasLayout
+  *display: inline; // IE 7
+}
+
+%doTable {
+  display: table;
+}
+
+%doCell {
+  display: table-cell;
+}
+
+%doFlex {
+  display: flex;
+}
+
+%doHide {
+  display: none;
+}
+
+// Position
+%relative {
+  position: relative;
+}
+
+%absolute {
+  position: absolute;
+}
+
+%fixed {
+  position: fixed;
+}
+
+%static {
+  position: static;
+}
+
+// Float
+%floatL {
+  float: $defaultFloat;
+}
+
+%floatR {
+  float: $oppositeFloat;
+}
+
+%floatNone {
+  float: none;
+}
+
+// Clear
+%clearL {
+  clear: $clearStart;
+}
+
+%clearR {
+  clear: $clearEnd;
+}
+
+%clearBoth {
+  clear: both;
+}
+
+%clearNone {
+  clear: none;
+}
+
+// Visibility
+%visibleV {
+  visibility: visible;
+}
+
+%collapseV {
+  visibility: collapse;
+}
+
+%hiddenV {
+  visibility: hidden;
+}
+
+// Top, right, bottom, left
+%trbl0 {
+  @extend %absolute;
+  
+  @include chain(top right bottom left, 0);
+}
+
+%topbtm0 {
+  @extend %absolute;
+  
+  @include chain(top bottom, 0);
+}
+
+%rightLeft0 {
+  @extend %absolute;
+  
+  @include chain(right left, 0);
+}
+
+//overflow
+%overflowV {
+  overflow: visible;
+}
+
+%overflowA {
+  overflow: auto;
+}
+
+%overflowH {
+  overflow: hidden;
+}
+
+

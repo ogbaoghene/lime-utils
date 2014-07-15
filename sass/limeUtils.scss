@@ -31,6 +31,7 @@
 
 @import "mixins/remFallback";
 @import "mixins/rgbaFallback";
+@import "mixins/chainProperties";
 
 
 // Placeholders
@@ -38,3 +39,9 @@
 // Below are the lime-utils Sass placeholders.
 //
 // Styleguide 3.0
+
+@import "placeholders/boxProperties";
+@import "placeholders/layoutProperties";
+@import "placeholders/listProperties";
+@import "placeholders/typographicalProperties";
+

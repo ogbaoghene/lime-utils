@@ -1,0 +1,57 @@
+/*------------------------------------*\
+    $LIST PROPERTIES
+\*------------------------------------*/
+
+// List Properties
+//
+// Control the presentation of list item markers.
+//
+// Styleguide 3.3
+
+// list-style-type
+%circleList {
+  list-style-type: circle;
+}
+
+%squareList {
+  list-style-type: square;
+}
+
+%decimalList {
+  list-style-type: decimal;
+}
+
+%decimalLeadingList {
+  list-style-type: decimal-leading-zero;
+}
+
+%lowerAlphaList {
+  list-style-type: lower-alpha;
+}
+
+%lowerRomanList {
+  list-style-type: lower-roman;
+}
+
+%upperAlphaList {
+  list-style-type: upper-alpha;
+}
+
+%upperRomanList {
+  list-style-type: upper-roman;
+}
+
+%noneList {
+  list-style-type: none;
+}
+
+// list-style-position
+%insideList {
+  list-style-position: inside;
+}
+
+%outsideList {
+  list-style-position: outside;
+}
+
+

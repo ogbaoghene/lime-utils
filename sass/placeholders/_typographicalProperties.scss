@@ -1,0 +1,177 @@
+/*------------------------------------*\
+    $TYPOGRAPHICAL PROPERTIES
+\*------------------------------------*/
+
+// Typographical Properties
+//
+// Customize the presentation and layout of textual content.
+//
+// Styleguide 3.4
+
+// font-family
+%bodyFont {
+  font-family: $bodyFont;
+}
+
+%titleFont {
+  font-family: $titleFont;
+}
+
+// font-size & line-height
+%giga {
+  font-size: pxToEm($giga);
+  line-height: pxToEm($gigaLH, $giga);
+}
+
+%mega {
+  font-size: pxToEm($mega);
+  line-height: pxToEm($megaLH, $mega);
+}
+
+%kilo {
+  font-size: pxToEm($kilo);
+  line-height: pxToEm($kiloLH, $kilo);
+}
+
+%alpha {
+  font-size: pxToEm($alpha);
+  line-height: pxToEm($alphaLH, $alpha);
+}
+
+%beta {
+  font-size: pxToEm($beta);
+  line-height: pxToEm($betaLH, $beta);
+}
+
+%gamma {
+  font-size: pxToEm($gamma);
+  line-height: pxToEm($gammaLH, $gamma);
+}
+
+%delta {
+  font-size: pxToEm($delta);
+  line-height: pxToEm($deltaLH);
+}
+
+%epsilon {
+  font-size: pxToEm($epsilon);
+  line-height: pxToEm($epsilonLH);
+}
+
+%zeta {
+  font-size: pxToEm($zeta);
+  line-height: pxToEm($zetaLH);
+}
+
+%milli {
+  font-size: pxToEm($milli);
+  line-height: pxToEm($milliLH, $milli);
+}
+
+// font-weight
+%headingType {
+  font-weight: $headingType;
+}
+
+%subheadingType {
+  font-weight: $subheadingType;
+}
+
+%bodyType {
+  font-weight: $bodyType;
+}
+
+%boldType {
+  font-weight: $boldType;
+}
+
+// font-style
+%italics {
+  font-style: italic;
+}
+
+// text-align
+%startTxt {
+  text-align: $textStart; /* as backup */
+  text-align: start;
+}
+
+%endTxt {
+  text-align: $textEnd; /* as backup */
+  text-align: end;
+}
+
+%centerTxt {
+  text-align: center;
+}
+
+%justifyTxt {
+  text-align: justify;
+}
+
+// text-decoration
+%noneTD {
+  text-decoration: none;
+}
+
+%underlineTD {
+  text-decoration: underline;
+}
+
+// text-transform
+%UpTxtTrans {
+  text-transform: uppercase;
+}
+
+%lowTxtTrans {
+  text-transform: lowercase;
+}
+
+%capTxtTrans {
+  text-transform: capitalize;
+}
+
+%noneTxtTrans {
+  text-transform: none;
+}
+
+// text-shadow
+%basicShadow {
+  text-shadow: 2px 4px 3px rgba(0, 0, 0, .3);
+}
+
+%letterpress {
+  text-shadow: 0 1px rgba(250, 250, 250, .87);
+}
+
+%hardShadow {
+  text-shadow: 6px 6px rgba(0, 0, 0, .2);
+}
+
+%glowing {
+  text-shadow: 0 0 6px rgba(255, 255, 255, .7);
+}
+
+// vertical-align
+%topAlign {
+  vertical-align: top;
+}
+
+%middleAlign {
+  vertical-align: middle;
+}
+
+%bottomAlign {
+  vertical-align: bottom;
+}
+
+// white-space
+%normalWhiteSpace {
+  white-space: normal;
+}
+
+%nowrapWhiteSpace {
+  white-space: nowrap;
+}
+
+

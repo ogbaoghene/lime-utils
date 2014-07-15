@@ -1,0 +1,81 @@
+/*------------------------------------*\
+    $BOX PROPERTIES
+\*------------------------------------*/
+
+// Box Properties
+//
+// Control the presentation of generated boxes for document elements, including dimensions, margins, padding, and borders.
+//
+// Styleguide 3.1
+
+// Dimensions
+%heightAuto {
+  height: auto;
+}
+
+%height100 {
+  height: 100%;
+}
+
+%widthAuto {
+  width: auto;
+}
+
+%width100 {
+  height: 100%;
+}
+
+// Margins
+%resetMarg {
+  margin: 0;
+}
+
+%baseSpacing {
+  @include remFallback((
+    (margin-bottom, $btmMarg),
+  )); // Forced to use Rem because of context change
+}
+
+%centerBlock {
+  @include chain(margin-right margin-left, auto);
+}
+
+// Paddings
+%resetPad {
+  padding: 0;
+}
+
+%gutterPad {
+  @include remFallback((
+    (padding-right, $docGutter),
+    (padding-left, $docGutter),
+  ));
+}
+
+// Borders
+%dottedBorder {
+  border-style: dotted;
+}
+
+%dashedBorder {
+  border-style: dashed;
+}
+
+%solidBorder {
+  border-style: solid;
+}
+
+%doubleBorder {
+  border-style: double;
+}
+
+%noneBorder {
+  border: none;
+}
+
+// Outline
+%noneOutline {
+  outline: none;
+}
+
+

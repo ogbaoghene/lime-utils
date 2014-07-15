@@ -31,11 +31,10 @@ $ratio: $golden;
 // Type
 $baseFontSize: 16; // Default font size on html element is 100%, equivalent to 16px;
 $fontSize: 16; // Font size on body element
-$lineHeight: $fontSize * $ratio;
-  //$lineHeight: $ratio;
+$lineHeight: ceil($fontSize * $ratio);
 
 $docFontSize: $fontSize;
-$docLineHeight: pxToEm($lineHeight);
+$docLineHeight: $lineHeight * 1px;
 
 
 // Vertical Rhythm
@@ -43,4 +42,93 @@ $msImprtNo: 528; // Gldilocks approach
 
 $msRatio: $ratio;
 $msValue: $docFontSize $msImprtNo; // Ideal text size + Important number
-$btmMarg: $lineHeight;
+$btmMarg: $lineHeight * 1px;
+
+
+// Grids
+$gutterWidth: 16;
+
+$docGutter: $gutterWidth * 1px;
+$halfDocGutter: ($docGutter / 2);
+
+
+// Directionality
+$start: left;
+$end: right;
+
+$textStart: $start;
+$textEnd: $end;
+$defaultFloat: $start;
+$oppositeFloat: $end;
+$clearStart: $start;
+$clearEnd: $end;
+
+
+// Font-family
+$priFontFamily: Georgia,'Nimbus Roman No9 L', Times, "Times New Roman", serif;
+$secFontFamily: 'Helvetica Neue W02 55 Roman', HelveticaNeue-Roman, 'Helvetica Neue Roman', HelveticaNeue, Helvetica, Arial, sans-serif;
+
+$bodyFont: $priFontFamily;
+$titleFont: $secFontFamily;
+
+
+// Font-size
+$fontSizeGiga: 287; // modular scale 12
+$fontSizeMega: 177; // modular scale 10
+$fontSizeKilo: 110; // modular scale 8
+$fontSizeAlpha: 68; // modular scale 6
+$fontSizeBeta: 42; // modular scale 4
+$fontSizeGamma: 26; // modular scale 2
+$fontSizeMilli: 11; // modular scale -1
+
+$giga: $fontSizeGiga * 1px;
+$mega: $fontSizeMega * 1px;
+$kilo: $fontSizeKilo * 1px;
+$alpha: $fontSizeAlpha * 1px;
+$beta: $fontSizeBeta * 1px;
+$gamma: $fontSizeGamma * 1px;
+$delta: $docFontSize * 1px;
+$epsilon: $docFontSize * 1px;
+$zeta: $docFontSize * 1px;
+$milli: $fontSizeMilli * 1px;
+
+
+// Line-height
+$gigaLineHeight: $lineHeight * 13; // 338
+$megaLineHeight: $lineHeight * 8; // 208
+$kiloLineHeight: $lineHeight * 5; // 130
+$alphaLineHeight: $lineHeight * 3; // 78
+$betaLineHeight: $lineHeight * 2; // 52
+$gammaLineHeight: $lineHeight; // 26
+$milliLineHeight: $lineHeight; // 26
+
+$gigaLH: $gigaLineHeight * 1px;
+$megaLH: $megaLineHeight * 1px;
+$kiloLH: $kiloLineHeight * 1px;
+$alphaLH: $alphaLineHeight * 1px;
+$betaLH: $betaLineHeight * 1px;
+$gammaLH: $gammaLineHeight * 1px;
+$deltaLH: $docLineHeight;
+$epsilonLH: $docLineHeight;
+$zetaLH: $docLineHeight;
+$milliLH: $milliLineHeight * 1px;
+
+
+// Font-weight
+$fontWeightExtraLight: 100;
+$fontWeightLight: 200;
+$fontWeightDemi: 300;
+$fontWeightNormal: 400;
+$fontWeightMedium: 500;
+$fontWeightSemiBold: 600;
+$fontWeightBold: 700;
+$fontWeightBlack: 800;
+$fontWeightExtraBlack: 900;
+
+$headingType: $fontWeightNormal;
+$subheadingType: $fontWeightBold;
+$bodyType: $fontWeightNormal;
+$boldType: $fontWeightBold;
+
+
+
