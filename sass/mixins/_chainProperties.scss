@@ -1,0 +1,24 @@
+// Chain Properties
+//
+// Shorthand for declaring CSS properties with common values. 
+//
+// Parameters:
+// ```scss
+// $properties : CSS Property
+// $value : CSS value
+// ```
+// 
+// Usage:
+// ```scss
+// .example {
+//   @include chain(font-size font-weight font-family, inherit);
+// }
+// ```
+//
+// Styleguide 2.3
+
+@mixin chain($properties, $value) {
+  @each $property in $properties {
+    #{$property}: #{$value};
+  }
+}
