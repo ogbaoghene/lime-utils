@@ -11,9 +11,9 @@
 // Usage:
 // ```scss
 // .example {
-//   color: mPalette($accent1);
-//   background: mPalette($accent1, shade2);
-//   border: 1px solid mPalette($accent2, shade3);
+//   color: mono-palette($accent1);
+//   background: mono-palette($accent1, shade2);
+//   border: 1px solid mono-palette($accent2, shade3);
 // }
 // ```
 //
@@ -23,7 +23,7 @@
 //
 // Styleguide 1.6
 
-@function mPalette($color, $mix: null) {
+@function mono-palette($color, $mix: null) {
   @if $mix == tint1 {
     @return tint($color, 8%);
   }
@@ -47,8 +47,7 @@
   }
   @if $mix == shade4 {
     @return shade($color, 75%);
-  }  
-  @else {
+  } @else {
     @return $color;
   }
 }

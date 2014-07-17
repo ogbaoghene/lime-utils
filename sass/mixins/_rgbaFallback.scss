@@ -13,11 +13,11 @@
 // Usage:
 // ```scss
 // .example {
-//   @include rgbaFallback(bg, #3498db, .5);
+//   @include rgba-fallback(bg, #3498db, .5);
 // }
 //
 // .example2 {
-//   @include rgbaFallback(color, #3498db, .5, $rgba: dark);
+//   @include rgba-fallback(color, #3498db, .5, $rgba: dark);
 // }
 // ```
 //
@@ -27,22 +27,22 @@
 //
 // Styleguide 2.2
 
-@mixin rgbaFallback($type, $color, $percentage, $rgba: lighten) {
+@mixin rgba-fallback($type, $color, $percentage, $rgba: lighten) {
   @if $type == color {
     @if $rgba == lighten {
-      color: smartRgba($color, $percentage);
+      color: smart-rgba($color, $percentage);
     }
     @else {
-      color: darkSmartRgba($color, $percentage);
+      color: dark-smart-rgba($color, $percentage);
     }
     color: rgba($color, $percentage);
   }
   @if $type == bg {
     @if $rgba == lighten {
-      background-color: smartRgba($color, $percentage);
+      background-color: smart-rgba($color, $percentage);
     }
     @else {
-      background-color: darkSmartRgba($color, $percentage);
+      background-color: dark-smart-rgba($color, $percentage);
     }
     background-color: rgba($color, $percentage);
   }

@@ -11,11 +11,11 @@
 // Usage:
 // ```scss
 // .example {
-//   padding: pxToEm(12px, 16) * 3;
+//   padding: px-to-em(12px, 16) * 3;
 // }
 //
 // .example2 {
-//   padding: pxToEm(16px 20 20% 1em, 1em);
+//   padding: px-to-em(16px 20 20% 1em, 1em);
 // }
 // ```
 //
@@ -25,19 +25,18 @@
 //
 // Styleguide 1.2
 
-@function pxToEm($values, $context: $docFontSize) {
+@function px-to-em($values, $context: $doc-font-size) {
   // Adjust accordingly to create a $divisor that
   // serves as context for $pixels.
-  $multiplier: if(unit($context) == em, $docFontSize, 1);
-  $divisor: stripUnit($context) * $multiplier;
+  $multiplier: if(unit($context) == em, $doc-font-size, 1);
+  $divisor: strip-unit($context) * $multiplier;
   $list: ();
   @each $value in $values {
     @if unit($value) == px {
       // Ignore unitless values and units except px
-      $emValue: stripUnit($value) / $divisor * 1em;
-      $list: append($list, $emValue);
-    }
-    @else {
+      $em-value: strip-unit($value) / $divisor * 1em;
+      $list: append($list, $em-value);
+    } @else {
       $list: append($list, $value);
     }
   }
@@ -45,8 +44,7 @@
     // return a single value instead of a list,
     // so it can be used in calculations
     @return nth($list, 1);
-  }
-  @else {
+  } @else {
     @return $list;
   }
 }

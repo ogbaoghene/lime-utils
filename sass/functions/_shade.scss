@@ -20,5 +20,6 @@
 // Styleguide 1.4
 
 @function shade($color, $percent) {
-  @return mix(black, $color, $percent);
+  @return mix(#000, $color, $percent);
 }
+

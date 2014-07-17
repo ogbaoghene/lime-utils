@@ -26,17 +26,17 @@
 }
 
 // Margins
-%reset-marg {
+%marg-reset {
   margin: 0;
 }
 
-%base-spacing {
-  @include remFallback((
+%marg-base-spacing {
+  @include rem-fallback((
     (margin-bottom, $btm-marg),
   )); // Forced to use Rem because of context change
 }
 
-%center-block {
+%marg-center-block {
   @include chain(margin-right margin-left, auto);
 }
 
@@ -46,7 +46,7 @@
 }
 
 %pad-gutter {
-  @include remFallback((
+  @include rem-fallback((
     (padding-right, $doc-gutter),
     (padding-left, $doc-gutter),
   ));
@@ -77,5 +77,4 @@
 %outline-none {
   outline: none;
 }
-
 

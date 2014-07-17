@@ -10,11 +10,11 @@
 // Usage:
 // ```scss
 // .example {
-//   font-size: pxToRem(16px) * 4;
+//   font-size: px-to-rem(16px) * 4;
 // }
 //
 // .example2 {
-//   padding: pxToRem(16px 12 20% 1em);
+//   padding: px-to-rem(16px 12 20% 1em);
 // }
 // ```
 //
@@ -24,15 +24,14 @@
 //
 // Styleguide 1.3
 
-@function pxToRem($values) {
+@function px-to-rem($values) {
   $list: ();
   @each $value in $values {
     @if unit($value) == px {
       // Ignore unitless values and units except px
-      $remValue: ( stripUnit($value) / stripUnit($baseFontSize) ) * 1rem;
-      $list: append($list, $remValue);
-    }
-    @else {
+      $rem-value: (strip-unit($value) / strip-unit($base-font-size)) * 1rem;
+      $list: append($list, $rem-value);
+    } @else {
       $list: append($list, $value);
     }
   }
@@ -40,8 +39,7 @@
     // return a single value instead of a list,
     // so it can be used in calculations
     @return nth($list, 1);
-  }
-  @else {
+  } @else {
     @return $list;
   }
 }

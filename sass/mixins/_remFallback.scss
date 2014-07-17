@@ -10,7 +10,7 @@
 // Usage:
 // ```scss
 // .example {
-//   @include remFallback((
+//   @include rem-fallback((
 //     (height, (240px / 2)),
 //     (font-size, 13px),
 //     (text-indent, 0),
@@ -19,13 +19,13 @@
 // }
 // ```
 //
-// **Requires** : _pxToRem
+// **Requires** : _px-to-rem
 //
 // _**Note** : Written to accomodate Libsass compilation, SASS 3.3 option is available on [GitHubGist](https://gist.github.com/ogbaoghene/20222a08fcab548f5593)._
 //
 // Styleguide 2.1
 
-@mixin remFallback($properties) {
+@mixin rem-fallback($properties) {
   @each $val in $properties {
     // As Libsass doesn't support multiple assignments,
     // pass each property:value pair as an item before
@@ -35,9 +35,8 @@
     @if type-of($value) == list or unit($value) == px {
       // Filter out 0, auto and units except px
       #{$property}: $value;
-      #{$property}: pxToRem($value);
-    }
-    @else {
+      #{$property}: px-to-rem($value);
+    } @else {
       #{$property}: $value;
     }
   }

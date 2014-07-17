@@ -7,15 +7,26 @@
 // $color : Color
 // $percentage : Amount to adjust color by
 // ```
+// Usage:
+// ```scss
+// .example {
+//   color: smart-rgba($color, $percentage);
+// }
+//
+// .example2 {
+//   background-color: dark-smart-rgba($color, $percentage);
+// }
+// ```
 //
 // Adapted from [Sassifaction](https://github.com/sturobson/sassifaction)
 //
 // Styleguide 1.8
 
-@function smartRgba($color, $percentage) {
+@function smart-rgba($color, $percentage) {
   @return lighten($color, (1 - $percentage) * 50%);
 }
 
-@function darkSmartRgba($color, $percentage) {
+@function dark-smart-rgba($color, $percentage) {
   @return darken($color, (1 - $percentage) * 50%);
 }
+

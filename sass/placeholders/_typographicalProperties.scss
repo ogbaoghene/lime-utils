@@ -19,53 +19,53 @@
 
 // font-size & line-height
 %giga {
-  font-size: pxToEm($font-size-giga);
-  line-height: pxToEm($line-height-giga, $font-size-giga);
+  font-size: px-to-em($font-size-giga);
+  line-height: px-to-em($line-height-giga, $font-size-giga);
 }
 
 %mega {
-  font-size: pxToEm($font-size-mega);
-  line-height: pxToEm($line-height-mega, $mega);
+  font-size: px-to-em($font-size-mega);
+  line-height: px-to-em($line-height-mega, $mega);
 }
 
 %kilo {
-  font-size: pxToEm($font-size-kilo);
-  line-height: pxToEm($line-height-kilo, $font-size-kilo);
+  font-size: px-to-em($font-size-kilo);
+  line-height: px-to-em($line-height-kilo, $font-size-kilo);
 }
 
 %alpha {
-  font-size: pxToEm($font-size-alpha);
-  line-height: pxToEm($line-height-alpha, $font-size-alpha);
+  font-size: px-to-em($font-size-alpha);
+  line-height: px-to-em($line-height-alpha, $font-size-alpha);
 }
 
 %beta {
-  font-size: pxToEm($font-size-beta);
-  line-height: pxToEm($line-height-beta, $font-size-beta);
+  font-size: px-to-em($font-size-beta);
+  line-height: px-to-em($line-height-beta, $font-size-beta);
 }
 
 %gamma {
-  font-size: pxToEm($font-size-gamma);
-  line-height: pxToEm($line-height-gamma, $font-size-gamma);
+  font-size: px-to-em($font-size-gamma);
+  line-height: px-to-em($line-height-gamma, $font-size-gamma);
 }
 
 %delta {
-  font-size: pxToEm($font-size-delta);
-  line-height: pxToEm($line-height-delta);
+  font-size: px-to-em($font-size-delta);
+  line-height: px-to-em($line-height-delta);
 }
 
 %epsilon {
-  font-size: pxToEm($font-size-epsilon);
-  line-height: pxToEm($line-height-epsilon);
+  font-size: px-to-em($font-size-epsilon);
+  line-height: px-to-em($line-height-epsilon);
 }
 
 %zeta {
-  font-size: pxToEm($font-size-zeta);
-  line-height: pxToEm($line-height-zeta);
+  font-size: px-to-em($font-size-zeta);
+  line-height: px-to-em($line-height-zeta);
 }
 
 %milli {
-  font-size: pxToEm($font-size-milli);
-  line-height: pxToEm($line-height-milli, $font-size-milli);
+  font-size: px-to-em($font-size-milli);
+  line-height: px-to-em($line-height-milli, $font-size-milli);
 }
 
 // font-weight
@@ -173,5 +173,4 @@
 %white-space-nowrap {
   white-space: nowrap;
 }
-
 

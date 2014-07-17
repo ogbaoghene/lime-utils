@@ -14,17 +14,17 @@
 // ```scss
 // .example {
 //   // Increment Up Modular Scale with positive value
-//   font-size: modularScale(1); // returns: 16.534
+//   font-size: modular-scale(1); // returns: 16.534
 //   // Increment Down Modular Scale with negative value
-//   font-size: modularScale(-1); // returns: 10.219
+//   font-size: modular-scale(-1); // returns: 10.219
 //   // Can be used with ceil(round up) or floor(round down)
-//   font-size: modularScale(1, floor); // returns: 16
-//   font-size: modularScale(1, ceil); // returns: 16
+//   font-size: modular-scale(1, floor); // returns: 16
+//   font-size: modular-scale(1, ceil); // returns: 16
 // }
 //
 // .example2 {
 //   // With unique values for $value and $ratio
-//   font-size: modularScale(2, $value: 14px, $ratio: 1.667); // returns: 38.904
+//   font-size: modular-scale(2, $value: 14px, $ratio: 1.667); // returns: 38.904
 // }
 // ```
 //
@@ -34,9 +34,9 @@
 //
 // Styleguide 1.7
 
-@function modularScale($increment, $round: null, $value: $msValue, $ratio: $msRatio) {
-  $v1: stripUnit(nth($value, 1));
-  $v2: stripUnit(nth($value, length($value)));
+@function modular-scale($increment, $round: null, $value: $modular-scale-value, $ratio: $modular-scale-ratio) {
+  $v1: strip-unit(nth($value, 1));
+  $v2: strip-unit(nth($value, length($value)));
   $value: $v1;
 
   // scale $v2 to just above $v1
@@ -83,11 +83,9 @@
   
   @if $round == floor {
     @return floor($value);
-  }
-  @else if $round == ceil {
+  } @else if $round == ceil {
     @return ceil($value);
-  }
-  @else {
+  } @else {
     @return $value;
   }
 }
