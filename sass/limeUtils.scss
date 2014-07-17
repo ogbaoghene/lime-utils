@@ -4,7 +4,7 @@
 //
 // No styleguide reference
 
-@import "variables";
+@import 'variables';
 
 
 // Functions
@@ -13,14 +13,14 @@
 //
 // Styleguide 1.0
 
-@import "functions/stripUnit";
-@import "functions/pxToEm";
-@import "functions/pxToRem";
-@import "functions/shade";
-@import "functions/tint";
-@import "functions/smartrgba";
-@import "functions/monotonePalette";
-@import "functions/modularScale";
+@import 'functions/stripUnit';
+@import 'functions/pxToEm';
+@import 'functions/pxToRem';
+@import 'functions/shade';
+@import 'functions/tint';
+@import 'functions/monotonePalette';
+@import 'functions/modularScale';
+@import 'functions/smartrgba';
 
 
 // Mixins
@@ -29,9 +29,10 @@
 //
 // Styleguide 2.0
 
-@import "mixins/remFallback";
-@import "mixins/rgbaFallback";
-@import "mixins/chainProperties";
+@import 'mixins/remFallback';
+@import 'mixins/rgbaFallback';
+@import 'mixins/chainProperties';
+@import 'mixin/listmaps';
 
 
 // Placeholders
@@ -40,8 +41,8 @@
 //
 // Styleguide 3.0
 
-@import "placeholders/boxProperties";
-@import "placeholders/layoutProperties";
-@import "placeholders/listProperties";
-@import "placeholders/typographicalProperties";
+@import 'placeholders/boxProperties';
+@import 'placeholders/layoutProperties';
+@import 'placeholders/listProperties';
+@import 'placeholders/typographicalProperties';
 

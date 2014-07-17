@@ -1,0 +1,34 @@
+// List Maps
+//
+// Simulate Sass 3.3 Maps data type when compiling with Libsass, still compiles successfully with Sass 3.3.
+//
+// Parameters:
+// ```scss
+// $map : Map holding comma-separated list of key/value pairs
+// $map-key: Desired key in parenthesized key/value pairs
+// $property: CSS property
+// ```
+// 
+// Usage:
+// ```scss
+// .example {
+//   @include list-map($z-depth, z-depth-5, z-index);
+// }
+// ```
+//
+// _**Note** : Key/value pairs are parenthesized and separated by comma instead of a colon, e.g. $z-depth: ( (z-depth-0, $un), (z-depth-2, $deux), (z-depth-3, $trois), (z-depth-4, $quatre), (z-depth-5, $cinq),);.
+//
+// Styleguide 2.4
+
+@mixin list-map($map, $map-key, $property) {
+  @each $val in $map {
+    $key: nth($val, 1);
+    $value: nth($val, 2);
+    @if $map-key != $key {
+      @warn "No layer found for `#{$map-key}` in $map. Property omitted.";
+    } @else {
+      #{$property}: $value;
+    }
+  }
+}
+

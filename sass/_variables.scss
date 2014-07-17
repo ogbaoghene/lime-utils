@@ -144,9 +144,11 @@ $quatre: 4;
 $cinq: 5;
 
 
-$z-depth-0: $un;
-$z-depth-1: $deux;
-$z-depth-2: $trois;
-$z-depth-3: $quatre;
-$z-depth-4: $cinq;
+$z-depth: (
+  (z-depth-0, $un),
+  (z-depth-2, $deux),
+  (z-depth-3, $trois),
+  (z-depth-4, $quatre),
+  (z-depth-5, $cinq),
+);
 
