@@ -29,106 +29,124 @@ $ratio: $golden;
 
 
 // Type
-$baseFontSize: 16; // Default font size on html element is 100%, equivalent to 16px;
-$fontSize: 16; // Font size on body element
-$lineHeight: ceil($fontSize * $ratio);
+$base-font-size: 16; // Default font size on html element is 100%, equivalent to 16px;
+$font-size: 16; // Font size on body element
+$line-height: ceil($font-size * $ratio);
 
-$docFontSize: $fontSize;
-$docLineHeight: $lineHeight * 1px;
+$doc-font-size: $font-size;
+$doc-line-height: $line-height * 1px;
 
 
-// Vertical Rhythm
-$msImprtNo: 528; // Gldilocks approach
+// Modular Scale
+$imprt-no: 528; // Gldilocks approach
 
-$msRatio: $ratio;
-$msValue: $docFontSize $msImprtNo; // Ideal text size + Important number
-$btmMarg: $lineHeight * 1px;
+$modular-scale-ratio: $ratio;
+$modular-scale-value: $doc-font-size $imprt-no; // Ideal text size + Important number
 
 
 // Grids
-$gutterWidth: 16;
+$gutter-width: 16;
 
-$docGutter: $gutterWidth * 1px;
-$halfDocGutter: ($docGutter / 2);
+$doc-gutter: $gutter-width * 1px;
+$doc-gutter-half: ($doc-gutter / 2);
 
 
 // Directionality
 $start: left;
 $end: right;
 
-$textStart: $start;
-$textEnd: $end;
-$defaultFloat: $start;
-$oppositeFloat: $end;
-$clearStart: $start;
-$clearEnd: $end;
+$text-start: $start;
+$text-end: $end;
+$float-default: $start;
+$float-opposite: $end;
+$clear-start: $start;
+$clear-end: $end;
 
 
 // Font-family
-$priFontFamily: Georgia,'Nimbus Roman No9 L', Times, "Times New Roman", serif;
-$secFontFamily: 'Helvetica Neue W02 55 Roman', HelveticaNeue-Roman, 'Helvetica Neue Roman', HelveticaNeue, Helvetica, Arial, sans-serif;
+$pri-font-family: Georgia, 'Nimbus Roman No9 L', Times, "Times New Roman", serif;
+$sec-font-family: 'Helvetica Neue W02 55 Roman', HelveticaNeue-Roman, 'Helvetica Neue Roman', HelveticaNeue, Helvetica, Arial, sans-serif;
 
-$bodyFont: $priFontFamily;
-$titleFont: $secFontFamily;
+$font-body: $pri-font-family;
+$font-title: $sec-font-family;
 
 
 // Font-size
-$fontSizeGiga: 287; // modular scale 12
-$fontSizeMega: 177; // modular scale 10
-$fontSizeKilo: 110; // modular scale 8
-$fontSizeAlpha: 68; // modular scale 6
-$fontSizeBeta: 42; // modular scale 4
-$fontSizeGamma: 26; // modular scale 2
-$fontSizeMilli: 11; // modular scale -1
+$giga: 287; // modular scale 12
+$mega: 177; // modular scale 10
+$kilo: 110; // modular scale 8
+$alpha: 68; // modular scale 6
+$beta: 42; // modular scale 4
+$gamma: 26; // modular scale 2
+$milli: 11; // modular scale -1
 
-$giga: $fontSizeGiga * 1px;
-$mega: $fontSizeMega * 1px;
-$kilo: $fontSizeKilo * 1px;
-$alpha: $fontSizeAlpha * 1px;
-$beta: $fontSizeBeta * 1px;
-$gamma: $fontSizeGamma * 1px;
-$delta: $docFontSize * 1px;
-$epsilon: $docFontSize * 1px;
-$zeta: $docFontSize * 1px;
-$milli: $fontSizeMilli * 1px;
+
+$font-size-giga: $giga * 1px;
+$font-size-mega: $mega * 1px;
+$font-size-kilo: $kilo * 1px;
+$font-size-alpha: $alpha * 1px;
+$font-size-beta: $beta * 1px;
+$font-size-gamma: $gamma * 1px;
+$font-size-delta: $doc-font-size * 1px;
+$font-size-epsilon: $doc-font-size * 1px;
+$font-size-zeta: $doc-font-size * 1px;
+$font-size-milli: $milli * 1px;
+
+
+// Vertical Rhythm
+$btm-marg: $line-height * 1px;
 
 
 // Line-height
-$gigaLineHeight: $lineHeight * 13; // 338
-$megaLineHeight: $lineHeight * 8; // 208
-$kiloLineHeight: $lineHeight * 5; // 130
-$alphaLineHeight: $lineHeight * 3; // 78
-$betaLineHeight: $lineHeight * 2; // 52
-$gammaLineHeight: $lineHeight; // 26
-$milliLineHeight: $lineHeight; // 26
+$giga-height: $doc-line-height * 13; // 338
+$mega-height: $doc-line-height * 8; // 208
+$kilo-height: $doc-line-height * 5; // 130
+$alpha-height: $doc-line-height * 3; // 78
+$beta-height: $doc-line-height * 2; // 52
+$gamma-height: $doc-line-height; // 26
+$milli-height: $doc-line-height; // 26
 
-$gigaLH: $gigaLineHeight * 1px;
-$megaLH: $megaLineHeight * 1px;
-$kiloLH: $kiloLineHeight * 1px;
-$alphaLH: $alphaLineHeight * 1px;
-$betaLH: $betaLineHeight * 1px;
-$gammaLH: $gammaLineHeight * 1px;
-$deltaLH: $docLineHeight;
-$epsilonLH: $docLineHeight;
-$zetaLH: $docLineHeight;
-$milliLH: $milliLineHeight * 1px;
+
+$line-height-giga: $giga-height;
+$line-height-mega: $mega-height;
+$line-height-kilo: $kilo-height;
+$line-height-alpha: $alpha-height;
+$line-height-beta: $beta-height;
+$line-height-gamma: $gamma-height;
+$line-height-delta: $doc-line-height;
+$line-height-epsilon: $doc-line-height;
+$line-height-zeta: $doc-line-height;
+$line-height-milli: $milli-height;
 
 
 // Font-weight
-$fontWeightExtraLight: 100;
-$fontWeightLight: 200;
-$fontWeightDemi: 300;
-$fontWeightNormal: 400;
-$fontWeightMedium: 500;
-$fontWeightSemiBold: 600;
-$fontWeightBold: 700;
-$fontWeightBlack: 800;
-$fontWeightExtraBlack: 900;
+$extra-light: 100;
+$light: 200;
+$demi: 300;
+$normal: 400;
+$medium: 500;
+$semi-bold: 600;
+$bold: 700;
+$black: 800;
+$extra-black: 900;
 
-$headingType: $fontWeightNormal;
-$subheadingType: $fontWeightBold;
-$bodyType: $fontWeightNormal;
-$boldType: $fontWeightBold;
+$type-heading: $normal;
+$type-subheading: $bold;
+$type-body: $normal;
+$type-bold: $bold;
 
 
+// Z-index
+$un: 1;
+$deux: 2;
+$trois: 3;
+$quatre: 4;
+$cinq: 5;
+
+
+$z-depth-0: $un;
+$z-depth-1: $deux;
+$z-depth-2: $trois;
+$z-depth-3: $quatre;
+$z-depth-4: $cinq;
 
