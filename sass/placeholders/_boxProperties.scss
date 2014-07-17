@@ -9,72 +9,72 @@
 // Styleguide 3.1
 
 // Dimensions
-%heightAuto {
+%height-auto {
   height: auto;
 }
 
-%height100 {
+%height-100 {
   height: 100%;
 }
 
-%widthAuto {
+%width-auto {
   width: auto;
 }
 
-%width100 {
+%width-100 {
   height: 100%;
 }
 
 // Margins
-%resetMarg {
+%reset-marg {
   margin: 0;
 }
 
-%baseSpacing {
+%base-spacing {
   @include remFallback((
-    (margin-bottom, $btmMarg),
+    (margin-bottom, $btm-marg),
   )); // Forced to use Rem because of context change
 }
 
-%centerBlock {
+%center-block {
   @include chain(margin-right margin-left, auto);
 }
 
 // Paddings
-%resetPad {
+%pad-reset {
   padding: 0;
 }
 
-%gutterPad {
+%pad-gutter {
   @include remFallback((
-    (padding-right, $docGutter),
-    (padding-left, $docGutter),
+    (padding-right, $doc-gutter),
+    (padding-left, $doc-gutter),
   ));
 }
 
 // Borders
-%dottedBorder {
+%border-dotted {
   border-style: dotted;
 }
 
-%dashedBorder {
+%border-dashed {
   border-style: dashed;
 }
 
-%solidBorder {
+%border-solid {
   border-style: solid;
 }
 
-%doubleBorder {
+%border-double {
   border-style: double;
 }
 
-%noneBorder {
-  border: none;
+%border-none {
+  border: 0;
 }
 
 // Outline
-%noneOutline {
+%outline-none {
   outline: none;
 }
 

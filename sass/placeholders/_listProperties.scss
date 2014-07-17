@@ -9,48 +9,48 @@
 // Styleguide 3.3
 
 // list-style-type
-%circleList {
+%list-circle {
   list-style-type: circle;
 }
 
-%squareList {
+%list-square {
   list-style-type: square;
 }
 
-%decimalList {
+%list-decimal {
   list-style-type: decimal;
 }
 
-%decimalLeadingList {
+%list-decimal-leading {
   list-style-type: decimal-leading-zero;
 }
 
-%lowerAlphaList {
+%list-lower-alpha {
   list-style-type: lower-alpha;
 }
 
-%lowerRomanList {
+%list-lower-roman {
   list-style-type: lower-roman;
 }
 
-%upperAlphaList {
+%list-upper-alpha {
   list-style-type: upper-alpha;
 }
 
-%upperRomanList {
+%list-upper-roman {
   list-style-type: upper-roman;
 }
 
-%noneList {
+%list-none {
   list-style-type: none;
 }
 
 // list-style-position
-%insideList {
+%list-inside {
   list-style-position: inside;
 }
 
-%outsideList {
+%list-outside {
   list-style-position: outside;
 }
 

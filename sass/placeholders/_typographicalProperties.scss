@@ -9,80 +9,80 @@
 // Styleguide 3.4
 
 // font-family
-%bodyFont {
-  font-family: $bodyFont;
+%font-body {
+  font-family: $font-body;
 }
 
-%titleFont {
-  font-family: $titleFont;
+%font-title {
+  font-family: $font-title;
 }
 
 // font-size & line-height
 %giga {
-  font-size: pxToEm($giga);
-  line-height: pxToEm($gigaLH, $giga);
+  font-size: pxToEm($font-size-giga);
+  line-height: pxToEm($line-height-giga, $font-size-giga);
 }
 
 %mega {
-  font-size: pxToEm($mega);
-  line-height: pxToEm($megaLH, $mega);
+  font-size: pxToEm($font-size-mega);
+  line-height: pxToEm($line-height-mega, $mega);
 }
 
 %kilo {
-  font-size: pxToEm($kilo);
-  line-height: pxToEm($kiloLH, $kilo);
+  font-size: pxToEm($font-size-kilo);
+  line-height: pxToEm($line-height-kilo, $font-size-kilo);
 }
 
 %alpha {
-  font-size: pxToEm($alpha);
-  line-height: pxToEm($alphaLH, $alpha);
+  font-size: pxToEm($font-size-alpha);
+  line-height: pxToEm($line-height-alpha, $font-size-alpha);
 }
 
 %beta {
-  font-size: pxToEm($beta);
-  line-height: pxToEm($betaLH, $beta);
+  font-size: pxToEm($font-size-beta);
+  line-height: pxToEm($line-height-beta, $font-size-beta);
 }
 
 %gamma {
-  font-size: pxToEm($gamma);
-  line-height: pxToEm($gammaLH, $gamma);
+  font-size: pxToEm($font-size-gamma);
+  line-height: pxToEm($line-height-gamma, $font-size-gamma);
 }
 
 %delta {
-  font-size: pxToEm($delta);
-  line-height: pxToEm($deltaLH);
+  font-size: pxToEm($font-size-delta);
+  line-height: pxToEm($line-height-delta);
 }
 
 %epsilon {
-  font-size: pxToEm($epsilon);
-  line-height: pxToEm($epsilonLH);
+  font-size: pxToEm($font-size-epsilon);
+  line-height: pxToEm($line-height-epsilon);
 }
 
 %zeta {
-  font-size: pxToEm($zeta);
-  line-height: pxToEm($zetaLH);
+  font-size: pxToEm($font-size-zeta);
+  line-height: pxToEm($line-height-zeta);
 }
 
 %milli {
-  font-size: pxToEm($milli);
-  line-height: pxToEm($milliLH, $milli);
+  font-size: pxToEm($font-size-milli);
+  line-height: pxToEm($line-height-milli, $font-size-milli);
 }
 
 // font-weight
-%headingType {
-  font-weight: $headingType;
+%type-heading {
+  font-weight: $type-heading;
 }
 
-%subheadingType {
-  font-weight: $subheadingType;
+%type-subheading {
+  font-weight: $type-subheading;
 }
 
-%bodyType {
-  font-weight: $bodyType;
+%type-bold {
+  font-weight: $type-bold;
 }
 
-%boldType {
-  font-weight: $boldType;
+%type-body {
+  font-weight: $type-body;
 }
 
 // font-style
@@ -91,86 +91,86 @@
 }
 
 // text-align
-%startTxt {
-  text-align: $textStart; /* as backup */
+%text-start {
+  text-align: $text-start; // as backup
   text-align: start;
 }
 
-%endTxt {
-  text-align: $textEnd; /* as backup */
+%text-end {
+  text-align: $text-end; // as backup
   text-align: end;
 }
 
-%centerTxt {
+%text-center {
   text-align: center;
 }
 
-%justifyTxt {
+%text-justify {
   text-align: justify;
 }
 
 // text-decoration
-%noneTD {
+%text-decoration-none {
   text-decoration: none;
 }
 
-%underlineTD {
+%text-decoration-underline {
   text-decoration: underline;
 }
 
 // text-transform
-%UpTxtTrans {
+%text-transform-upper {
   text-transform: uppercase;
 }
 
-%lowTxtTrans {
+%text-transform-lower {
   text-transform: lowercase;
 }
 
-%capTxtTrans {
+%text-transform-cap {
   text-transform: capitalize;
 }
 
-%noneTxtTrans {
+%text-transform-none {
   text-transform: none;
 }
 
 // text-shadow
-%basicShadow {
-  text-shadow: 2px 4px 3px rgba(black, .3);
+%text-shadow-basic {
+  text-shadow: 2px 4px 3px rgba(#000, .3);
 }
 
-%letterpress {
-  text-shadow: 0 1px rgba(white, .87);
+%text-shadow-letterpress {
+  text-shadow: 0 1px rgba(#fff, .87);
 }
 
-%hardShadow {
-  text-shadow: 6px 6px rgba(black, .2);
+%text-shadow-hard {
+  text-shadow: 6px 6px rgba(#000, .2);
 }
 
-%glowing {
-  text-shadow: 0 0 6px rgba(white, .7);
+%text-shadow-glowing {
+  text-shadow: 0 0 6px rgba(#fff, .7);
 }
 
 // vertical-align
-%topAlign {
+%align-top {
   vertical-align: top;
 }
 
-%middleAlign {
+%align-mid {
   vertical-align: middle;
 }
 
-%bottomAlign {
+%align-btm {
   vertical-align: bottom;
 }
 
 // white-space
-%normalWhiteSpace {
+%white-space-normal {
   white-space: normal;
 }
 
-%nowrapWhiteSpace {
+%white-space-nowrap {
   white-space: nowrap;
 }
 

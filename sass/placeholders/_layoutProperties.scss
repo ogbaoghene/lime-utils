@@ -9,118 +9,118 @@
 // Styleguide 3.2
 
 // Display
-%doShow {
+%do-show {
   display: block;
 }
 
-%inlineBlockFix {  
+%do-inline-block-fix {  
   display: -moz-inline-stack; // Firefox 2, Wrap everything inside the inline-block element with a <div>.
   display: inline-block;
   zoom: 1; // trigger hasLayout
   *display: inline; // IE 7
 }
 
-%doTable {
+%do-table {
   display: table;
 }
 
-%doCell {
+%do-cell {
   display: table-cell;
 }
 
-%doFlex {
+%do-flex {
   display: flex;
 }
 
-%doHide {
+%do-hide {
   display: none;
 }
 
 // Position
-%relative {
+%position-relative {
   position: relative;
 }
 
-%absolute {
+%position-absolute {
   position: absolute;
 }
 
-%fixed {
+%position-fixed {
   position: fixed;
 }
 
 // Float
-%floatL {
-  float: $defaultFloat;
+%float-l {
+  float: $float-default;
 }
 
-%floatR {
-  float: $oppositeFloat;
+%float-r {
+  float: $float-opposite;
 }
 
-%floatNone {
+%float-none {
   float: none;
 }
 
 // Clear
-%clearL {
-  clear: $clearStart;
+%clear-l {
+  clear: $clear-start;
 }
 
-%clearR {
-  clear: $clearEnd;
+%clear-r {
+  clear: $clear-end;
 }
 
-%clearBoth {
+%clear-both {
   clear: both;
 }
 
-%clearNone {
+%clear-none {
   clear: none;
 }
 
 // Visibility
-%visibleV {
+%visibility-visible {
   visibility: visible;
 }
 
-%collapseV {
+%visibility-collapse {
   visibility: collapse;
 }
 
-%hiddenV {
+%visibility-hidden {
   visibility: hidden;
 }
 
 // Top, right, bottom, left
-%trbl0 {
-  @extend %absolute;
+%trbl-0 {
+  @extend %position-absolute;
   
   @include chain(top right bottom left, 0);
 }
 
-%topbtm0 {
-  @extend %absolute;
+%trbl-top-btm-0 {
+  @extend %position-absolute;
   
   @include chain(top bottom, 0);
 }
 
-%rightLeft0 {
-  @extend %absolute;
+%trbl-right-left-0 {
+  @extend %position-absolute;
   
   @include chain(right left, 0);
 }
 
 //overflow
-%overflowV {
+%overflow-visible {
   overflow: visible;
 }
 
-%overflowA {
+%overflow-auto {
   overflow: auto;
 }
 
-%overflowH {
+%overflow-hidden {
   overflow: hidden;
 }
 
