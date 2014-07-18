@@ -21,7 +21,7 @@
     "test",
     "tests",
     "_build",
-    "_docs"
+    "_docs",
     "bower.json",
     "Gruntfile.js",
     "package.json",
