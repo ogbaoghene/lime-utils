@@ -33,7 +33,7 @@ $base-font-size: 16; // Default font size on html element is 100%, equivalent to
 $font-size: 16; // Font size on body element
 $line-height: ceil($font-size * $ratio);
 
-$doc-font-size: $font-size;
+$doc-font-size: $font-size * 1px;
 $doc-line-height: $line-height * 1px;
 
 
@@ -41,14 +41,14 @@ $doc-line-height: $line-height * 1px;
 $imprt-no: 528; // Gldilocks approach
 
 $modular-scale-ratio: $ratio;
-$modular-scale-value: $doc-font-size $imprt-no; // Ideal text size + Important number
+$modular-scale-value: $font-size $imprt-no; // Ideal text size + Important number
 
 
 // Grids
 $gutter-width: 16;
 
 $doc-gutter: $gutter-width * 1px;
-$doc-gutter-half: ($doc-gutter / 2);
+$doc-gutter-half: ($gutter-width / 2) * 1px;
 
 
 // Directionality
@@ -87,9 +87,9 @@ $font-size-kilo: $kilo * 1px;
 $font-size-alpha: $alpha * 1px;
 $font-size-beta: $beta * 1px;
 $font-size-gamma: $gamma * 1px;
-$font-size-delta: $doc-font-size * 1px;
-$font-size-epsilon: $doc-font-size * 1px;
-$font-size-zeta: $doc-font-size * 1px;
+$font-size-delta: $font-size * 1px;
+$font-size-epsilon: $font-size * 1px;
+$font-size-zeta: $font-size * 1px;
 $font-size-milli: $milli * 1px;
 
 
@@ -98,25 +98,16 @@ $btm-marg: $line-height * 1px;
 
 
 // Line-height
-$giga-height: $doc-line-height * 13; // 338
-$mega-height: $doc-line-height * 8; // 208
-$kilo-height: $doc-line-height * 5; // 130
-$alpha-height: $doc-line-height * 3; // 78
-$beta-height: $doc-line-height * 2; // 52
-$gamma-height: $doc-line-height; // 26
-$milli-height: $doc-line-height; // 26
-
-
-$line-height-giga: $giga-height;
-$line-height-mega: $mega-height;
-$line-height-kilo: $kilo-height;
-$line-height-alpha: $alpha-height;
-$line-height-beta: $beta-height;
-$line-height-gamma: $gamma-height;
-$line-height-delta: $doc-line-height;
-$line-height-epsilon: $doc-line-height;
-$line-height-zeta: $doc-line-height;
-$line-height-milli: $milli-height;
+$line-height-giga: $line-height * 13px; // 338
+$line-height-mega: $line-height * 8px; // 208
+$line-height-kilo: $line-height * 5px; // 130
+$line-height-alpha: $line-height * 3px; // 78
+$line-height-beta: $line-height * 2px; // 52
+$line-height-gamma: $line-height * 1px; // 26
+$line-height-delta: $line-height * 1px;  // 26
+$line-height-epsilon: $line-height * 1px;  // 26
+$line-height-zeta: $line-height * 1px;  // 26
+$line-height-milli: $line-height * 1px; // 26
 
 
 // Font-weight
@@ -137,18 +128,11 @@ $type-bold: $bold;
 
 
 // Z-index
-$un: 1;
-$deux: 2;
-$trois: 3;
-$quatre: 4;
-$cinq: 5;
-
-
-$z-depth: (
-  (z-depth-0, $un),
-  (z-depth-2, $deux),
-  (z-depth-3, $trois),
-  (z-depth-4, $quatre),
-  (z-depth-5, $cinq),
+$z: (
+  (depth-0, 1),
+  (depth-2, 2),
+  (depth-3, 3),
+  (depth-4, 4),
+  (depth-5, 5),
 );
 

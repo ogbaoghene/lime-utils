@@ -5,7 +5,7 @@
 // Parameters:
 // ```scss
 // $values : Number in px
-// $context : Base font size, in em or px. Predefined as `$docFontSize`
+// $context : Base font size, in em or px. Predefined as `$font-size`
 // ```
 // 
 // Usage:
@@ -25,10 +25,10 @@
 //
 // Styleguide 1.2
 
-@function px-to-em($values, $context: $doc-font-size) {
+@function px-to-em($values, $context: $font-size) {
   // Adjust accordingly to create a $divisor that
   // serves as context for $pixels.
-  $multiplier: if(unit($context) == em, $doc-font-size, 1);
+  $multiplier: if(unit($context) == em, $font-size, 1);
   $divisor: strip-unit($context) * $multiplier;
   $list: ();
   @each $value in $values {
