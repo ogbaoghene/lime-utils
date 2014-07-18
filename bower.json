@@ -20,15 +20,11 @@
     "bower_components",
     "test",
     "tests",
-    "_build",
-    ".sass-cache",
-    "_docs"
-    ".gitignore",
-    ".gitattributes",
+    "**/_*",
     "bower.json",
     "Gruntfile.json",
-    "LICENSE.md",
     "package.json",
+    "LICENSE.md",
     "README.md",
     "styleguide.md"
   ]
