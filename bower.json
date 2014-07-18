@@ -2,7 +2,7 @@
   "name": "lime-utils",
   "version": "0.0.0",
   "description": "A library of Sass modules - functions, mixins, placeholders and variables",
-  "main": "sass/",
+  "main": "sass/limeUtils.scss",
   "moduleType": [
     "globals"
   ],
@@ -20,6 +20,16 @@
     "bower_components",
     "test",
     "tests",
-    "styleguide"
+    "_build",
+    ".sass-cache",
+    "_docs"
+    ".gitignore",
+    ".gitattributes",
+    "bower.json",
+    "Gruntfile.json",
+    "LICENSE.md",
+    "package.json",
+    "README.md",
+    "styleguide.md"
   ]
 }
