@@ -112,15 +112,7 @@
 }
 
 // z-index
-@each $val in $z {
-  $key: nth($val, 1);
-  $value: nth($val, 2);
-
-  // @extend $z-{$key} to use, @include using list-maps mixin
-  %z-#{$key} {
-    z-index: $value;
-  }
-}
+@include loop-map($z, z-index, z);
 
 // Overflow
 %overflow-visible {
