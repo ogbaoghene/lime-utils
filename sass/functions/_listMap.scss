@@ -1,0 +1,31 @@
+// List Map
+//
+// Simulate Sass 3.3 Maps data type when compiling with libsass (v2.0.0), still compiles successfully with Sass 3.3.
+//
+// Parameters:
+// ```scss
+// $map : Map
+// $map-key: Key for desired value in key/value pair.
+// ```
+//
+// Usage:
+// ```scss
+// .example {
+//   font-weight: list-map($type, subheading);
+// }
+// ```
+//
+// _**Note** : Key/value pairs in Maps are parenthesized and separated by comma to convert them to lists, e.g. $type: ((heading, $bold),(subheading, $normal),(body, $normal),(bold, $bold),);.
+//
+// Styleguide 1.9
+
+@function list-map($map, $map-key) {
+  @each $val in $map {
+    $key: nth($val, 1);
+    $value: nth($val, 2);
+    @if $map-key == $key {
+      @return $value;
+    }
+  }
+}
+

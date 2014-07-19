@@ -1,0 +1,33 @@
+// List Maps
+//
+// Loop through the contents of a map, create namespaced placeholders and apply the key/value pair as a ruleset.
+//
+// Parameters:
+// ```scss
+// $map : Map
+// $property : CSS property
+// $namespace : Prefix.
+// ```
+// 
+// Usage:
+// ```scss
+// @include loop-map($type, font-weight, %type);
+// ```
+//
+// **Requires** : _listMap
+//
+// _**Note** : Key/value pairs in Maps are parenthesized and separated by comma to convert them to lists, e.g. $type: ((heading, $bold),(subheading, $normal),(body, $normal),(bold, $bold),);.
+//
+// Styleguide 2.4
+
+@mixin loop-map($map, $property, $namespace) {
+  @each $val in $map {
+    $key: nth($val, 1);
+    $value: nth($val, 2);
+
+    %#{$namespace}-#{$key} {
+      #{$property}: $value;
+    }
+  }
+}
+

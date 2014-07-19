@@ -21,6 +21,7 @@
 @import 'functions/monotonePalette';
 @import 'functions/modularScale';
 @import 'functions/smartrgba';
+@import 'functions/listMap';
 
 
 // Mixins
@@ -32,7 +33,7 @@
 @import 'mixins/remFallback';
 @import 'mixins/rgbaFallback';
 @import 'mixins/chainProperties';
-@import 'mixins/listMaps';
+@import 'mixins/loopMap';
 
 
 // Placeholders

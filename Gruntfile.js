@@ -11,7 +11,7 @@ module.exports = function (grunt) {
             docs: '_docs',
             build: '_build',
             sass: 'sass',
-            src: '_limeUtils.scss',
+            src: 'screen.scss',
             dist: 'screen.css',
             dev: 'style.css'
         },

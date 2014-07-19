@@ -9,81 +9,61 @@
 // Styleguide 3.4
 
 // font-family
-%font-body {
-  font-family: $font-body;
-}
-
-%font-title {
-  font-family: $font-title;
-}
+@include loop-map($font, font-family, $namespace: font);
 
 // font-size & line-height
 %giga {
-  font-size: px-to-em($font-size-giga);
-  line-height: px-to-em($line-height-giga, $font-size-giga);
+  font-size: list-map($font-size, giga);
+  line-height: list-map($line-height, giga);
 }
 
 %mega {
-  font-size: px-to-em($font-size-mega);
-  line-height: px-to-em($line-height-mega, $mega);
+  font-size: list-map($font-size, mega);
+  line-height: list-map($line-height, mega);
 }
 
 %kilo {
-  font-size: px-to-em($font-size-kilo);
-  line-height: px-to-em($line-height-kilo, $font-size-kilo);
+  font-size: list-map($font-size, kilo);
+  line-height: list-map($line-height, kilo);
 }
 
 %alpha {
-  font-size: px-to-em($font-size-alpha);
-  line-height: px-to-em($line-height-alpha, $font-size-alpha);
+  font-size: list-map($font-size, alpha);
+  line-height: list-map($line-height, alpha);
 }
 
 %beta {
-  font-size: px-to-em($font-size-beta);
-  line-height: px-to-em($line-height-beta, $font-size-beta);
+  font-size: list-map($font-size, beta);
+  line-height: list-map($line-height, beta);
 }
 
 %gamma {
-  font-size: px-to-em($font-size-gamma);
-  line-height: px-to-em($line-height-gamma, $font-size-gamma);
+  font-size: list-map($font-size, gamma);
+  line-height: list-map($line-height, gamma);
 }
 
 %delta {
-  font-size: px-to-em($font-size-delta);
-  line-height: px-to-em($line-height-delta);
+  font-size: list-map($font-size, delta);
+  line-height: list-map($line-height, delta);
 }
 
 %epsilon {
-  font-size: px-to-em($font-size-epsilon);
-  line-height: px-to-em($line-height-epsilon);
+  font-size: list-map($font-size, epsilon);
+  line-height: list-map($line-height, epsilon);
 }
 
 %zeta {
-  font-size: px-to-em($font-size-zeta);
-  line-height: px-to-em($line-height-zeta);
+  font-size: list-map($font-size, zeta);
+  line-height: list-map($line-height, zeta);
 }
 
 %milli {
-  font-size: px-to-em($font-size-milli);
-  line-height: px-to-em($line-height-milli, $font-size-milli);
+  font-size: list-map($font-size, milli);
+  line-height: list-map($line-height, milli);
 }
 
 // font-weight
-%type-heading {
-  font-weight: $type-heading;
-}
-
-%type-subheading {
-  font-weight: $type-subheading;
-}
-
-%type-bold {
-  font-weight: $type-bold;
-}
-
-%type-body {
-  font-weight: $type-body;
-}
+@include loop-map($type, font-weight, $namespace: type);
 
 // font-style
 %italics {
@@ -92,12 +72,12 @@
 
 // text-align
 %text-start {
-  text-align: $text-start; // as backup
+  text-align: list-map($direction, start); // as backup
   text-align: start;
 }
 
 %text-end {
-  text-align: $text-end; // as backup
+  text-align: list-map($direction, end); // as backup
   text-align: end;
 }
 
