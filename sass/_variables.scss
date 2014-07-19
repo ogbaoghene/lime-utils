@@ -37,18 +37,18 @@ $doc-font-size: $font-size * 1px;
 $doc-line-height: ($line-height / $font-size) * 1em;
 
 
-// Modular Scale
-$imprt-no: 528; // Gldilocks approach
+  // Modular Scale
+  $imprt-no: 528; // Gldilocks approach
 
-$modular-scale-ratio: $ratio;
-$modular-scale-value: $font-size $imprt-no; // Ideal text size + Important number
+  $modular-scale-ratio: $ratio;
+  $modular-scale-value: $font-size $imprt-no; // Ideal text size + Important number
 
 
-// Grids
-$gutter-width: 16;
+  // Grids
+  $gutter-width: 16;
 
-$doc-gutter: $gutter-width * 1px;
-$doc-gutter-half: ($gutter-width / 2) * 1px;
+  $doc-gutter: $gutter-width * 1px;
+  $doc-gutter-half: ($gutter-width / 2) * 1px;
 
 
 // Directionality
@@ -56,13 +56,6 @@ $direction: (
   (start, left),
   (end, right),
 );
-
-  $start: left;
-  $end: right;
-  $float-default: $start;
-  $float-opposite: $end;
-  $clear-start: $start;
-  $clear-end: $end;
 
 
 // Font-family
@@ -72,6 +65,25 @@ $sec-font-family: 'Helvetica Neue W02 55 Roman', HelveticaNeue-Roman, 'Helvetica
 $font: (
   (body, $pri-font-family),
   (title, $sec-font-family),
+);
+
+
+// Font-weight
+$extra-light: 100;
+$light: 200;
+$demi: 300;
+$normal: 400;
+$medium: 500;
+$semi-bold: 600;
+$bold: 700;
+$black: 800;
+$extra-black: 900;
+
+$type: (
+  (heading, $bold),
+  (subheading, $normal),
+  (body, $normal),
+  (bold, $bold),
 );
 
 
@@ -106,25 +118,6 @@ $line-height: (
   (epsilon, $doc-line-height),
   (zeta, $doc-line-height),
   (milli, 2.364em),
-);
-
-
-// Font-weight
-$extra-light: 100;
-$light: 200;
-$demi: 300;
-$normal: 400;
-$medium: 500;
-$semi-bold: 600;
-$bold: 700;
-$black: 800;
-$extra-black: 900;
-
-$type: (
-  (heading, $bold),
-  (subheading, $normal),
-  (body, $normal),
-  (bold, $bold),
 );
 
 

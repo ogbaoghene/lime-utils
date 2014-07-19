@@ -50,26 +50,14 @@
 }
 
 // Float
-%float-l {
-  float: $float-default;
-}
-
-%float-r {
-  float: $float-opposite;
-}
+@include loop-map($direction, float, float);
 
 %float-none {
   float: none;
 }
 
 // Clear
-%clear-l {
-  clear: $clear-start;
-}
-
-%clear-r {
-  clear: $clear-end;
-}
+@include loop-map($direction, clear, clear);
 
 %clear-both {
   clear: both;
