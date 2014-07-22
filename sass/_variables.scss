@@ -29,10 +29,9 @@ $ratio: $golden;
 
 
 // Type
-$base-font-size: 16; // Default font size on html element is 100%, equivalent to 16px;
-
+$base-font-size: 16;// Default font size on html element is 100%, equivalent to 16px;
 $doc-font-size: 16; // Font size on body element
-$doc-line-height: ceil($font-size * $ratio);
+$doc-line-height: ceil($doc-font-size * $ratio);
 
 
   // Modular Scale
