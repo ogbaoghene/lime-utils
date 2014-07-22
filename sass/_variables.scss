@@ -30,18 +30,16 @@ $ratio: $golden;
 
 // Type
 $base-font-size: 16; // Default font size on html element is 100%, equivalent to 16px;
-$font-size: 16; // Font size on body element
-$line-height: ceil($font-size * $ratio);
 
-$doc-font-size: $font-size * 1px;
-$doc-line-height: ($line-height / $font-size) * 1em;
+$doc-font-size: 16; // Font size on body element
+$doc-line-height: ceil($font-size * $ratio);
 
 
   // Modular Scale
   $imprt-no: 528; // Gldilocks approach
 
   $modular-scale-ratio: $ratio;
-  $modular-scale-value: $font-size $imprt-no; // Ideal text size + Important number
+  $modular-scale-value: $doc-font-size $imprt-no; // Ideal text size + Important number
 
 
   // Grids
@@ -103,7 +101,7 @@ $font-size: (
 
 
 // Vertical Rhythm
-$btm-marg: $line-height * 1px;
+$btm-marg: $doc-line-height * 1px;
 
 
 // Line-height
@@ -114,9 +112,9 @@ $line-height: (
   (alpha, 1.147em),
   (beta, 1.238em),
   (gamma, 1em),
-  (delta, $doc-line-height),
-  (epsilon, $doc-line-height),
-  (zeta, $doc-line-height),
+  (delta, inherit),
+  (epsilon, inherit),
+  (zeta, inherit),
   (milli, 2.364em),
 );
 

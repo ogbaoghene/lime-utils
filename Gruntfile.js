@@ -37,6 +37,9 @@ module.exports = function (grunt) {
                 }
             },
             docs: {
+                options: {
+                    sourceMap: true
+                },
                 files: {
                     '<%= config.docs %>/public/<%= config.dev %>': '<%= config.sass %>/<%= config.src %>'
                 }
