@@ -1,0 +1,23 @@
+// Opacity Fallback
+//
+// Opacity mixin with fallback.
+//
+// Parameters:
+// ```scss
+// $opacity : Value between 1 and 100
+// ```
+// 
+// Usage:
+// ```scss
+// .example {
+//   @include opacity(50);
+// }
+// ```
+//
+// Styleguide 2.8
+
+@mixin opacity($opacity) {
+  zoom: 1;
+  filter: alpha(opacity=#{$opacity});
+  opacity: $opacity / 100;
+}
