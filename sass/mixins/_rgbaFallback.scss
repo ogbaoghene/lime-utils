@@ -17,7 +17,7 @@
 // }
 //
 // .example2 {
-//   @include rgba-fallback(color, #3498db, .5, $rgba: dark);
+//   @include rgba-fallback(color, #3498db, .5, $darken: true);
 // }
 // ```
 //
