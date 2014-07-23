@@ -49,6 +49,10 @@
   position: fixed;
 }
 
+%position-static {
+  position: static;
+}
+
 // Float
 @include loop-map($direction, float, float);
 
