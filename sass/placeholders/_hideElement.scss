@@ -36,8 +36,7 @@
 
 // Extends %hide-element-visually to allow the element to be focusable when navigated to via the keyboard
 %hide-visually-focusable {
-  &:focus,
-  &:active {
+  @include hover-active-focus($focus: true, $active: true) {
     @extend %hide-visually;
     @extend %height-auto;
     @extend %width-auto;
