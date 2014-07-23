@@ -32,8 +32,8 @@
     // isolating the $property and $value variables
     $property: nth($val, 1);
     $value: nth($val, 2);
+    // Filter out 0, auto and units except px
     @if type-of($value) == list or unit($value) == px {
-      // Filter out 0, auto and units except px
       #{$property}: $value;
       #{$property}: px-to-rem($value);
     } @else {
