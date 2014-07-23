@@ -13,6 +13,7 @@
 @import 'functions/modularScale';
 @import 'functions/smartrgba';
 @import 'functions/listMap';
+@import 'functions/hideElement';
 
 
 // Mixins
@@ -42,4 +43,5 @@
 @import 'placeholders/layoutProperties';
 @import 'placeholders/listProperties';
 @import 'placeholders/typographicalProperties';
+@import 'placeholders/hideElement';
 

@@ -1,0 +1,51 @@
+/*------------------------------------*\
+    $HIDE ELEMENT
+\*------------------------------------*/
+
+// Hide ELement
+//
+// Various techniques for hiding elements.
+//
+// Adapted from [HTML5 Boilerplate](http://html5boilerplate.com/)
+//
+// _Tested : IE6-9, Firefox, Chrome, Safari_
+//
+// Styleguide 3.5
+
+// Hide text off screen
+%hide-text-offscreen {
+  @extend %do-show;
+  @extend %overflow-hidden;
+  @extend %white-space-nowrap;
+
+  text-indent: 100%;
+}
+
+// Hide only visually, but have it available for screenreaders
+%hide-visually {
+  @extend %position-absolute;
+  @extend %overflow-hidden;
+  @extend %pad-reset;
+  @extend %border-none;
+
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  width: 1px;
+}
+
+// Extends %hide-element-visually to allow the element to be focusable when navigated to via the keyboard
+%hide-visually-focusable {
+  &:focus,
+  &:active {
+    @extend %hide-visually;
+    @extend %height-auto;
+    @extend %width-auto;
+    @extend %marg-reset;
+    @extend %overflow-visible;
+  
+    clip: auto;
+    position: static;
+  }
+}
+
