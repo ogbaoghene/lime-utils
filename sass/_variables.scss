@@ -65,6 +65,18 @@ $font: (
 );
 
 
+// Font-face
+$font-face-un: (
+  (font, 'Open Sans'),
+  (path, '../fonts/Open-Sans-fontfacekit'),
+);
+
+$font-face-deux: (
+  (font, 'Droid Serif'),
+  (path, '../fonts/Droid-Serif-webfontkit'),
+);
+
+
 // Font-weight
 $extra-light: 100;
 $light: 200;
