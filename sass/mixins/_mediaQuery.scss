@@ -1,31 +1,42 @@
-// Media Query Mixin
-
-// @author @Ogb_O
-
-// @param $breakPoint : Breakpoint in pixels
-// @param $IE9 : Includes the IE9 conditional class of CSS. Default == false
-// @param $query1 : Either min, max, min-device or max-device. Default = min
-// @param $query2 : Either width or Height. Default = width 
-
-// e.g. @include mediaQuery($small, max) {}
-
+// Media Query
+//
+// Define your major or minor breakpoint in pixels (automatically converts to EMs), define the media query whether it be min or max, width or height, device height or device width.
+//
+// Parameters:
+// ```scss
+// $break-point : Media query breakpoint, unitless value
+// $ie9 : Includes the IE9 conditional class. Predefined as null
+// $query1 : Prefix for media features, min, max, min-device or max-device. Predefined as min
+// $query2 : Media features, width or height. Predefined as width
+// ```
+// 
+// Usage:
+// ```scss
+// .example {
+//   @include media-query(768, $ie9: true, $query1: max) {
+//     display: none; 
+//   }
+// }
+// ```
+//
 // Adapted from Stuart Robson [alwaystwisted.com]
+//
+// Styleguide 2.6
 
-@mixin mediaQuery($breakPoint, $IE9: false, $query1: min, $query2: width) {
-  @if $IE9 == true {
-      .lt-ie9 & {
-        @content;
-      }
+@mixin media-query($break-point, $ie9: null, $query1: min, $query2: width) {
+  @if $ie9 != null {
+    .lt-ie9 & {
+      @content;
+    }
       
-      // Default font size on html element is 100%, equivalent to 16px;
-      @media screen and (#{$query1}-#{$query2}: $breakPoint / $baseFontSize +em) {
-        @content;
-      }
-  }
-  
-  @else {
-    @media screen and (#{$query1}-#{$query2}: $breakPoint / $baseFontSize +em) {
+    // Default font size on html element is 100%, equivalent to 16px;
+    @media screen and (#{$query1}-#{$query2}: ($break-point / $base-font-size) +em) {
+      @content;
+    }
+  } @else {
+    @media screen and (#{$query1}-#{$query2}: ($break-point / $base-font-size) +em) {
       @content;
     }
   }
 }
+
