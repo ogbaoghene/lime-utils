@@ -1,0 +1,34 @@
+// Font Face
+//
+// Allows easier custom fonts integration.
+//
+// Parameters:
+// ```scss
+// $font : Font name
+// $path : File path to web-font
+// $weight : Font-weight. Predefined as normal
+// $style : Font-style. Predefined as normal
+// ```
+// 
+// Usage:
+// ```scss
+// @include font-face(SourceSansPro, '/fonts/Source_Sans_Pro/SourceSansPro-Regular');
+// @include font-face(SourceSansPro, '/fonts/Source_Sans_Pro/SourceSansPro-italic', $style: italic);
+// ```
+//
+// Adapted from [Bourbon](http://bourbon.io)
+//
+// _**Note** : Order of the includes matters, and it is: normal, italic, bold, bold+italic._
+//
+// Styleguide 2.5
+
+@mixin font-face($font, $path, $weight: normal, $style: normal) {
+  @font-face {
+    font-family: $font;
+    font-weight: $weight;
+    font-style: $style;
+    src: url('#{$path}.eot');
+    src: url('#{$path}.eot?#iefix') format('embedded-opentype'), url('#{$path}.woff') format('woff'), url('#{$path}.ttf') format('truetype'), url('#{$path}.svg##{$font}') format('svg');
+  }
+}
+
