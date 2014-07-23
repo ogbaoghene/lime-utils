@@ -1,0 +1,26 @@
+// Hover, Active, Focus
+//
+// Shorthand for writing &:hover, &:active, &:focus.
+// 
+// Usage:
+// ```scss
+// .example {
+//   text-decoration: none;
+// 
+//   @include hover-state {
+//     text-decoration: underline;
+//     font-weight: bold;
+//   }
+// }
+// ```
+//
+// Styleguide 2.9
+
+@mixin hover-active-focus {
+  &:hover,
+  &:active,
+  &:focus {
+    @content;
+  }
+}
+
