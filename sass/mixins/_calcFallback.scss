@@ -1,0 +1,27 @@
+// Calc Fallback
+//
+// CSS3 calc mixin with fallback.
+//
+// Parameters:
+// ```scss
+// $property : CSS property
+// $default : Default fallback value
+// $expression : Arithmetic expression
+// ```
+// 
+// Usage:
+// ```scss
+// .example {
+//   @include calc(width, "100% - #{12px * 2}", $default: 98%);
+// }
+// ```
+//
+// Adapted from [Livingston Samuel](https://coderwall.com/p/qac-og)
+//
+// Styleguide 2.7
+
+@mixin calc($property, $expression, $default: null) {
+  #{$property}: $default;
+  #{$property}: calc(#{$expression});
+}
+
