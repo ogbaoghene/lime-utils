@@ -26,26 +26,19 @@
 @function mono-palette($color, $mix: null) {
   @if $mix == tint1 {
     @return tint($color, 8%);
-  }
-  @if $mix == tint2 {
+  } @else if $mix == tint2 {
     @return tint($color, 20%);
-  }
-  @if $mix == tint3 {
+  } @else if $mix == tint3 {
     @return tint($color, 50%);
-  }
-  @if $mix == tint4 {
+  } @else if $mix == tint4 {
     @return tint($color, 75%);
-  }
-  @if $mix == shade1 {
+  } @else if $mix == shade1 {
     @return shade($color, 8%);
-  }
-  @if $mix == shade2 {
+  } @else if $mix == shade2 {
     @return shade($color, 20%);
-  }
-  @if $mix == shade3 {
+  } @else if $mix == shade3 {
     @return shade($color, 50%);
-  }
-  @if $mix == shade4 {
+  } @else if $mix == shade4 {
     @return shade($color, 75%);
   } @else {
     @return $color;
