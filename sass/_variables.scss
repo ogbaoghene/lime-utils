@@ -141,32 +141,18 @@ $z: (
 
 
 // Breakpoints
-$very-small: 320;
-$small: 480;
-$goldilocks: 528;
-$baby-bear: 768;
-$standard: 980;
-$mama-bear: 1080;
-$papa-bear: 1280;
-$large: 1366;
-$desktop: 1440;
-$very-large: 1600;
-$extra-large: 1760;
-$widescreen: 1920;
-
-
 $breakpoints: (
-  (alpha: $very-small),
-  (beta: $small),
-  (gamma: $goldilocks),
-  (delta: $baby-bear),
-  (epsilon: $standard),
-  (zeta: $mama-bear),
-  (eta: $desktop),
-  (theta: $papa-bear),
-  (iota: $large),
-  (kappa: $very-large),
-  (lambda: $extra-large),
-  (mu: $widescreen),
+  (very-small, 320),
+  (small, 480),
+  (goldilocks, 528),
+  (baby-bear, 768),
+  (standard, 980),
+  (mama-bear, 1080),
+  (papa-bear, 1280),
+  (large, 1366),
+  (desktop, 1440),
+  (very-large, 1600),
+  (extra-large, 1760),
+  (widescreen, 1920),
 );
 
