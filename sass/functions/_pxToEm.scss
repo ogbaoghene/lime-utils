@@ -32,17 +32,17 @@
   $divisor: strip-unit($context) * $multiplier;
   $list: ();
   @each $value in $values {
+    // Ignore unitless values and units except px
     @if unit($value) == px {
-      // Ignore unitless values and units except px
       $em-value: strip-unit($value) / $divisor * 1em;
       $list: append($list, $em-value);
     } @else {
       $list: append($list, $value);
     }
   }
+  // return a single value instead of a list,
+  // so it can be used in calculations
   @if length($list) == 1 {
-    // return a single value instead of a list,
-    // so it can be used in calculations
     @return nth($list, 1);
   } @else {
     @return $list;
