@@ -19,6 +19,8 @@
 // }
 // ```
 //
+// _**Note** : Escape position values using `null`._
+//
 // Styleguide 2.11
 
 @mixin marg-or-pad($margin-or-padding, $values) {

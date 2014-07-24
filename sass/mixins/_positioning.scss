@@ -21,6 +21,8 @@
 //
 // **Requires** : _layoutproperties
 //
+// _**Note** : Escape coordinates using `null`._
+//
 // Styleguide 2.10
 
 @mixin positioning($position, $coordinates: 0) {
