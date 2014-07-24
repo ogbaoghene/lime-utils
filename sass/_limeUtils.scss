@@ -13,6 +13,7 @@
 @import 'functions/modularScale';
 @import 'functions/smartrgba';
 @import 'functions/listMap';
+@import 'functions/hideElement';
 
 
 // Mixins
@@ -30,9 +31,12 @@
 @import 'mixins/calcFallback';
 @import 'mixins/opacityFallback';
 @import 'mixins/hoverActiveFocus';
+<<<<<<< HEAD
 @import 'mixins/positioning';
 @import 'mixins/margOrPad';
 @import 'mixins/smartBorder';
+=======
+>>>>>>> parent of a06ecdd... add positioning mixin
 
 
 // Placeholders
