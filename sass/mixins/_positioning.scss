@@ -1,0 +1,52 @@
+// Positioning
+//
+// Position an element position and assign it coordinates.
+// 
+// Parameters:
+// ```scss
+// $position : Extends position placeholders, relative, absolute, fixed, and static
+// $coordinates : Top, right, bottom, and left values. Predefined as auto
+// ```
+// 
+// Usage:
+// ```scss
+// .example {
+//   @include positioning(fixed, $coordinates: 10% 5% 2% 11%);
+// }
+//
+// .example-2 {
+//   @include positioning(absolute, $coordinates: 20% 15% 5%);
+// }
+// ```
+//
+// **Requires** : _layoutproperties, _chainProperties
+//
+// Styleguide 2.10
+
+@mixin positioning($position, $coordinates: auto) {
+  @extend %position-#{$position};
+  
+  @if length($coordinates) != 1 {
+    @if length($coordinates) == 2 {
+      top: nth($coordinates, 1);
+      right: nth($coordinates, 2);
+      bottom: nth($coordinates, 1);
+      left: nth($coordinates, 2);
+    } @else if length($coordinates) == 3 {
+      top: nth($coordinates, 1);
+      right: nth($coordinates, 2);
+      bottom: nth($coordinates, 3);
+      left: nth($coordinates, 2);
+    } @else if length($coordinates) == 4 {
+      top: nth($coordinates, 1);
+      right: nth($coordinates, 2);
+      bottom: nth($coordinates, 3);
+      left: nth($coordinates, 4);
+    } @else {
+      @warn 'Position coordinates are out of bounds. Properties omitted.';
+    }
+  } @else {
+    @include chain(top right bottom left, $coordinates);
+  }
+}
+
