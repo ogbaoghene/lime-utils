@@ -43,6 +43,7 @@ Welcome to the Lime Utilities overview. Before continuing, you should have a gen
 ####Misc
 - Document styles with [KSS](https://github.com/kneath/kss).
 - To describe an atomic task to be completed at a later date, add Sass comments containing a todo statement prepended with '**TODO:**'.
+- When writng styles with fallbacks, make the fallback the defaults as if JS weren’t going to fire, and then overwrite down the cascade with the modernizer feature class parent specificity, e.g .flexbox.
 
 ###File organization
 
