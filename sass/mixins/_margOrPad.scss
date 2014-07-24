@@ -1,0 +1,75 @@
+// Marg or Pad
+//
+// Apply margin or padding to an element in vanilla CSS's shorthand.
+// 
+// Parameters:
+// ```scss
+// $margin-or-padding: Margin or padding
+// $values : Values, top, right, bottom, and left
+// ```
+// 
+// Usage:
+// ```scss
+// .example {
+//   @include marg-or-pad(padding, 10px 3px);
+// }
+//
+// .example-2 {
+//   @include marg-or-pad(margin, 2px null 3px null );
+// }
+// ```
+//
+// Styleguide 2.11
+
+@mixin marg-or-pad($margin-or-padding, $values) {
+  @if length($values) != 1 {
+    @if length($values) == 2 {
+      $top: nth($values, 1);
+      $right: nth($values, 2);
+      
+      @if $top != null {
+        #{$margin-or-padding}-top: $top;
+      }
+      @if $right != null {
+        #{$margin-or-padding}-right: $right;
+      }
+    } @else if length($values) == 3 {
+      $top: nth($values, 1);
+      $right: nth($values, 2);
+      $bottom: nth($values, 3);
+      
+      @if $top != null {
+        #{$margin-or-padding}-top: $top;
+      }
+      @if $right != null {
+        #{$margin-or-padding}-right: $right;
+      }
+      @if $bottom != null {
+        #{$margin-or-padding}-bottom: $bottom;
+      }
+    } @else if length($values) == 4 {
+      $top: nth($values, 1);
+      $right: nth($values, 2);
+      $bottom: nth($values, 3);
+      $left: nth($values, 4);
+      
+      @if $top != null {
+        #{$margin-or-padding}-top: $top;
+      }
+      @if $right != null {
+        #{$margin-or-padding}-right: $right;
+      }
+      @if $bottom != null {
+        #{$margin-or-padding}-bottom: $bottom;
+      }
+      @if $left != null {
+        #{$margin-or-padding}-left: $left;
+      }
+    } @else {
+      @warn 'Values are out of bounds. Properties omitted.';
+    }
+  } @else {
+    @warn 'An argument of 2 or 4 values is required.';
+  }
+}
+

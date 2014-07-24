@@ -91,7 +91,7 @@
   @include chain(top right bottom left, 0);
 }
 
-%trbl-top-btm-0 {
+%trbl-top-bottom-0 {
   @extend %position-absolute;
   
   @include chain(top bottom, 0);

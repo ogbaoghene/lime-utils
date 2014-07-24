@@ -1,0 +1,64 @@
+// Smart Border
+//
+// Use a single border value on multiple sides of an element or apply individual borders in vanilla CSS's shorthand.
+// 
+// Parameters:
+// ```scss
+// $style : Extends border-style placeholders, dotted, dashed, solid, double, none
+// $position : Border-position. Predefined as null
+// $color : Border-color. Predefined as null
+// $width : Border-width. Predefined as null
+// ```
+// 
+// Usage:
+// ```scss
+// .example {
+//   @include smart-border(dotted, $width: 5px);
+// }
+//
+// .example-2 {
+//   @include smart-border(solid, $position: bottom, $width: 5px);
+// }
+//
+// .example-3 {
+//   @include smart-border(dotted, $position: top left, $color: red, $width: 5px);
+// }
+// ```
+//
+// **Requires** : _boxproperties
+//
+// Styleguide 2.12
+
+@mixin smart-border($style, $width, $position: null, $color: null) {
+  @if $position != null {
+    @if length($position) != 1 {
+      @if length($position) == 2 {
+        border-#{nth($position, 1)}: $width $style $color;
+        border-#{nth($position, 2)}: $width $style $color;
+      }@else if length($position) == 3 {
+        border-#{nth($position, 1)}: $width $style $color;
+        border-#{nth($position, 2)}: $width $style $color;
+        border-#{nth($position, 3)}: $width $style $color;
+      }@else if length($position) == 4 {
+        border-#{nth($position, 1)}: $width $style $color;
+        border-#{nth($position, 2)}: $width $style $color;
+        border-#{nth($position, 3)}: $width $style $color;
+        border-#{nth($position, 4)}: $width $style $color;
+      } @else {
+        @warn 'Values are out of bounds. Properties omitted.';
+      }
+    } @else {
+      border-#{$position}: $width $style $color;
+    }
+  } @else {
+    @extend %border-#{$style};
+    
+    @if $color != null {
+      border-color: $color;
+      border-width: $width;
+    } @else {
+      border-width: $width;
+    }
+  }
+}
+

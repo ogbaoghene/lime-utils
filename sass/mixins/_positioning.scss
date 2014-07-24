@@ -5,48 +5,75 @@
 // Parameters:
 // ```scss
 // $position : Extends position placeholders, relative, absolute, fixed, and static
-// $coordinates : Top, right, bottom, and left values. Predefined as auto
+// $coordinates : Top, right, bottom, and left values. Predefined as 0
 // ```
 // 
 // Usage:
 // ```scss
 // .example {
-//   @include positioning(fixed, $coordinates: 10% 5% 2% 11%);
+//   @include positioning(absolute);
 // }
 //
 // .example-2 {
-//   @include positioning(absolute, $coordinates: 20% 15% 5%);
+//   @include positioning(absolute, $coordinates: 0 0);
 // }
 // ```
 //
-// **Requires** : _layoutproperties, _chainProperties
+// **Requires** : _layoutproperties
 //
 // Styleguide 2.10
 
-@mixin positioning($position, $coordinates: auto) {
+@mixin positioning($position, $coordinates: 0) {
   @extend %position-#{$position};
   
   @if length($coordinates) != 1 {
     @if length($coordinates) == 2 {
-      top: nth($coordinates, 1);
-      right: nth($coordinates, 2);
-      bottom: nth($coordinates, 1);
-      left: nth($coordinates, 2);
+      $top: nth($coordinates, 1);
+      $right: nth($coordinates, 2);
+      
+      @if $top != null {
+        top: $top;
+      }
+      @if $right != null {
+        right: $right;
+      }
     } @else if length($coordinates) == 3 {
-      top: nth($coordinates, 1);
-      right: nth($coordinates, 2);
-      bottom: nth($coordinates, 3);
-      left: nth($coordinates, 2);
+      $top: nth($coordinates, 1);
+      $right: nth($coordinates, 2);
+      $bottom: nth($coordinates, 3);
+      
+      @if $top != null {
+        top: $top;
+      }
+      @if $right != null {
+        right: $right;
+      }
+      @if $bottom != null {
+        bottom: $bottom;
+      }
     } @else if length($coordinates) == 4 {
-      top: nth($coordinates, 1);
-      right: nth($coordinates, 2);
-      bottom: nth($coordinates, 3);
-      left: nth($coordinates, 4);
+      $top: nth($coordinates, 1);
+      $right: nth($coordinates, 2);
+      $bottom: nth($coordinates, 3);
+      $left: nth($coordinates, 4);
+      
+      @if $top != null {
+        top: $top;
+      }
+      @if $right != null {
+        right: $right;
+      }
+      @if $bottom != null {
+        bottom: $bottom;
+      }
+      @if $left != null {
+        left: $left;
+      }
     } @else {
       @warn 'Position coordinates are out of bounds. Properties omitted.';
     }
   } @else {
-    @include chain(top right bottom left, $coordinates);
+    top: $coordinates;
   }
 }
 
