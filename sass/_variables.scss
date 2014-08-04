@@ -41,11 +41,10 @@ $doc-line-height: ceil($doc-font-size * $ratio);
   $modular-scale-value: $doc-font-size $imprt-no; // Ideal text size + Important number
 
 
-  // Grids
-  $gutter-width: 16;
+// Grids
+$gutter-width: 16;
 
-  $doc-gutter: $gutter-width * 1px;
-  $doc-gutter-half: ($gutter-width / 2) * 1px;
+$doc-gutter: $gutter-width * 1px;
 
 
 // Directionality

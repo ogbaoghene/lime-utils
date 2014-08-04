@@ -66,6 +66,7 @@ module.exports = function (grunt) {
                     livereload: '<%= connect.options.livereload %>'
                 },
                 files: [
+                    '<%= config.sass %>/styleguide.md',
                     '<%= config.docs %>/{,*/}*.html',
                     '<%= config.sass %>/**/*.scss'
                 ],
@@ -88,7 +89,7 @@ module.exports = function (grunt) {
                 options: {
                     open: true,
                     base: [
-                        '<%= config.docs %>'
+                        './<%= config.docs %>'
                     ]
                 }
             },
