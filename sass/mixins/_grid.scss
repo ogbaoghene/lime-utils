@@ -35,7 +35,7 @@
 //
 // **Requires** : _variables, _listMap, _remFallback, _flexbox
 //
-// _**Note** : Avoid @extend to allow grid attributes change with media queries. Percentage values recommended for `$cell-width`, `$cell-offset`, and last 2 parameters in `$cell-ordering`._
+// _**Note** : Avoid `@extend` to allow grid attributes change with media queries. Percentage values recommended for `$cell-width`, `$cell-offset`, and last 2 parameters in `$cell-ordering`._
 //
 // Styleguide 2.14
 
