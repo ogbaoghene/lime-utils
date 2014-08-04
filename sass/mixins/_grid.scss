@@ -21,7 +21,14 @@
 //   @include grid-container($grid-layout: vertical);
 //
 //   .example-nested {
-//     @include grid-container($grid-layout: vertical, $nested: true);
+//     @include grid-container($grid-layout: horizontal, $nested: true);
+//   }
+//
+//   .example-cell {
+//     @include grid-cell($cell-width: 57%, $cell-alignment: center, $cell-ordering: 2 auto 20%);
+//   }
+//   .example-cell.is-collapsed {
+//     @include grid-cell($cell-width: 33%, $collapsed: true, $cell-offset: 23%);
 //   }
 // }
 // ```
