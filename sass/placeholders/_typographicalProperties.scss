@@ -1,5 +1,5 @@
 /*------------------------------------*\
-    $TYPOGRAPHICAL PROPERTIES
+  $TYPOGRAPHICAL PROPERTIES
 \*------------------------------------*/
 
 // Typographical Properties
@@ -87,6 +87,10 @@
 
 %text-justify {
   text-align: justify;
+}
+
+%text-inherit {
+  text-align: inherit;
 }
 
 // text-decoration

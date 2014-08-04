@@ -4,62 +4,92 @@
 // 
 // Parameters:
 // ```scss
-// $flex-direction : Establishes the main-axis, row, row-reverse, column, and column-reverse. Predefined as row
-// $flex-wrap : Specify if flex items will all try to fit onto one line or allow the items to wrap as needed, nowrap, wrap, and wrap-reverse. Predefined as nowrap
-// $justify-content : Defines the alignment along the main axis, flex-start, flex-end, center, space-between, and space-around. Predefined as flex-start
-// $align-items : Defines the default behaviour for how flex items are laid out along the cross axis, flex-start, flex-end, center, baseline, and stretch. Predefined as flex-start
-// $align-content: Aligns the lines in a flex container when there is extra space in the cross-axis, flex-start, flex-end, center, space-between, space-around, and stretch. Predefined as flex-start
+// $layout : Establish main-axis, either horizontal or vertical. Predefined as horizontal
+// $alignment : Alignment along main and cross axis. Predefined as default
+// $nowrap : Specify if flex items will all try to fit onto one line. Predefined as null
+// $align-content: Aligns lines in a flex container when there is extra space. Predefined as null
 //
-// $order : Control the order in which flex-items appear. Predefined as null
-// $flex-grow : Defines the ability for a flex item to grow. Predefined as 0
-// $flex-shrink: Defines the ability for a flex item to shrink. Predefined as 1
-// $flex-basis: Defines the default size of an element. Predefined as auto
-// $align-self: Override the default alignment for individual flex items. Predefined as null
+// $flex: Shorthand for flex-grow, flex-shrink and flex-basis. Predefined as auto
+// $order : Control order in which flex-items appear. Predefined as null
+// $align-self: Override default alignment for individual flex items. Predefined as null
 // ```
 // 
 // Usage:
 // ```scss
 // .example {
-//   @include flexbox($justify-content: space-around, $align-items: stretch);
+//   @include flexbox($layout: horizontal, $alignment: space-between stretch);
 //   
 //   .test-child {
-//     @include flexbox-child($flex-grow: 1, $flex-shrink: 1, $align-self: stretch);
+//     @include flexbox-child($flex: 0 0 auto, $align-self: flex-end);
 //   }
+// }
 //   
-//   .test-child-2 {
-//     @include flexbox-child($order: 3, $flex-shrink: 0);
-//   }
+// .example-2 {
+//   @include flexbox($layout: horizontal, $alignment: center, $nowrap: true);
 // }
 // ```
 //
-// **Requires** : _layoutproperties
+// **Requires** : _layoutProperties
 //
 // Styleguide 2.13
 
-@mixin flexbox($flex-direction: row, $flex-wrap: nowrap, $justify-content: flex-start, $align-items: flex-start, $align-content: flex-start) {
+@mixin flexbox($layout: horizontal, $alignment: default, $nowrap: null, $align-content: null) {
   @extend %do-flex;
   
-  @if $flex-direction != row or $flex-wrap != nowrap {
-    flex-flow: $flex-direction $flex-wrap;
+  @if $layout != horizontal and $nowrap != null {
+    flex-flow: column nowrap;
+  } @else if $layout == horizontal and $nowrap != null {
+    flex-flow: row nowrap;
+  } @else if $layout != horizontal and $nowrap == null {
+    flex-flow: column wrap;
+  } @else {
+    flex-flow: row wrap;
   }
-  @if $justify-content != flex-start {
-    justify-content: $justify-content;
+
+  @if $alignment {
+    @if length($alignment) > 1 {
+      $justify: nth($alignment, 1);
+      $align: nth($alignment, 2);
+
+      justify-content: $justify;
+      align-items: $align;
+    } @else if $alignment == center {
+      justify-content: center;
+      align-items: center;
+    } @else if $alignment == end {
+      justify-content: flex-end;
+      align-items: flex-end;
+    } @else if $alignment == start {
+      justify-content: flex-start;
+      align-items: flex-start;
+    } @else {
+      justify-content: flex-start;
+      align-items: stretch;
+    }
   }
-  @if $align-items != flex-start {
-    align-items: $align-items;
-  }
-  @if $align-content != flex-start {
+
+  @if $align-content != null {
     align-content: $align-content;
   }
 }
 
-@mixin flexbox-child($order: null, $flex-grow: 0, $flex-shrink: 1, $flex-basis: auto, $align-self: null) {
+@mixin flexbox-child($flex: auto, $order: null, $align-self: null) {
   @if $order != null {
     order: $order;
   }
-  @if $flex-grow != 0 or $flex-shrink != 1 or $flex-basis != auto {
-    flex: $flex-grow $flex-shrink $flex-basis;
+
+  @if length($flex) > 1 {
+    @if length($flex) < 4 {
+      flex: $flex;
+    } @else {
+      @warn 'Values are out of bounds. Properties omitted.';
+    }
+  } @else if type_of($flex) == number {
+    flex: $flex;
+  } @else {
+    flex: auto;
   }
+
   @if $align-self != null {
     align-self: $align-self;
   }

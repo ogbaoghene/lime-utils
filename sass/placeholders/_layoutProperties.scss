@@ -1,5 +1,5 @@
 /*------------------------------------*\
-    $LAYOUT PROPERTIES
+  $LAYOUT PROPERTIES
 \*------------------------------------*/
 
 // Layout Properties
@@ -13,7 +13,7 @@
   display: block;
 }
 
-%do-inline-block-fix {  
+%do-inline-block-fix {
   display: -moz-inline-stack; // Firefox 2, Wrap everything inside the inline-block element with a <div>.
   display: inline-block;
   zoom: 1; // trigger hasLayout
