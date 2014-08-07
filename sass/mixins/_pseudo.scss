@@ -30,7 +30,7 @@
 // Styleguide 2.15
 
 @mixin pseudo($element, $content: null, $display: null, $position: null) {
-  @if $element == 'before' or $element == 'after' {
+  @if $element == before or $element == after {
     @if $content != null {
       &::#{$element} {
         content: $content;
@@ -42,7 +42,7 @@
         @content;
       }
     }
-  } @else if $element == 'both' {
+  } @else if $element == both {
     @if $content != null {
       &::before,
       &::after {
