@@ -17,13 +17,15 @@
 //     height: 20px;
 //   }
 // }
-
+//
 // .test2 {
 //   @include pseudo($element: after,$content: 'GO!') {
 //     clear: both;
 //   }
 // }
 // ```
+// 
+// **Requires** : _layoutProperties
 // 
 // Adapted from [Team Treehouse](http://blog.teamtreehouse.com/)
 //
@@ -42,6 +44,18 @@
         @content;
       }
     }
+    
+    @if $display != null {
+      &::#{$element} {
+        @extend %do-#{$display};
+      }
+    }
+    
+    @if $position != null {
+      &::#{$element} {
+        @extend %position-#{$position};
+      }
+    }
   } @else if $element == both {
     @if $content != null {
       &::before,
@@ -56,16 +70,20 @@
         @content;
       }
     }
+    
+    @if $display != null {
+      &::#{$element} {
+        @extend %do-#{$display};
+      }
+    }
+    
+    @if $position != null {
+      &::#{$element} {
+        @extend %position-#{$position};
+      }
+    }
   } @else {
     @warn '`#{$element}` is not a valid pseudo-element.';
-  }
-  
-  @if $display != null {
-    @extend %do-#{$display};
-  }
-  
-  @if $position != null {
-    @extend %position-#{$position};
   }
 }
 

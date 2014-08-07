@@ -35,14 +35,15 @@
       color: smart-rgba($color, $percentage);
     }
     color: rgba($color, $percentage);
-  }
-  @if $type == bg {
+  } @else if $type == bg {
     @if $darken != null {
       background-color: dark-smart-rgba($color, $percentage);
     } @else {
       background-color: smart-rgba($color, $percentage);
     }
     background-color: rgba($color, $percentage);
+  } @else {
+    @warn '`#{$type}` must be either `$color` or `$bg`.';
   }
 }
 
