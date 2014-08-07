@@ -1,0 +1,71 @@
+// Pseudo
+//
+// Shorthand for writing &::before, &::after.
+//
+// Parameters:
+// ```scss
+// $element : Pseudo element, before, after, or both
+// $content : Insert generated content. Predefined as null
+// $display : Extend display property placeholder. Predefined as null
+// $position : Extend position property placeholder. Predefined as null
+// ```
+//
+// Usage:
+// ```scss
+// .test {
+//   @include pseudo($element: both, $display: show, $position: absolute) {
+//     height: 20px;
+//   }
+// }
+
+// .test2 {
+//   @include pseudo($element: after,$content: 'GO!') {
+//     clear: both;
+//   }
+// }
+// ```
+// 
+// Adapted from [Team Treehouse](http://blog.teamtreehouse.com/)
+//
+// Styleguide 2.15
+
+@mixin pseudo($element, $content: null, $display: null, $position: null) {
+  @if $element == 'before' or $element == 'after' {
+    @if $content != null {
+      &::#{$element} {
+        content: $content;
+        @content;
+      }
+    } @else {
+      &::#{$element} {
+        content: '';
+        @content;
+      }
+    }
+  } @else if $element == 'both' {
+    @if $content != null {
+      &::before,
+      &::after {
+        content: $content;
+        @content;
+      }
+    } @else {
+      &::before,
+      &::after {
+        content: '';
+        @content;
+      }
+    }
+  } @else {
+    @warn '`#{$element}` is not a valid pseudo-element.';
+  }
+  
+  @if $display != null {
+    @extend %do-#{$display};
+  }
+  
+  @if $position != null {
+    @extend %position-#{$position};
+  }
+}
+
