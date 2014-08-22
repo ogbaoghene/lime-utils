@@ -37,7 +37,7 @@
         top: $top;
       }
       @if $right != null {
-        right: $right;
+        #{list-map($direction, end)}: $right;
       }
     } @else if length($coordinates) == 3 {
       $top: nth($coordinates, 1);
@@ -48,7 +48,7 @@
         top: $top;
       }
       @if $right != null {
-        right: $right;
+        #{list-map($direction, end)}: $right;
       }
       @if $bottom != null {
         bottom: $bottom;
@@ -63,13 +63,13 @@
         top: $top;
       }
       @if $right != null {
-        right: $right;
+        #{list-map($direction, end)}: $right;
       }
       @if $bottom != null {
         bottom: $bottom;
       }
       @if $left != null {
-        left: $left;
+        #{list-map($direction, start)}: $left;
       }
     } @else {
       @warn 'Position coordinates are out of bounds. Properties omitted.';

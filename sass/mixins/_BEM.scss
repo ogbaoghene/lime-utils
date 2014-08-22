@@ -1,0 +1,34 @@
+// BEM
+//
+// Use [BEM](http://bem.info/method/) (Block, Element, Modifier) naming convention.
+//
+// Parameters:
+// ```scss
+// 
+// ```
+//
+// Usage:
+// ```scss
+// 
+// ```
+// 
+// _**Note** : Only works with Sass 3.3_
+// 
+// Adapted from [Sassifaction](https://github.com/sturobson/Sassifaction)
+//
+// Styleguide 2.17
+
+// sub-components or elements get appended with "__" and the $name
+@mixin bem-e($element) {
+  &__#{$element} {
+    @content;
+  }
+}
+
+// modifiers get appended with "--" and the $name
+@mixin bem-m($modifier) {
+  &--#{$modifier} {
+    @content;
+  }
+}
+

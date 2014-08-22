@@ -33,7 +33,7 @@
         #{$property}-top: $top;
       }
       @if $right != null {
-        #{$property}-right: $right;
+        #{$property}-#{list-map($direction, end)}: $right;
       }
     } @else if length($values) == 3 {
       $top: nth($values, 1);
@@ -44,7 +44,7 @@
         #{$property}-top: $top;
       }
       @if $right != null {
-        #{$property}-right: $right;
+        #{$property}-#{list-map($direction, end)}: $right;
       }
       @if $bottom != null {
         #{$property}-bottom: $bottom;
@@ -59,13 +59,13 @@
         #{$property}-top: $top;
       }
       @if $right != null {
-        #{$property}-right: $right;
+        #{$property}-#{list-map($direction, end)}: $right;
       }
       @if $bottom != null {
         #{$property}-bottom: $bottom;
       }
       @if $left != null {
-        #{$property}-left: $left;
+        #{$property}-#{list-map($direction, start)}: $left;
       }
     } @else {
       @warn 'Values are out of bounds. Properties omitted.';
