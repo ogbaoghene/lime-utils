@@ -1,6 +1,6 @@
 {
   "name": "lime-utils",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A library of Sass modules - functions, mixins, placeholders and variables",
   "main": "sass/_limeUtils.scss",
   "moduleType": [
@@ -20,7 +20,6 @@
     "bower_components",
     "test",
     "tests",
-    "_build",
     "_docs",
     "screen.scss",
     "bower.json",

@@ -1,136 +1,98 @@
 module.exports = function (grunt) {
-    require('jit-grunt')(grunt);
+  // Time how long tasks take. Can help when optimizing build times
+  require('time-grunt')(grunt);
 
-    // Project configuration.
-    grunt.initConfig({
-        pkg: grunt.file.readJSON('package.json'),
+  // Autoload grunt plugins
+  require('jit-grunt')(grunt);
 
-        // Project settings
-        config: {
-            // Configurable paths
-            docs: '_docs',
-            build: '_build',
-            sass: 'sass',
-            src: 'screen.scss',
-            dist: 'screen.css',
-            dev: 'style.css'
+  // Configurable paths
+  var config = {
+    dev: 'sass',
+    docs: '_docs'
+  };
+
+  // Define the configuration for all the tasks
+  grunt.initConfig({
+
+    // Project settings
+    config: config,
+
+    // Watches files for changes and runs tasks based on the changed files
+    watch: {
+      gruntfile: {
+        files: ['Gruntfile.js']
+      },
+      styleguide: {
+        files: ['<%= config.dev %>/**/*.{scss,sass}', '<%= config.dev %>/sass/styleguide.md'],
+        tasks: ['styleguide']
+      },
+      livereload: {
+        options: {
+          livereload: '<%= connect.options.livereload %>'
         },
+        files: [
+          '<%= config.docs %>/{,*/}*.html'
+        ]
+      }
+    },
 
-        // 1
-        clean: {
-      		dist: {
-    		    src: ['<%= config.build %>/**/*']
-      		},
-            docs: {
-                src: ['<%= config.docs %>/**/*']
-            }
-    	},
+    // The actual grunt server settings
+    connect: {
+      options: {
+        port: 9001,
+        open: true,
+        livereload: 35729,
+        hostname: 'localhost'
+      },
+      livereload: {
+        options: {
+          base: ['<%= config.docs %>']
+        }
+      }
+    },
 
-        // 2
-      	sass: {
-            dist: {
-                options: {
-                    outputStyle: 'compressed'
-                },
-                files: {
-                    '<%= config.build %>/css/<%= config.dist %>': '<%= config.sass %>/<%= config.src %>'
-                }
-            },
-            docs: {
-                options: {
-                    sourceMap: true
-                },
-                files: {
-                    '<%= config.docs %>/public/<%= config.dev %>': '<%= config.sass %>/<%= config.src %>'
-                }
-            }
-        },
+    // Empties folders to start fresh
+    clean: {
+      docs: {
+        src: ['<%= config.docs %>/*']
+      }
+    },
 
-        // 3
-        autoprefixer: {
-            options: {
-                browsers: ['last 3 versions', '> 1%', 'ie 8', 'ie 7']
-            },
-            no_dest_dist: {
-                src: '<%= config.build %>/**/<%= config.dist %>'
-            },
-            no_dest_docs: {
-                src: '<%= config.docs %>/**/<%= config.dev %>'
-            }
-        },
+    // Generate a styleguide
+    styleguide: {
+      options: {
+        //template: {
+          //src: 'docs/styleguide-template'
+        //},
+        framework: {
+          name: 'kss'
+        }
+      },
+      all: {
+        files: [{
+         '<%= config.docs %>': '<%= config.dev %>/screen.scss'
+        }]
+      }
+    }
 
-        // 4
-    	watch: {
-            livereload: {
-                options: {
-                    livereload: '<%= connect.options.livereload %>'
-                },
-                files: [
-                    '<%= config.sass %>/styleguide.md',
-                    '<%= config.docs %>/{,*/}*.html',
-                    '<%= config.sass %>/**/*.scss'
-                ],
-                tasks: [
-                    'styleguide',
-                    'sass:docs',
-                    'autoprefixer:no_dest_docs'
-                ]
-            }
-        },
+  });
 
-        // 5
-        connect: {
-            options: {
-                port: 9001,
-                livereload: 35729,
-                hostname: 'localhost'
-            },
-            livereload: {
-                options: {
-                    open: true,
-                    base: [
-                        './<%= config.docs %>'
-                    ]
-                }
-            },
-        },
 
-        // 6
-        styleguide: {
-            options: {
-                //template: {
-                    //src: 'docs/styleguide-template'
-                //},
-                framework: {
-                    name: 'kss'
-                }
-            },
-            all: {
-        		files: [{
-        	       '<%= config.docs %>': '<%= config.sass %>/<%= config.src %>'
-           	    }]
-      		}
-        },
-        
-    });
+  grunt.registerTask('docs', 'generate KSS styleguide', [
+    'clean:docs',
+    'styleguide',
+  ]);
 
-    // Create the 'purge' task
-    grunt.registerTask('purge', ['clean:dist', 'clean:docs']);
+  grunt.registerTask('serve', 'start the server and preview the styleguide', function (target) {
+    grunt.task.run([
+      'docs',
+      'connect:livereload',
+      'watch'
+    ]);
+  });
 
-    // Create the 'deploy' task
-    grunt.registerTask('deploy', ['clean:dist', 'sass:dist', 'autoprefixer:no_dest_dist']);
+  grunt.registerTask('default', [
+    'serve'
+  ]);
 
-    // Create the `doc` task
-    grunt.registerTask('doc', ['clean:docs', 'styleguide', 'sass:docs', 'autoprefixer:no_dest_docs']);
-
-    // Creates the `serve` task
-    grunt.registerTask('serve', function (target) {
-        grunt.task.run([
-            'doc',
-            'connect:livereload',
-            'watch'
-        ]);
-    });
-
-    grunt.registerTask('default', ['serve']);
 };

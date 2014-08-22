@@ -214,7 +214,5 @@ pip-log.txt
 #Mr Developer
 .mr.developer.cfg
 node_modules
-_build
-.sass-cache
 _docs
 sass/screen.scss

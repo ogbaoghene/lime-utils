@@ -4,12 +4,23 @@
 //
 // Parameters:
 // ```scss
-// 
+// $element : BEM element name
+// $modifier: BEM modifier name
 // ```
 //
 // Usage:
 // ```scss
-// 
+// .block {
+//   display: block;
+//  
+//   @include bem-e(element) {
+//     float: left;
+//   }
+//  
+//   @include bem-m(modifier) {
+//     color: red;
+//   }
+// }
 // ```
 // 
 // _**Note** : Only works with Sass 3.3_
