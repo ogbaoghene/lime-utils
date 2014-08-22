@@ -1,56 +1,46 @@
 // Hover, Active, Focus
 //
-// Shorthand for writing &:hover, &:active, &:focus.
-// 
+// Group &:hover, &:active, &:focus.
+//
 // Parameters:
 // ```scss
-// $hover : Indicates if the ruleset is for the element's hover state. Predefined as null
-// $active : Indicates if the ruleset is for the element's active state. Predefined as null
-// $focus : Indicates if the ruleset is for the element's focus state. Predefined as null
+// $state: Specify combination, either no-hover, no-active, or no-focus. Predefined as all
 // ```
 // 
 // Usage:
 // ```scss
 // .example {
 //   text-decoration: none;
-// 
-//   @include hover-active-focus() {
-//     cursor: pointer;
-//   }
 //   
-//   @include hover-active-focus($hover: true) {
+//   @include hover-active-focus(no-active) {
 //     text-decoration: underline;
+//   }
+//
+//   @include hover-active-focus(no-hover) {
+//     outline: 5px dashed pink;
+//   }
+// 
+//   @include hover-active-focus {
+//     cursor: pointer;
 //   }
 // }
 // ```
 //
 // Styleguide 2.9
 
-@mixin hover-active-focus($hover: null, $active: null, $focus: null) {
-  @if $hover != null and $active != null {
+@mixin hover-active-focus($state: all) {
+  @if $state == no-focus {
     &:hover,
     &:active {
       @content;
     }
-  } @else if $active != null and $focus != null {
+  } @else if $state == no-hover {
     &:active,
     &:focus {
       @content;
     }
-  } @else if $hover != null and $focus != null {
+  } @else if $state == no-active {
     &:hover,
-    &:focus {
-      @content;
-    }
-  } @else if $hover != null {
-    &:hover {
-      @content;
-    }
-  } @else if $active != null {
-    &:active {
-      @content;
-    }
-  } @else if $focus != null {
     &:focus {
       @content;
     }

@@ -14,10 +14,12 @@
 }
 
 %do-inline-block-fix {
-  display: -moz-inline-stack; // Firefox 2, Wrap everything inside the inline-block element with a <div>.
   display: inline-block;
-  zoom: 1; // trigger hasLayout
-  *display: inline; // IE 7
+
+  .lt-ie8 & {
+    zoom: 1; // trigger hasLayout
+    *display: inline; // IE 7
+  }
 }
 
 %do-table {

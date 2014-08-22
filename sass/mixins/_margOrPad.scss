@@ -4,7 +4,7 @@
 // 
 // Parameters:
 // ```scss
-// $margin-or-padding: Margin or padding
+// $property : Margin or padding
 // $values : Values, top, right, bottom, and left
 // ```
 // 
@@ -23,17 +23,17 @@
 //
 // Styleguide 2.11
 
-@mixin marg-or-pad($margin-or-padding, $values) {
+@mixin marg-or-pad($property, $values) {
   @if length($values) != 1 {
     @if length($values) == 2 {
       $top: nth($values, 1);
       $right: nth($values, 2);
       
       @if $top != null {
-        #{$margin-or-padding}-top: $top;
+        #{$property}-top: $top;
       }
       @if $right != null {
-        #{$margin-or-padding}-right: $right;
+        #{$property}-right: $right;
       }
     } @else if length($values) == 3 {
       $top: nth($values, 1);
@@ -41,13 +41,13 @@
       $bottom: nth($values, 3);
       
       @if $top != null {
-        #{$margin-or-padding}-top: $top;
+        #{$property}-top: $top;
       }
       @if $right != null {
-        #{$margin-or-padding}-right: $right;
+        #{$property}-right: $right;
       }
       @if $bottom != null {
-        #{$margin-or-padding}-bottom: $bottom;
+        #{$property}-bottom: $bottom;
       }
     } @else if length($values) == 4 {
       $top: nth($values, 1);
@@ -56,16 +56,16 @@
       $left: nth($values, 4);
       
       @if $top != null {
-        #{$margin-or-padding}-top: $top;
+        #{$property}-top: $top;
       }
       @if $right != null {
-        #{$margin-or-padding}-right: $right;
+        #{$property}-right: $right;
       }
       @if $bottom != null {
-        #{$margin-or-padding}-bottom: $bottom;
+        #{$property}-bottom: $bottom;
       }
       @if $left != null {
-        #{$margin-or-padding}-left: $left;
+        #{$property}-left: $left;
       }
     } @else {
       @warn 'Values are out of bounds. Properties omitted.';

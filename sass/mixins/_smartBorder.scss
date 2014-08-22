@@ -4,8 +4,8 @@
 // 
 // Parameters:
 // ```scss
-// $style : Extends border-style placeholders, dotted, dashed, solid, double, none
 // $width : Border-width
+// $style : Extends border-style placeholders, dotted, dashed, solid, double, none
 // $position : Border-position. Predefined as null
 // $color : Border-color. Predefined as null
 // ```
@@ -29,54 +29,30 @@
 //
 // Styleguide 2.12
 
-@mixin smart-border($style, $width, $position: null, $color: null) {
-  @extend %border-#{$style};
-  
+@mixin smart-border($width, $style, $position: null, $color: null) {
   @if $position != null {
     @if length($position) != 1 {
       @if length($position) == 2 {
-        @if $color != null {
-          border-color: $color;
-          border-#{nth($position, 1)}-width: $width;
-          border-#{nth($position, 2)}-width: $width;
-        } @else {
-          border-#{nth($position, 1)}-width: $width;
-          border-#{nth($position, 2)}-width: $width;
-        }
+        border-#{nth($position, 1)}: $width $style $color;
+        border-#{nth($position, 2)}: $width $style $color;
       }@else if length($position) == 3 {
-        @if $color != null {
-          border-color: $color;
-          border-#{nth($position, 1)}-width: $width;
-          border-#{nth($position, 2)}-width: $width;
-          border-#{nth($position, 3)}-width: $width;
-        } @else {
-          border-#{nth($position, 1)}-width: $width;
-          border-#{nth($position, 2)}-width: $width;
-          border-#{nth($position, 3)}-width: $width;
-        }
-      }@else if length($position) == 4 {
-        @if $color != null {
-          border-color: $color;
-          border-#{nth($position, 1)}-width: $width;
-          border-#{nth($position, 2)}-width: $width;
-          border-#{nth($position, 3)}-width: $width;
-          border-#{nth($position, 4)}-width: $width;
-        } @else {
-          border-#{nth($position, 1)}-width: $width;
-          border-#{nth($position, 2)}-width: $width;
-          border-#{nth($position, 3)}-width: $width;
-          border-#{nth($position, 4)}-width: $width;
-        }
+        border-#{nth($position, 1)}: $width $style $color;
+        border-#{nth($position, 2)}: $width $style $color;
+        border-#{nth($position, 3)}: $width $style $color;
+      } @else if length($position) == 4 {
+        border-#{nth($position, 1)}: $width $style $color;
+        border-#{nth($position, 2)}: $width $style $color;
+        border-#{nth($position, 3)}: $width $style $color;
+        border-#{nth($position, 4)}: $width $style $color;
       } @else {
         @warn 'Values are out of bounds. Properties omitted.';
       }
-    } @else if $color != null {
-      border-color: $color;
-      border-#{$position}-width: $width;
     } @else {
-      border-#{$position}-width: $width;
+      border-#{$position}: $width $style $color;
     }
   } @else {
+    @extend %border-#{$style};
+    
     @if $color != null {
       border-color: $color;
       border-width: $width;

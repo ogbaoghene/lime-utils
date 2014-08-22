@@ -1,6 +1,6 @@
 // Pseudo
 //
-// Shorthand for writing &::before, &::after.
+// Shorthand for writing &:before, &:after.
 //
 // Parameters:
 // ```scss
@@ -34,51 +34,51 @@
 @mixin pseudo($element, $content: null, $display: null, $position: null) {
   @if $element == before or $element == after {
     @if $content != null {
-      &::#{$element} {
+      &:#{$element} {
         content: $content;
         @content;
       }
     } @else {
-      &::#{$element} {
+      &:#{$element} {
         content: '';
         @content;
       }
     }
     
     @if $display != null {
-      &::#{$element} {
+      &:#{$element} {
         @extend %do-#{$display};
       }
     }
     
     @if $position != null {
-      &::#{$element} {
+      &:#{$element} {
         @extend %position-#{$position};
       }
     }
   } @else if $element == both {
     @if $content != null {
-      &::before,
-      &::after {
+      &:before,
+      &:after {
         content: $content;
         @content;
       }
     } @else {
-      &::before,
-      &::after {
+      &:before,
+      &:after {
         content: '';
         @content;
       }
     }
     
     @if $display != null {
-      &::#{$element} {
+      &:#{$element} {
         @extend %do-#{$display};
       }
     }
     
     @if $position != null {
-      &::#{$element} {
+      &:#{$element} {
         @extend %position-#{$position};
       }
     }

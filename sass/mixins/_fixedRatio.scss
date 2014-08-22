@@ -5,7 +5,7 @@
 // Parameters:
 // ```scss
 // $ratio : Aspect ratio
-// $type : wrap(centered child element) or crop(cropped child element). Predefined as default(background-image)
+// $type : wrap or crop. Predefined as default
 // ```
 //
 // Usage:
@@ -33,10 +33,12 @@
   
   @include pseudo($element: before, $display: show) {
     height: 0;
+    
     @include calc($property: padding-top, $expression: "1 / #{$ratio} * 100%", $default: #{(1 / $ratio) * 100%});
   }
   
   @if $type == wrap {
+    // centered child element
     &__wrap {
       @extend %position-absolute;
     
@@ -44,6 +46,7 @@
       @include chain(max-width max-height, 100%);
     }
   } @else if $type == crop {
+    // cropped child element
     &__wrap {
       @extend %position-absolute;
     
@@ -58,9 +61,12 @@
       }
     }
   } @else {
-    background-position: 50%;
-    background-repeat: no-repeat;
-    background-size: cover;
+    // background-image
+    background: {
+      position: 50%;
+      repeat: no-repeat;
+      size: cover;
+    }
   }
 }
 

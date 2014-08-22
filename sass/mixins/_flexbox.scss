@@ -4,14 +4,14 @@
 // 
 // Parameters:
 // ```scss
-// $layout : Establish main-axis, either horizontal or vertical. Predefined as horizontal
-// $alignment : Alignment along main and cross axis. Predefined as default
-// $nowrap : Specify if flex items will all try to fit onto one line. Predefined as null
-// $align-content: Aligns lines in a flex container when there is extra space. Predefined as null
+// $layout : Establish main-axis, either horizontal or vertical.
+// $nowrap : Flex items will try to fit onto one line. Predefined as null
+// $alignment : Define alignment along the main and cross axis. Predefined as default
+// $align-content: Align lines in flex container when there is extra space. Predefined as null
 //
 // $flex: Shorthand for flex-grow, flex-shrink and flex-basis. Predefined as auto
-// $order : Control order in which flex-items appear. Predefined as null
-// $align-self: Override default alignment for individual flex items. Predefined as null
+// $order : Order flex-items. Predefined as null
+// $align-self: Override default alignment of individual flex items. Predefined as null
 // ```
 // 
 // Usage:
@@ -33,20 +33,22 @@
 //
 // Styleguide 2.13
 
-@mixin flexbox($layout: horizontal, $alignment: default, $nowrap: null, $align-content: null) {
+@mixin flexbox($layout, $nowrap: null, $alignment: default, $align-content: null) {
   @extend %do-flex;
   
-  @if $layout != horizontal and $nowrap != null {
-    flex-flow: column nowrap;
-  } @else if $layout == horizontal and $nowrap != null {
+  @if $layout == horizontal and $nowrap != null {
     flex-flow: row nowrap;
-  } @else if $layout != horizontal and $nowrap == null {
+  } @else if $layout == horizontal and $nowrap == null {
+    flex-flow: row wrap;
+  } @else if $layout == vertical and $nowrap != null {
+    flex-flow: column nowrap;
+  } @else if $layout == vertical and $nowrap == null {
     flex-flow: column wrap;
   } @else {
-    flex-flow: row wrap;
+    @warn 'Flexbox layout is required.';
   }
 
-  @if $alignment {
+  @if $alignment != default {
     @if length($alignment) > 1 {
       $justify: nth($alignment, 1);
       $align: nth($alignment, 2);
@@ -63,9 +65,11 @@
       justify-content: flex-start;
       align-items: flex-start;
     } @else {
-      justify-content: flex-start;
-      align-items: stretch;
+      @warn '`#{$alignment}` is not a valid option. Properties omitted.';
     }
+  } @else {
+    justify-content: flex-start;
+    align-items: stretch;
   }
 
   @if $align-content != null {
@@ -74,22 +78,18 @@
 }
 
 @mixin flexbox-child($flex: auto, $order: null, $align-self: null) {
+  @if $flex == auto or $flex == none {
+    flex: $flex;
+  } @else if length($flex) > 1 and length($flex) < 4 {
+    flex: $flex;
+  } @else {
+    @warn 'Values are out of bounds. Properties omitted.';
+  }
+  
   @if $order != null {
     order: $order;
   }
-
-  @if length($flex) > 1 {
-    @if length($flex) < 4 {
-      flex: $flex;
-    } @else {
-      @warn 'Values are out of bounds. Properties omitted.';
-    }
-  } @else if type_of($flex) == number {
-    flex: $flex;
-  } @else {
-    flex: auto;
-  }
-
+  
   @if $align-self != null {
     align-self: $align-self;
   }
