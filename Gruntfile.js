@@ -26,6 +26,10 @@ module.exports = function (grunt) {
         files: ['<%= config.dev %>/**/*.{scss,sass}', '<%= config.dev %>/sass/styleguide.md'],
         tasks: ['styleguide']
       },
+      sass: {
+        files: ['<%= config.dev %>/**/*.{scss,sass}'],
+        tasks: ['sass:build']
+      },
       livereload: {
         options: {
           livereload: '<%= connect.options.livereload %>'
@@ -50,6 +54,18 @@ module.exports = function (grunt) {
         }
       }
     },
+
+    // Compiles Sass to CSS and generates necessary files if requested
+    sass: {
+      options: {
+        sourceMap: false,
+        },
+      build: {
+        files: {
+          '<%= config.docs %>/public/style.css': '<%= config.dev %>/screen.scss'
+        }
+      },
+    }, 
 
     // Empties folders to start fresh
     clean: {
