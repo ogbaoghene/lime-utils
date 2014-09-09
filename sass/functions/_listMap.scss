@@ -17,7 +17,7 @@
 //
 // _**Note** : Key/value pairs in Maps are parenthesized and separated by comma to convert them to lists, e.g. $type: ((heading, $bold),(subheading, $normal),(body, $normal),(bold, $bold),);.
 //
-// Styleguide 1.9
+// Styleguide 1.8
 
 @function list-map($map, $map-key) {
   @each $val in $map {

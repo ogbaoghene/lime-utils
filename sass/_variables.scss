@@ -131,7 +131,8 @@ $line-height: (
 
 // Z-index
 $z: (
-  (depth-0, 1),
+  (depth-0, 0),
+  (depth-1, 1),
   (depth-2, 2),
   (depth-3, 3),
   (depth-4, 4),

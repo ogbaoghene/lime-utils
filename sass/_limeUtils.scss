@@ -11,7 +11,6 @@
 @import 'functions/tint';
 @import 'functions/monotonePalette';
 @import 'functions/modularScale';
-@import 'functions/smartrgba';
 @import 'functions/listMap';
 
 
@@ -37,6 +36,7 @@
 @import 'mixins/grid';
 @import 'mixins/pseudo';
 @import 'mixins/fixedRatio';
+// @import 'mixins/BEM';
 
 
 // Placeholders

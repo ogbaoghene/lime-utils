@@ -70,6 +70,10 @@
   font-style: italic;
 }
 
+%normal {
+  font-style: normal;
+}
+
 // text-align
 %text-start {
   text-align: list-map($direction, start); // as backup

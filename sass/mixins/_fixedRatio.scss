@@ -4,8 +4,8 @@
 //
 // Parameters:
 // ```scss
-// $ratio : Aspect ratio
-// $type : wrap or crop. Predefined as default
+// $ratio : aspect ratio
+// $type : wrap or crop. Defaults to `default`
 // ```
 //
 // Usage:
@@ -27,7 +27,7 @@
 //
 // Styleguide 2.16
 
-@mixin fixed-ratio($ratio, $type: default) {
+@mixin fixed-ratio($ratio, $type: default, $crop-dir: null) {
   @extend %overflow-hidden;
   @extend %position-relative;
   
@@ -38,22 +38,36 @@
   }
   
   @if $type == wrap {
-    // centered child element
+    // centered child element    
     &__wrap {
-      @extend %position-absolute;
+      @extend %trbl-0;
+      @extend %margin-auto;
     
-      @include chain(top right bottom left, 0);
       @include chain(max-width max-height, 100%);
     }
   } @else if $type == crop {
     // cropped child element
     &__wrap {
       @extend %position-absolute;
+      @extend %margin-auto;
     
       @include chain(top right bottom left, -9999em);
-      @include chain(max-width max-height, none);
       
-      .flexbox & {
+      @if $crop-dir == height {
+        max-height: none;
+        max-width: 100%;
+      } @else if $crop-dir == width {
+        max-height: 100%;
+        max-width: none;
+      } @else {
+        @include chain(max-width max-height, none);
+      }
+    }
+    
+    .csstransforms & {
+      transform-style: preserve-3d;
+      
+      &__wrap {
         transform: translate(-50%, -50%);
         
         @include chain(top left, 50%);
@@ -61,6 +75,8 @@
       }
     }
   } @else {
+    @extend %margin-auto;
+    
     // background-image
     background: {
       position: 50%;

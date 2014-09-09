@@ -5,9 +5,9 @@
 // Parameters:
 // ```scss
 // $break-point : Media query breakpoint, unitless value
-// $ie9 : Includes the IE9 conditional class. Predefined as null
-// $query1 : Prefix for media features, min, max, min-device or max-device. Predefined as min
-// $query2 : Media features, width or height. Predefined as width
+// $ie9 : Includes the IE9 conditional class. Optional
+// $query1 : Prefix for media features, min, max, min-device or max-device. Defaults to `min`
+// $query2 : Media features, width or height. Defaults to `width`
 // ```
 // 
 // Usage:

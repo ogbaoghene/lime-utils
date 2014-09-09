@@ -30,6 +30,10 @@
   margin: 0;
 }
 
+%margin-auto {
+  margin: auto;
+}
+
 %marg-base-spacing {
   @include rem-fallback((
     (margin-bottom, $btm-marg),
