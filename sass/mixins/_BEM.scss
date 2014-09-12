@@ -38,7 +38,9 @@
 
 // modifiers get appended with "--" and the $name
 @mixin bem-m($modifier) {
-  &--#{$modifier} {
+  // &--#{$modifier} {
+  $className: "--" + $modifier;
+  &#{$className} {
     @content;
   }
 }
