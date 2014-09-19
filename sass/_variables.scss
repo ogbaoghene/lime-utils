@@ -31,7 +31,7 @@ $ratio: $golden;
 // Type
 $base-font-size: 16;// Default font size on html element is 100%, equivalent to 16px;
 $doc-font-size: 16; // Font size on body element
-$doc-line-height: ceil($doc-font-size * $ratio);
+$doc-line-height: $ratio;
 
 
   // Modular Scale
@@ -111,7 +111,7 @@ $font-size: (
 
 
 // Vertical Rhythm
-$btm-marg: $doc-line-height * 1px;
+$btm-marg: ceil($doc-font-size * $ratio) * 1px;
 
 
 // Line-height
@@ -142,17 +142,17 @@ $z: (
 
 // Breakpoints
 $breakpoints: (
-  (very-small, 320),
-  (small, 480),
-  (goldilocks, 528),
-  (baby-bear, 768),
-  (standard, 980),
-  (mama-bear, 1080),
-  (papa-bear, 1280),
-  (large, 1366),
-  (desktop, 1440),
-  (very-large, 1600),
-  (extra-large, 1760),
-  (widescreen, 1920),
+  (very-small, 320px),
+  (small, 480px),
+  (goldilocks, 528px),
+  (baby-bear, 768px),
+  (standard, 980px),
+  (mama-bear, 1080px),
+  (papa-bear, 1280px),
+  (large, 1366px),
+  (desktop, 1440px),
+  (very-large, 1600px),
+  (extra-large, 1760px),
+  (widescreen, 1920px),
 );
 

@@ -24,17 +24,19 @@
 // Styleguide 2.6
 
 @mixin media-query($break-point, $ie9: null, $query1: min, $query2: width) {
+  $bp: px-to-em($break-point, $context: $base-font-size);
+  
   @if $ie9 != null {
     .lt-ie9 & {
       @content;
     }
       
     // Default font size on html element is 100%, equivalent to 16px;
-    @media screen and (#{$query1}-#{$query2}: ($break-point / $base-font-size) +em) {
+    @media screen and (#{$query1}-#{$query2}: $bp) {
       @content;
     }
   } @else {
-    @media screen and (#{$query1}-#{$query2}: ($break-point / $base-font-size) +em) {
+    @media screen and (#{$query1}-#{$query2}: $bp) {
       @content;
     }
   }

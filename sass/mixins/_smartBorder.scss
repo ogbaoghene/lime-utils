@@ -13,15 +13,15 @@
 // Usage:
 // ```scss
 // .example {
-//   @include smart-border(dotted, $width: 5px);
+//   @include smart-border(5px, $style: dotted);
 // }
 //
 // .example-2 {
-//   @include smart-border(solid, $width: 5px, $position: bottom);
+//   @include smart-border(5px, $style: solid, $position: bottom);
 // }
 //
 // .example-3 {
-//   @include smart-border(dotted, $width: 5px, $position: top left, $color: red);
+//   @include smart-border(5px, $style: dotted, $position: top left, $color: red);
 // }
 // ```
 //

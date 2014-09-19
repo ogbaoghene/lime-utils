@@ -1,6 +1,6 @@
-/*------------------------------------*\
+/*--------------------------------------------------------------
   $BOX PROPERTIES
-\*------------------------------------*/
+--------------------------------------------------------------*/
 
 // Box Properties
 //
@@ -26,7 +26,7 @@
 }
 
 // Margins
-%marg-reset {
+%margin-reset {
   margin: 0;
 }
 
@@ -34,22 +34,22 @@
   margin: auto;
 }
 
-%marg-base-spacing {
+%margin-base-spacing {
   @include rem-fallback((
     (margin-bottom, $btm-marg),
   )); // Forced to use Rem because of context change
 }
 
-%marg-center-block {
+%margin-center-block {
   @include chain(margin-right margin-left, auto);
 }
 
 // Paddings
-%pad-reset {
+%padding-reset {
   padding: 0;
 }
 
-%pad-gutter {
+%padding-gutter {
   @include rem-fallback((
     (padding-right, $doc-gutter),
     (padding-left, $doc-gutter),

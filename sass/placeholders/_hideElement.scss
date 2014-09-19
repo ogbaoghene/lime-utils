@@ -1,6 +1,6 @@
-/*------------------------------------*\
+/*--------------------------------------------------------------
   $HIDE ELEMENT
-\*------------------------------------*/
+--------------------------------------------------------------*/
 
 // Hide ELement
 //
@@ -25,7 +25,7 @@
 %hide-visually {
   @extend %position-absolute;
   @extend %overflow-hidden;
-  @extend %pad-reset;
+  @extend %padding-reset;
   @extend %border-none;
 
   clip: rect(0 0 0 0);
@@ -41,7 +41,7 @@
     @extend %hide-visually;
     @extend %height-auto;
     @extend %width-auto;
-    @extend %marg-reset;
+    @extend %margin-reset;
     @extend %overflow-visible;
   
     clip: auto;
