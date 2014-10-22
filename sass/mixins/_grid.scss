@@ -4,29 +4,25 @@
 //
 // Parameters:
 // ```scss
-// $grid-layout : Establish main-axis, either horizontal or vertical.
-// $grid-alignment : Define horizontal alignment of cells, either default, end or center. Defaults to `default`
-// $nested : Specify if grid container is nested within a grid cell. Optional
+// $grid-alignment  : Define horizontal alignment of cells, either default, end or center. Defaults to default
+// $nested          : Specify if grid container is nested within a grid cell. Optional
 //
-// $cell-width : Width of cell
-// $collapsed : Specify if grid cell is without gutter. Optional
-// $cell-alignment : Vertical alignment of grid cell, either default, end or center. Optional 
-// $cell-offset : Cell offset. Optional 
-// $cell-ordering : Cell order, first parameter is the flexbox order property. Optional
+// $cell-width      : Width of cell
+// $collapsed       : Specify if grid cell is without gutter. Optional
+// $cell-alignment  : Vertical alignment of grid cell, either default, end or center. Optional 
+// $cell-offset     : Cell offset. Optional 
+// $cell-ordering   : Cell order, first parameter is the flexbox order property. Optional
 // ```
 //
 // Usage:
 // ```scss
-// .example {
-//   @include grid-container($grid-layout: vertical);
-//
-//   .example-nested {
-//     @include grid-container($grid-layout: horizontal, $nested: true);
-//   }
+// .example-nested {
+//   @include grid-container($grid-layout: horizontal, $nested: true);
 //
 //   .example-cell {
 //     @include grid-cell($cell-width: 57%, $cell-alignment: center, $cell-ordering: 2 auto 20%);
 //   }
+//   
 //   .example-cell.is-collapsed {
 //     @include grid-cell($cell-width: 33%, $collapsed: true, $cell-offset: 23%);
 //   }
@@ -39,7 +35,7 @@
 //
 // Styleguide 2.14
 
-@mixin grid-container($grid-layout, $grid-alignment: default, $nested: null) {
+@mixin grid-container($grid-alignment: default, $nested: null) {
   letter-spacing: -.31em; // YUI3 grid fix for safari
 
   @if $grid-alignment != default {
@@ -58,16 +54,9 @@
   
   .flexbox & {
     display: flex;
+    flex-flow: row wrap;
     letter-spacing: normal;
     text-align: inherit;
-    
-    @if $grid-layout == horizontal {
-      flex-flow: row wrap;
-    } @else if $grid-layout == vertical {
-      flex-flow: column wrap;
-    } @else {
-      @warn '`#{$grid-layout}` is not a valid option. Properties omitted';
-    }
     
     @if $grid-alignment != default {
       @if $grid-alignment == center {

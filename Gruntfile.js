@@ -8,7 +8,7 @@ module.exports = function (grunt) {
   // Configurable paths
   var config = {
     dev: 'sass',
-    docs: '_docs'
+    docs: 'docs'
   };
 
   // Define the configuration for all the tasks

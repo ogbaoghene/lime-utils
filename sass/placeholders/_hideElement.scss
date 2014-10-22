@@ -5,6 +5,13 @@
 // Hide ELement
 //
 // Various techniques for hiding elements.
+// 
+// Placeholders:
+// ```text
+// Hide text off screen
+// Hide only visually, but have it available for screenreaders
+// Extend %hide-element-visually, while allowing the element to be focusable when navigated to via the keyboard
+// ```
 //
 // _Tested : IE6-9, Firefox, Chrome, Safari_
 //
@@ -34,7 +41,7 @@
   width: 1px;
 }
 
-// Extends %hide-element-visually to allow the element to be focusable when navigated to via the keyboard
+// Extend %hide-element-visually, while allowing the element to be focusable when navigated to via the keyboard
 %hide-visually-focusable {
   @include hover-active-focus($state: no-hover) {
     @extend %position-static;

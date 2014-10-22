@@ -4,8 +4,8 @@
 //
 // Parameters:
 // ```scss
-// $values : Number in px
-// $context : Base font size, in em or px. Predefined as `$doc-font-size`
+// $values  : Number in px
+// $context : Base font size, in em or px. Predefined as $doc-font-size
 // ```
 // 
 // Usage:
@@ -40,7 +40,7 @@
       $list: append($list, $value);
     }
   }
-  // return a single value instead of a list,
+  // Return a single value instead of a list,
   // so it can be used in calculations
   @if length($list) == 1 {
     @return nth($list, 1);

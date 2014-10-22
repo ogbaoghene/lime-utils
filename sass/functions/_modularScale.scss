@@ -4,18 +4,18 @@
 //
 // Parameters:
 // ```scss
-// $increment : Integer for an increment value
-// $round: Determine approximation of result. Predefined as null
-// $value : Significant base number, can be combined with another number to create a double stranded modular scale. Predefined as `$msValue`
-// $ratio : Value by which the base value is exponentially multiplied and divided. Predefined as `$msRatio`
+// $increment : Integer for increment value
+// $round     : Approximation of result. Optional
+// $value     : Significant base number, can be combined with another number to create a double stranded modular scale. Predefined as $msValue
+// $ratio     : Value by which the base value is exponentially multiplied and divided. Predefined as $msRatio
 // ```
 // 
 // Usage:
 // ```scss
 // .example {
-//   // Increment Up Modular Scale with positive value
+//   // Increment up Modular Scale with positive value
 //   font-size: modular-scale(1); // returns: 16.534
-//   // Increment Down Modular Scale with negative value
+//   // Increment down Modular Scale with negative value
 //   font-size: modular-scale(-1); // returns: 10.219
 //   // Can be used with ceil(round up) or floor(round down)
 //   font-size: modular-scale(1, floor); // returns: 16

@@ -5,6 +5,18 @@
 // Layout Properties
 //
 // Control visibility, position, and behavior of the generated boxes for document elements.
+// 
+// Properties:
+// ```css
+// Display
+// Position
+// Float
+// Clear
+// Visibility
+// Position Coordinates
+// z-index
+// Overflow
+// ```
 //
 // Styleguide 3.2
 
@@ -86,22 +98,16 @@
   visibility: hidden;
 }
 
-// Top, right, bottom, left
-%trbl-0 {
-  @extend %position-absolute;
-  
+// Position Coordinates
+%coord-0 {  
   @include chain(top right bottom left, 0);
 }
 
-%trbl-top-bottom-0 {
-  @extend %position-absolute;
-  
+%coord-top-bottom {
   @include chain(top bottom, 0);
 }
 
-%trbl-right-left-0 {
-  @extend %position-absolute;
-  
+%coord-right-left {
   @include chain(right left, 0);
 }
 

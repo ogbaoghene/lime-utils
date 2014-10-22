@@ -1,0 +1,103 @@
+// To encourage clarity, use a two-tier system where applicable. Define descriptive variables with actual values, then assign functional variables to those descriptive variables.
+
+$ratio: 1.618; // The Golden ratio
+
+
+// Type
+$base-font-size: 16;// Default font size on html element is 100%, equivalent to 16px;
+$doc-font-size: 16; // Font size on body element
+
+
+// Modular Scale
+$imprt-no: 528; // Gldilocks approach
+
+$modular-scale-ratio: $ratio;
+$modular-scale-value: $doc-font-size $imprt-no; // Ideal text size + Important number
+
+
+// Grids
+$gutter-width: 16;
+
+$doc-gutter: $gutter-width * 1px;
+
+
+// Directionality
+$direction: (
+  (start, left),
+  (end, right),
+);
+
+
+// Font-family
+$pri-font-family: Georgia, 'Nimbus Roman No9 L', Times, "Times New Roman", serif;
+$sec-font-family: 'Helvetica Neue W02 55 Roman', HelveticaNeue-Roman, 'Helvetica Neue Roman', HelveticaNeue, Helvetica, Arial, sans-serif;
+
+$font: (
+  (body, $pri-font-family),
+  (title, $sec-font-family),
+);
+
+
+// Font-weight
+$extra-light: 100;
+$light: 200;
+$demi: 300;
+$normal: 400;
+$medium: 500;
+$semi-bold: 600;
+$bold: 700;
+$black: 800;
+$extra-black: 900;
+
+$type: (
+  (heading, $bold),
+  (subheading, $normal),
+  (body, $normal),
+  (bold, $bold),
+);
+
+
+// Font-size
+$font-size: (
+  (giga, 17.938em),
+  (mega, 11.063em),
+  (kilo, 6.875em),
+  (alpha, 4.25em),
+  (beta, 2.625em),
+  (gamma, 1.625em),
+  (delta, 1.125em),
+  (epsilon, 1em),
+  (zeta, 1em),
+  (milli, .75em),
+);
+
+
+// Line-height
+$line-height: (
+  (giga, 1.178em),
+  (mega, 1.627em),
+  (kilo, 1.182em),
+  (alpha, 1.147em),
+  (beta, 1.238em),
+  (gamma, 1em),
+  (delta, 1.444em),
+  (epsilon, inherit),
+  (zeta, inherit),
+  (milli, 2.167em),
+);
+
+
+// Vertical Rhythm
+$btm-marg: ceil($doc-font-size * $ratio) * 1px;
+
+
+// Z-index
+$z: (
+  (depth-0, 0),
+  (depth-1, 1),
+  (depth-2, 2),
+  (depth-3, 3),
+  (depth-4, 4),
+  (depth-5, 5),
+);
+

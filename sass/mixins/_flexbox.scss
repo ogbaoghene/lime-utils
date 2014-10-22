@@ -4,14 +4,14 @@
 // 
 // Parameters:
 // ```scss
-// $layout : establish main-axis, either horizontal or vertical.
-// $nowrap : flex items will try to fit onto one line. Optional
-// $alignment : define alignment along the main and cross axis. Defaults to `default`
-// $align-content: align lines in flex container when there is extra space. Optional
+// $layout        : establish main-axis, either horizontal or vertical.
+// $nowrap        : flex items will try to fit onto one line. Optional
+// $alignment     : define alignment along the main and cross axis. Defaults to default
+// $align-content : align lines in flex container when there is extra space. Optional
 //
-// $flex: shorthand for flex-grow, flex-shrink and flex-basis. Defaults to `auto`
-// $order : order flex-items. Optional
-// $align-self: override default alignment of individual flex items. Optional
+// $flex          : shorthand for flex-grow, flex-shrink and flex-basis. Defaults to auto
+// $order         : order flex-items. Optional
+// $align-self    : override default alignment of individual flex items. Optional
 // ```
 // 
 // Usage:

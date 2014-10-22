@@ -46,9 +46,7 @@ Welcome to the Lime Utilities overview. Before continuing, you should have a gen
 
 ### File organization
 
-File organization is based on the division of SCSS files into code that ouptuts CSS - *partials* - and code that doesn't - *modules*. 
-
-In general, it should follow something like this:
+In general, it follows something like this:
 
 ```html
 sass

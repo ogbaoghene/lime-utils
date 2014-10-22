@@ -17,7 +17,9 @@
 // Styleguide 2.8
 
 @mixin opacity($opacity) {
+  $value: #{$opacity};
+  
   zoom: 1;
-  filter: alpha(opacity=#{$opacity});
+  filter: alpha(opacity=$value);
   opacity: $opacity / 100;
 }

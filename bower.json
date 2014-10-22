@@ -20,7 +20,7 @@
     "bower_components",
     "test",
     "tests",
-    "_docs",
+    "docs",
     "screen.scss",
     "bower.json",
     "Gruntfile.js",
