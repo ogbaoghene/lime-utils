@@ -591,7 +591,6 @@ Define behaviour for grid containers and cells. Uses Flexbox module when support
 Parameters:
 
 ```scss
-$grid-layout        : Establish main-axis, either horizontal or vertical.
 $grid-alignment     : Define horizontal alignment of cells, either default, end or center. Defaults to default
 $nested             : Specify if grid container is nested within a grid cell. Optional
 
@@ -605,16 +604,13 @@ $cell-ordering      : Cell order, first parameter is the flexbox order property.
 Usage:
 
 ```scss
-.example {
-  @include grid-container($grid-layout: vertical);
-
-  .example-nested {
-    @include grid-container($grid-layout: horizontal, $nested: true);
-  }
+.example-nested {
+  @include grid-container($grid-layout: horizontal, $nested: true);
 
   .example-cell {
     @include grid-cell($cell-width: 57%, $cell-alignment: center, $cell-ordering: 2 auto 20%);
   }
+  
   .example-cell.is-collapsed {
     @include grid-cell($cell-width: 33%, $collapsed: true, $cell-offset: 23%);
   }
