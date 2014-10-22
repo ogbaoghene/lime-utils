@@ -191,7 +191,7 @@ Parameters:
 
 ```scss
 $increment  : Integer for increment value
-$round      : Approximation of result. Optional
+$round      : Approximate result. Optional
 $value      : Significant base number, can be combined with another number to create a double stranded modular scale. Predefined as $msValue
 $ratio      : Value by which the base value is exponentially multiplied and divided. Predefined as $msRatio
 ```
