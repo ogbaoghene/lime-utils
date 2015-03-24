@@ -21,10 +21,7 @@
 // Styleguide 2.4
 
 @mixin loop-map($map, $property, $namespace) {
-  @each $val in $map {
-    $key: nth($val, 1);
-    $value: nth($val, 2);
-
+  @each $key, $value in $map {
     %#{$namespace}-#{$key} {
       #{$property}: $value;
     }

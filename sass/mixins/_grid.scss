@@ -35,42 +35,44 @@
 //
 // Styleguide 2.14
 
-@mixin grid-container($grid-alignment: default, $nested: null) {
+@mixin grid-container($grid-alignment: default, $nested: null, $no-flexbox: null) {
   letter-spacing: -.31em; // YUI3 grid fix for safari
 
   @if $grid-alignment != default {
     @if $grid-alignment == center {
       text-align: center;
     } @else if $grid-alignment == opposite {
-      text-align: list-map($direction, end); // as backup
+      text-align: map-get($direction, end); // as backup
       text-align: end;
     } @else {
       @warn '`#{$grid-alignment}` is not a valid option. Properties omitted.';
     }
   } @else {
-    text-align: list-map($direction, start); // as backup
+    text-align: map-get($direction, start); // as backup
     text-align: start;
   }
   
-  .flexbox & {
-    display: flex;
-    flex-flow: row wrap;
-    letter-spacing: normal;
-    text-align: inherit;
-    
-    @if $grid-alignment != default {
-      @if $grid-alignment == center {
-        justify-content: center;
-        align-items: stretch;
-      } @else if $grid-alignment == opposite {
-        justify-content: flex-end;
-        align-items: stretch;
+  @if $no-flexbox == null {
+    .flexbox & {
+      display: flex;
+      flex-flow: row wrap;
+      letter-spacing: normal;
+      text-align: inherit;
+      
+      @if $grid-alignment != default {
+        @if $grid-alignment == center {
+          justify-content: center;
+          align-items: stretch;
+        } @else if $grid-alignment == opposite {
+          justify-content: flex-end;
+          align-items: stretch;
+        } @else {
+          @warn '`#{$grid-alignment}` is not a valid option. Properties omitted.';
+        }
       } @else {
-        @warn '`#{$grid-alignment}` is not a valid option. Properties omitted.';
+        justify-content: flex-start;
+        align-items: stretch;
       }
-    } @else {
-      justify-content: flex-start;
-      align-items: stretch;
     }
   }
   
@@ -83,15 +85,10 @@
 }
 
 
-@mixin grid-cell($cell-width, $collapsed: null, $cell-alignment: null, $cell-offset: null, $cell-order: null) {
+@mixin grid-cell($cell-width: auto, $no-flexbox: null, $collapsed: null, $cell-alignment: null, $cell-offset: null, $cell-order: null) {
   display: inline-block;
-  letter-spacing: normal;  
+  letter-spacing: normal;
   width: $cell-width;
-  
-  .lt-ie8 & {
-    zoom: 1; // trigger hasLayout
-    *display: inline; // IE 7
-  }
   
   @if $collapsed == null {
     @include rem-fallback((
@@ -109,7 +106,7 @@
   }
   
   @if $cell-offset != null {
-    margin-#{list-map($direction, start)}: $cell-offset;
+    margin-#{map-get($direction, start)}: $cell-offset;
   }
   
   @if $cell-order != null {
@@ -118,43 +115,50 @@
     @if length($cell-order) == 2 {
       $end: nth($cell-order, 2);
       
-      #{list-map($direction, end)}: $end;
+      #{map-get($direction, end)}: $end;
     } @else if length($cell-order) == 3 {
       $end: nth($cell-order, 2);
       $start: nth($cell-order, 3);
       
-      #{list-map($direction, end)}: $end;
-      #{list-map($direction, start)}: $start;
+      #{map-get($direction, end)}: $end;
+      #{map-get($direction, start)}: $start;
     } @else {
       @warn 'An argument of 2 or 3 values is required.';
     }
   }
   
-  .flexbox & {
-    max-width: $cell-width; // IE11 box-sixing fix
-    
-    @if $cell-alignment != null {
-      @if $cell-alignment == center {
-        $horizontal-alignment: center;
-      } @else if $cell-alignment == end {
-        $horizontal-alignment: flex-end;
+  @if $no-flexbox == null {
+    .flexbox & {
+      // IE11 box-sixing fix
+      @if $cell-width != auto { 
+        max-width: $cell-width;
       } @else {
-        $horizontal-alignment: flex-start;
+        max-width: none;
       }
-    } @else {
-      $horizontal-alignment: null;
-    }
-    
-    @if $cell-order != null {
-      position: static;
       
-      $cell-ordering: nth($cell-order, 1);
-    } @else {
-      $cell-ordering: null;
+      @if $cell-alignment != null {
+        @if $cell-alignment == center {
+          $horizontal-alignment: center;
+        } @else if $cell-alignment == end {
+          $horizontal-alignment: flex-end;
+        } @else {
+          $horizontal-alignment: flex-start;
+        }
+      } @else {
+        $horizontal-alignment: null;
+      }
+      
+      @if $cell-order != null {
+        position: static;
+        
+        $cell-ordering: nth($cell-order, 1);
+      } @else {
+        $cell-ordering: null;
+      }
+      
+      // Grid cells will only take up as much space as they require
+      @include flexbox-child($flex: 0 1 $cell-width, $order: $cell-ordering, $align-self: $horizontal-alignment);
     }
-    
-    // Grid cells will only take up as much space as they require
-    @include flexbox-child($flex: 0 1 $cell-width, $order: $cell-ordering, $align-self: $horizontal-alignment);
   }
 }
 

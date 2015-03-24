@@ -36,24 +36,30 @@
     @if $content != null {
       &:#{$element} {
         content: $content;
+
+        @if $display != null {
+          @extend %do-#{$display};
+        }
+
+        @if $position != null {
+          @extend %position-#{$position};
+        }
+
         @content;
       }
     } @else {
       &:#{$element} {
         content: '';
+
+        @if $display != null {
+          @extend %do-#{$display};
+        }
+
+        @if $position != null {
+          @extend %position-#{$position};
+        }
+
         @content;
-      }
-    }
-    
-    @if $display != null {
-      &:#{$element} {
-        @extend %do-#{$display};
-      }
-    }
-    
-    @if $position != null {
-      &:#{$element} {
-        @extend %position-#{$position};
       }
     }
   } @else if $element == both {
@@ -61,25 +67,31 @@
       &:before,
       &:after {
         content: $content;
+
+        @if $display != null {
+          @extend %do-#{$display};
+        }
+
+        @if $position != null {
+          @extend %position-#{$position};
+        }
+
         @content;
       }
     } @else {
       &:before,
       &:after {
         content: '';
+
+        @if $display != null {
+          @extend %do-#{$display};
+        }
+
+        @if $position != null {
+          @extend %position-#{$position};
+        }
+
         @content;
-      }
-    }
-    
-    @if $display != null {
-      &:#{$element} {
-        @extend %do-#{$display};
-      }
-    }
-    
-    @if $position != null {
-      &:#{$element} {
-        @extend %position-#{$position};
       }
     }
   } @else {

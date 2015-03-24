@@ -22,6 +22,8 @@
 // Adapted from [Sassifaction](https://github.com/sturobson/sassifaction)
 //
 // Styleguide 1.6
+// 
+// TODO: remove
 
 @function mono-palette($color, $mix: null) {
   @if $mix == tint1 {

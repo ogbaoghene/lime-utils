@@ -18,6 +18,8 @@
 // text-shadow
 // vertical-align
 // white-space
+// text-overflow
+// line-height
 // ```
 //
 // Styleguide 3.4
@@ -25,59 +27,67 @@
 // font-family
 @include loop-map($font, font-family, $namespace: font);
 
+
 // font-size & line-height
 %giga {
-  font-size: list-map($font-size, giga);
-  line-height: list-map($line-height, giga);
+  font-size: map-get($font-size, giga);
+  line-height: map-get($line-height, giga);
 }
 
 %mega {
-  font-size: list-map($font-size, mega);
-  line-height: list-map($line-height, mega);
+  font-size: map-get($font-size, mega);
+  line-height: map-get($line-height, mega);
 }
 
 %kilo {
-  font-size: list-map($font-size, kilo);
-  line-height: list-map($line-height, kilo);
+  font-size: map-get($font-size, kilo);
+  line-height: map-get($line-height, kilo);
 }
 
 %alpha {
-  font-size: list-map($font-size, alpha);
-  line-height: list-map($line-height, alpha);
+  font-size: map-get($font-size, alpha);
+  line-height: map-get($line-height, alpha);
 }
 
 %beta {
-  font-size: list-map($font-size, beta);
-  line-height: list-map($line-height, beta);
+  font-size: map-get($font-size, beta);
+  line-height: map-get($line-height, beta);
 }
 
 %gamma {
-  font-size: list-map($font-size, gamma);
-  line-height: list-map($line-height, gamma);
+  font-size: map-get($font-size, gamma);
+  line-height: map-get($line-height, gamma);
 }
 
 %delta {
-  font-size: list-map($font-size, delta);
-  line-height: list-map($line-height, delta);
+  font-size: map-get($font-size, delta);
+  line-height: map-get($line-height, delta);
 }
 
 %epsilon {
-  font-size: list-map($font-size, epsilon);
-  line-height: list-map($line-height, epsilon);
+  font-size: map-get($font-size, epsilon);
+  line-height: map-get($line-height, epsilon);
 }
 
 %zeta {
-  font-size: list-map($font-size, zeta);
-  line-height: list-map($line-height, zeta);
+  font-size: map-get($font-size, zeta);
+  line-height: map-get($line-height, zeta);
 }
 
 %milli {
-  font-size: list-map($font-size, milli);
-  line-height: list-map($line-height, milli);
+  font-size: map-get($font-size, milli);
+  line-height: map-get($line-height, milli);
 }
+
+%mini {
+  font-size: map-get($font-size, mini);
+  line-height: map-get($line-height, mini);
+}
+
 
 // font-weight
 @include loop-map($type, font-weight, $namespace: type);
+
 
 // font-style
 %italics {
@@ -88,17 +98,8 @@
   font-style: normal;
 }
 
+
 // text-align
-%text-start {
-  text-align: list-map($direction, start); // as backup
-  text-align: start;
-}
-
-%text-end {
-  text-align: list-map($direction, end); // as backup
-  text-align: end;
-}
-
 %text-center {
   text-align: center;
 }
@@ -107,9 +108,20 @@
   text-align: justify;
 }
 
+%text-end {
+  text-align: map-get($direction, end); // as backup
+  text-align: end;
+}
+
+%text-start {
+  text-align: map-get($direction, start); // as backup
+  text-align: start;
+}
+
 %text-inherit {
   text-align: inherit;
 }
+
 
 // text-decoration
 %text-decoration-none {
@@ -119,6 +131,7 @@
 %text-decoration-underline {
   text-decoration: underline;
 }
+
 
 // text-transform
 %text-transform-upper {
@@ -137,6 +150,7 @@
   text-transform: none;
 }
 
+
 // text-shadow
 %text-shadow-basic {
   text-shadow: 2px 4px 3px rgba(#000, .3);
@@ -154,9 +168,18 @@
   text-shadow: 0 0 6px rgba(#fff, .7);
 }
 
+
 // vertical-align
 %align-top {
   vertical-align: top;
+}
+
+%align-text-top {
+  vertical-align: text-top;
+}
+
+%align-text-btm {
+  vertical-align: text-bottom;
 }
 
 %align-mid {
@@ -171,6 +194,7 @@
   vertical-align: baseline;
 }
 
+
 // white-space
 %white-space-normal {
   white-space: normal;
@@ -178,5 +202,21 @@
 
 %white-space-nowrap {
   white-space: nowrap;
+}
+
+
+// text-overflow
+%text-overflow-ellipsis {
+  text-overflow: ellipsis;
+}
+
+
+// line-height
+%line-height-reset {
+  line-height: 100%;
+}
+
+%line-height-normal {
+  line-height: $doc-line-height * 1em;
 }
 

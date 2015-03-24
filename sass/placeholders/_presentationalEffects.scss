@@ -1,0 +1,124 @@
+/*--------------------------------------------------------------
+  $PRESENTATIONAL EFFECTS
+--------------------------------------------------------------*/
+
+// Presentational Effects
+//
+// 
+//
+// Effects:
+// ```text
+// Transitions
+// Animations
+// Shadows
+// ```
+// 
+// Styleguide 3.7
+
+// Transitions
+@include loop-map($transitions, transition, $namespace: transit);
+
+%transit-none {
+  transition: none;
+}
+
+
+// Animations
+%animated {
+  animation-duration: .3s;
+  animation-fill-mode: both;
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fadeOutUp {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes press {
+  0% {
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .37);
+  }
+
+  100% {
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .3);
+  }
+}
+
+@keyframes release {
+  0% {
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .3);
+  }
+
+  100% {
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .37);
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    transform: scale3d(.3, .3, .3);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomOut {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+    transform: scale3d(.3, .3, .3);
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+
+// Shadows
+@include loop-map($shadows, box-shadow, $namespace: shadow);
+

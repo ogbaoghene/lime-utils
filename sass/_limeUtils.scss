@@ -24,7 +24,7 @@
 @import 'mixins/rgbaFallback';
 @import 'mixins/chainProperties';
 @import 'mixins/loopMap';
-@import 'mixins/fontFace';
+@import 'mixins/fontFace'; // TODO: remove?
 @import 'mixins/mediaQuery';
 @import 'mixins/calcFallback';
 @import 'mixins/opacityFallback';
@@ -32,10 +32,11 @@
 @import 'mixins/positioning';
 @import 'mixins/margOrPad';
 @import 'mixins/smartBorder';
-@import 'mixins/flexbox';
+@import 'mixins/flexbox'; // TODO: remove
 @import 'mixins/grid';
 @import 'mixins/pseudo';
-@import 'mixins/fixedRatio';
+@import 'mixins/aspectRatio';
+@import 'mixins/clearfixMe';
 
 
 // Placeholders
@@ -50,4 +51,5 @@
 @import 'placeholders/typographicalProperties';
 @import 'placeholders/hideElement';
 @import 'placeholders/clearfix';
+@import 'placeholders/presentationalEffects';
 

@@ -34,6 +34,10 @@
 //
 // Styleguide 1.7
 
+// TODO: remove
+// 
+// TODO: remove
+
 @function modular-scale($increment, $round: null, $value: $modular-scale-value, $ratio: $modular-scale-ratio) {
   $v1: strip-unit(nth($value, 1));
   $v2: strip-unit(nth($value, length($value)));

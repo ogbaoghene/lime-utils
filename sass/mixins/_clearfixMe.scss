@@ -1,0 +1,29 @@
+// Clearfix-me
+//
+// Desc
+//
+// Parameters:
+// ```scss
+// ```
+//
+// Usage:
+// ```scss
+// ```
+// 
+// **Requires** : 
+//
+// Styleguide
+// 
+// TODO: details, compatibility wit media queries
+
+$clearfix-method: overflow !default;
+
+@mixin clearfix-me($method: $clearfix-method) {
+  @if $method != overflow and $method != facebook and $method != micro and $method != stubborn {
+    @warn "The clearfix method #{$method} is unkown";
+    @extend %clearfix-micro;
+  } @else {
+    @extend %clearfix-#{$method};
+  }
+}
+

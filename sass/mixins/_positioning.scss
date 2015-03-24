@@ -25,6 +25,8 @@
 //
 // Styleguide 2.10
 
+// TODO: remove null condition on last $coordinates
+
 @mixin positioning($position, $coordinates: 0) {
   @extend %position-#{$position};
   
@@ -37,7 +39,7 @@
         top: $top;
       }
       @if $right != null {
-        #{list-map($direction, end)}: $right;
+        #{map-get($direction, end)}: $right;
       }
     } @else if length($coordinates) == 3 {
       $top: nth($coordinates, 1);
@@ -48,7 +50,7 @@
         top: $top;
       }
       @if $right != null {
-        #{list-map($direction, end)}: $right;
+        #{map-get($direction, end)}: $right;
       }
       @if $bottom != null {
         bottom: $bottom;
@@ -63,13 +65,13 @@
         top: $top;
       }
       @if $right != null {
-        #{list-map($direction, end)}: $right;
+        #{map-get($direction, end)}: $right;
       }
       @if $bottom != null {
         bottom: $bottom;
       }
       @if $left != null {
-        #{list-map($direction, start)}: $left;
+        #{map-get($direction, start)}: $left;
       }
     } @else {
       @warn 'Position coordinates are out of bounds. Properties omitted.';

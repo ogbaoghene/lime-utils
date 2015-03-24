@@ -25,13 +25,8 @@
   display: block;
 }
 
-%do-inline-block-fix {
+%do-inline {
   display: inline-block;
-
-  .lt-ie8 & {
-    zoom: 1; // trigger hasLayout
-    *display: inline; // IE 7
-  }
 }
 
 %do-table {
@@ -50,6 +45,7 @@
   display: none;
 }
 
+
 // Position
 %position-relative {
   position: relative;
@@ -67,12 +63,14 @@
   position: static;
 }
 
+
 // Float
 @include loop-map($direction, float, float);
 
 %float-none {
   float: none;
 }
+
 
 // Clear
 @include loop-map($direction, clear, clear);
@@ -84,6 +82,7 @@
 %clear-none {
   clear: none;
 }
+
 
 // Visibility
 %visibility-visible {
@@ -98,8 +97,9 @@
   visibility: hidden;
 }
 
+
 // Position Coordinates
-%coord-0 {  
+%coord-all {  
   @include chain(top right bottom left, 0);
 }
 
@@ -111,8 +111,10 @@
   @include chain(right left, 0);
 }
 
+
 // z-index
 @include loop-map($z, z-index, z);
+
 
 // Overflow
 %overflow-visible {

@@ -1,18 +1,16 @@
 // To encourage clarity, use a two-tier system where applicable. Define descriptive variables with actual values, then assign functional variables to those descriptive variables.
 
-$ratio: 1.618; // The Golden ratio
-
 
 // Type
-$base-font-size: 16;// Default font size on html element is 100%, equivalent to 16px;
+$base-font-size: 16; // Default font size on html element is 100%, equivalent to 16px;
+
 $doc-font-size: 16; // Font size on body element
 
 
 // Modular Scale
 $imprt-no: 528; // Gldilocks approach
 
-$modular-scale-ratio: $ratio;
-$modular-scale-value: $doc-font-size $imprt-no; // Ideal text size + Important number
+$ratio: 1.618; // The Golden ratio
 
 
 // Grids
@@ -23,8 +21,8 @@ $doc-gutter: $gutter-width * 1px;
 
 // Directionality
 $direction: (
-  (start, left),
-  (end, right),
+  start: left,
+  end: right,
 );
 
 
@@ -32,9 +30,10 @@ $direction: (
 $pri-font-family: Georgia, 'Nimbus Roman No9 L', Times, "Times New Roman", serif;
 $sec-font-family: 'Helvetica Neue W02 55 Roman', HelveticaNeue-Roman, 'Helvetica Neue Roman', HelveticaNeue, Helvetica, Arial, sans-serif;
 
+
 $font: (
-  (body, $pri-font-family),
-  (title, $sec-font-family),
+  body: $pri-font-family,
+  title: $sec-font-family,
 );
 
 
@@ -50,54 +49,109 @@ $black: 800;
 $extra-black: 900;
 
 $type: (
-  (heading, $bold),
-  (subheading, $normal),
-  (body, $normal),
-  (bold, $bold),
+  heading: $bold,
+  subheading: $normal,
+  body: $normal,
+  bold: $bold,
 );
 
 
 // Font-size
 $font-size: (
-  (giga, 17.938em),
-  (mega, 11.063em),
-  (kilo, 6.875em),
-  (alpha, 4.25em),
-  (beta, 2.625em),
-  (gamma, 1.625em),
-  (delta, 1.125em),
-  (epsilon, 1em),
-  (zeta, 1em),
-  (milli, .75em),
-);
-
-
-// Line-height
-$line-height: (
-  (giga, 1.178em),
-  (mega, 1.627em),
-  (kilo, 1.182em),
-  (alpha, 1.147em),
-  (beta, 1.238em),
-  (gamma, 1em),
-  (delta, 1.444em),
-  (epsilon, inherit),
-  (zeta, inherit),
-  (milli, 2.167em),
+  giga: 17.938em,
+  mega: 11.063em,
+  kilo: 6.875em,
+  alpha: 4.25em,
+  beta: 2.625em,
+  gamma: 1.625em,
+  delta: 1.125em,
+  epsilon: 1em,
+  zeta: 1em,
+  milli: .75em,
+  mini: .563em,
 );
 
 
 // Vertical Rhythm
-$btm-marg: ceil($doc-font-size * $ratio) * 1px;
+$doc-vertical-margin: ceil($doc-font-size * $ratio) * 1px;
+$doc-line-height: $ratio;
+
+$line-height: (
+  giga: 1.178em,
+  mega: 1.627em,
+  kilo: 1.182em,
+  alpha: 1.147em,
+  beta: 1.238em,
+  gamma: 2em,
+  delta: 1.444em,
+  epsilon: inherit,
+  zeta: inherit,
+  milli: 2.167em,
+  mini: 2.889em,
+);
+
+
+// Breakpoints
+$breakpoints: (
+  very-small: 360px,
+  small: 480px,
+  goldilocks: 528px,
+  baby-bear: 768px,
+  standard: 980px,
+  mama-bear: 1080px,
+  papa-bear: 1280px,
+  large: 1366px,
+  desktop: 1440px,
+  very-large: 1600px,
+  extra-large: 1760px,
+  widescreen: 1920px,
+);
+
+
+// Radii
+$radii: (
+  m: 2px,
+  h: 3px,
+  xh: 4px,
+  xxh: 6px,
+  full: 50%,
+);
 
 
 // Z-index
+// 0 - canvas; 1 - base; 2 - raised, in flow; 3 - raised, out of flow; 4 - overlay; 5 - max;
 $z: (
-  (depth-0, 0),
-  (depth-1, 1),
-  (depth-2, 2),
-  (depth-3, 3),
-  (depth-4, 4),
-  (depth-5, 5),
+  depth-0: 0,
+  depth-1: 1,
+  depth-2: 2,
+  depth-3: 3,
+  depth-4: 4,
+  depth-5: 5,
 );
+
+
+// Transitions
+$transitions: (
+  fade: .3s ease-out,
+  move: .8s cubic-bezier(.25, .05, .5, .9),
+  enter: .8s cubic-bezier(0, .24, .5, 1),
+  transform: .2s,
+);
+
+
+// Shadows
+$shadows: (
+  depth-1 : 0 1px 4px 0 rgba(0, 0, 0, .37),
+  depth-2 : (0 2px 2px 0 rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .3)),
+  depth-3 : (0 11px 7px 0 rgba(0, 0, 0, .19), 0 13px 25px 0 rgba(0, 0, 0, .3)),
+  depth-4 : (0 14px 12px 0 rgba(0, 0, 0, .17), 0 20px 40px 0 rgba(0, 0, 0, .3)),
+  depth-5 : (0 17px 17px 0 rgba(0, 0, 0, .15), 0 27px 55px 0 rgba(0, 0, 0, .3)),
+);
+// $shadows: ( // paper
+//   depth-1: (0 1px 1.5px rgba(0, 0, 0, .12), 0 1px 1px rgba(0, 0, 0, .24)),
+//   depth-2: (0 3px 3px rgba(0, 0, 0, .16), 0 3px 3px rgba(0, 0, 0, .23)),
+//   depth-3: (0 5px 5px rgba(0, 0, 0, .19), 0 6px 3px rgba(0, 0, 0, .23)),
+//   depth-4: (0 14px 14px rgba(0, 0, 0, .25), 0 5px 5px rgba(0, 0, 0, .22)),
+//   depth-5: (0 19px 19px rgba(0, 0, 0, .30), 0 15px 6px rgba(0, 0, 0, .22)),
+// );
 

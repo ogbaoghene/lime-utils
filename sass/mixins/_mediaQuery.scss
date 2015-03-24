@@ -4,7 +4,7 @@
 //
 // Parameters:
 // ```scss
-// $break-point : Media query breakpoint, unitless value
+// $break-point : Media query breakpoint
 // $ie9         : Includes the IE9 conditional class. Optional
 // $query1      : Prefix for media features, min, max, min-device or max-device. Defaults to min
 // $query2      : Media features, width or height. Defaults to width
@@ -13,7 +13,7 @@
 // Usage:
 // ```scss
 // .example {
-//   @include media-query(768, $ie9: true, $query1: max) {
+//   @include media-query(768px, $ie9: true, $query1: max) {
 //     display: none; 
 //   }
 // }
@@ -23,20 +23,32 @@
 //
 // Styleguide 2.6
 
-@mixin media-query($break-point, $ie9: null, $query1: min, $query2: width) {
-  $bp: px-to-em($break-point, $context: $base-font-size);
+@mixin media-query($break, $query1: min-width, $break2: null, $query2: null, $no-ie9: null) {
+  // Default font size on html element is 100%, equivalent to 16px;
+  $bp: px-to-em($break, $context: $base-font-size);
+
+  @if $break2 {
+    $bp2: px-to-em($break2, $context: $base-font-size);
+  }
   
-  @if $ie9 != null {
-    .lt-ie9 & {
-      @content;
+  @if $break2 != null and $query2 != null {
+    @if $no-ie9 == null {
+      &.lt-ie9 {
+        @content;
+      }
     }
       
-    // Default font size on html element is 100%, equivalent to 16px;
-    @media screen and (#{$query1}-#{$query2}: $bp) {
+    @media screen and (#{$query1}: $bp) and (#{$query2}: $bp2) {
       @content;
     }
   } @else {
-    @media screen and (#{$query1}-#{$query2}: $bp) {
+    @if $no-ie9 == null {
+      &.lt-ie9 {
+        @content;
+      }
+    }
+
+    @media screen and (#{$query1}: $bp) {
       @content;
     }
   }

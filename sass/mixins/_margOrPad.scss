@@ -1,6 +1,6 @@
 // Margin or Padding
 //
-// Apply margin or padding to an element in vanilla CSS's shorthand.
+// Apply margin or padding to an element explicitly allowing flexibilty and easier overides.
 // 
 // Parameters:
 // ```scss
@@ -33,7 +33,7 @@
         #{$property}-top: $top;
       }
       @if $right != null {
-        #{$property}-#{list-map($direction, end)}: $right;
+        #{$property}-#{map-get($direction, end)}: $right;
       }
     } @else if length($values) == 3 {
       $top: nth($values, 1);
@@ -44,7 +44,7 @@
         #{$property}-top: $top;
       }
       @if $right != null {
-        #{$property}-#{list-map($direction, end)}: $right;
+        #{$property}-#{map-get($direction, end)}: $right;
       }
       @if $bottom != null {
         #{$property}-bottom: $bottom;
@@ -59,13 +59,13 @@
         #{$property}-top: $top;
       }
       @if $right != null {
-        #{$property}-#{list-map($direction, end)}: $right;
+        #{$property}-#{map-get($direction, end)}: $right;
       }
       @if $bottom != null {
         #{$property}-bottom: $bottom;
       }
       @if $left != null {
-        #{$property}-#{list-map($direction, start)}: $left;
+        #{$property}-#{map-get($direction, start)}: $left;
       }
     } @else {
       @warn 'Values are out of bounds. Properties omitted.';
