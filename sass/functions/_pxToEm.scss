@@ -21,7 +21,8 @@
 //
 // **Requires** : _variables, _stripUnit
 //
-// Adapted from [SCUT](http://davidtheclark.github.io/scut) and [OOCSS](https://github.com/stubbornella/oocss)
+// Adapted from [SCUT](http://davidtheclark.github.io/scut)
+// and [OOCSS](https://github.com/stubbornella/oocss)
 //
 // Styleguide 1.2
 
@@ -32,8 +33,8 @@
   $divisor: strip-unit($context) * $multiplier;
   $list: ();
   @each $value in $values {
-    // Ignore unitless values and units except px
-    @if unit($value) == px {
+    // Ignore unitless values, auto and other units except px
+    @if $value != auto and unit($value) == px {
       $em-value: strip-unit($value) / $divisor * 1em;
       $list: append($list, $em-value);
     } @else {
