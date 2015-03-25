@@ -26,7 +26,7 @@
 
 @mixin rem-fallback($properties) {
   @each $property, $value in $properties {
-    // Filter out unitless values, auto and all units except px
+    // Ignore unitless values, auto and other units except px
     @if $value != auto and (type-of($value) == list or unit($value) == px) {
       #{$property}: $value;
       #{$property}: px-to-rem($value);
