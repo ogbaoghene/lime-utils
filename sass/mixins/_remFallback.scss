@@ -1,6 +1,6 @@
 // rem Fallback
 //
-// Provide px fallback for rem values, allows multiple property-values pairs. 
+// Convert to rem values with px fallback for multiple property-values pairs. 
 //
 // Parameters:
 // ```scss
@@ -10,13 +10,13 @@
 // Usage:
 // ```scss
 // .example {
-//  @include remFallback((
-//     height: 240 / 2,
-//     font-size: 13px,
-//     text-indent: 0,
-//     left: auto,
-//     margin: 0 10px 3vh 30%
-//  ));
+//   @include rem-fallback((
+//     (height, (240 / 2)),
+//     (font-size, 13px),
+//     (text-indent, 0),
+//     (left, auto),
+//     (margin, 0 10px 3vh 30%)
+//   ));
 // }
 // ```
 //
@@ -26,8 +26,8 @@
 
 @mixin rem-fallback($properties) {
   @each $property, $value in $properties {
-    // Filter out 0, auto and units except px
-    @if type-of($value) == list or unit($value) == px {
+    // Filter out unitless values, auto and all units except px
+    @if $value != auto and (type-of($value) == list or unit($value) == px) {
       #{$property}: $value;
       #{$property}: px-to-rem($value);
     } @else {
