@@ -27,8 +27,8 @@
 @function px-to-rem($values) {
   $list: ();
   @each $value in $values {
-    // Ignore unitless values and units except px
-    @if unit($value) == px {
+    // Ignore unitless values, auto and other units except px
+    @if $value != auto and unit($value) == px {
       $rem-value: (strip-unit($value) / strip-unit($base-font-size)) * 1rem;
       $list: append($list, $rem-value);
     } @else {
