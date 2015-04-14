@@ -1,6 +1,6 @@
 // Chain Properties
 //
-// Shorthand for declaring CSS properties with common values. 
+// Chain CSS properties with common values. 
 //
 // Parameters:
 // ```scss
@@ -15,7 +15,7 @@
 // }
 // ```
 //
-// Styleguide 2.3
+// Styleguide 2.2
 
 @mixin chain($properties, $value) {
   @each $property in $properties {
