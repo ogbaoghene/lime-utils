@@ -118,8 +118,7 @@ $radii: (
 );
 
 
-// Z-index
-// 0 - canvas; 1 - base; 2 - raised, in flow; 3 - raised, out of flow; 4 - overlay; 5 - max;
+// Z-index (0: canvas; 1: base; 2: raised, in flow; 3: raised, out of flow; 4: overlay; 5: max;)
 $z: (
   depth-0: 0,
   depth-1: 1,
@@ -147,11 +146,4 @@ $shadows: (
   depth-4 : (0 14px 12px 0 rgba(0, 0, 0, .17), 0 20px 40px 0 rgba(0, 0, 0, .3)),
   depth-5 : (0 17px 17px 0 rgba(0, 0, 0, .15), 0 27px 55px 0 rgba(0, 0, 0, .3)),
 );
-// $shadows: ( // paper
-//   depth-1: (0 1px 1.5px rgba(0, 0, 0, .12), 0 1px 1px rgba(0, 0, 0, .24)),
-//   depth-2: (0 3px 3px rgba(0, 0, 0, .16), 0 3px 3px rgba(0, 0, 0, .23)),
-//   depth-3: (0 5px 5px rgba(0, 0, 0, .19), 0 6px 3px rgba(0, 0, 0, .23)),
-//   depth-4: (0 14px 14px rgba(0, 0, 0, .25), 0 5px 5px rgba(0, 0, 0, .22)),
-//   depth-5: (0 19px 19px rgba(0, 0, 0, .30), 0 15px 6px rgba(0, 0, 0, .22)),
-// );
 
