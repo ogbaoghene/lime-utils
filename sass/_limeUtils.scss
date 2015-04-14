@@ -21,13 +21,12 @@
 // Styleguide 2.0
 
 @import 'mixins/remFallback';
-@import 'mixins/rgbaFallback';
 @import 'mixins/chainProperties';
 @import 'mixins/loopMap';
 @import 'mixins/fontFace'; // TODO: remove?
 @import 'mixins/mediaQuery';
-@import 'mixins/calcFallback';
-@import 'mixins/opacityFallback';
+@import 'mixins/calcFallback'; // 78% support, with no support for ie8, partial for 9
+@import 'mixins/opacityFallback'; // 95% support, with partial support for ie8. remove?
 @import 'mixins/hoverActiveFocus';
 @import 'mixins/positioning';
 @import 'mixins/margOrPad';
