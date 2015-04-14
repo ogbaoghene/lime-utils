@@ -12,17 +12,17 @@
 // 
 // Usage:
 // ```scss
-// @include font-face(SourceSansPro, '/fonts/Source_Sans_Pro/SourceSansPro-Regular');
-// @include font-face(SourceSansPro, '/fonts/Source_Sans_Pro/SourceSansPro-italic', $style: italic);
+// @include font(SourceSansPro, '/fonts/Source_Sans_Pro/SourceSansPro-Regular');
+// @include font(SourceSansPro, '/fonts/Source_Sans_Pro/SourceSansPro-italic', $style: italic);
 // ```
 //
-// _**Note** : Order of the includes matters, and it is: normal, italic, bold, bold+italic._
+// _**Note** : Order of the includes matters, and it is: normal, italic, bold, bold+italic, etc._
 //
 // Adapted from [Bourbon](http://bourbon.io)
 //
-// Styleguide 2.5
+// Styleguide 2.4
 
-@mixin font-face($font, $path, $weight: normal, $style: normal) {
+@mixin font($font, $path, $weight: normal, $style: normal) {
   @font-face {
     font: {
       family: '#{$font}';
