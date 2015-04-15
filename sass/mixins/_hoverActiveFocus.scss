@@ -4,7 +4,7 @@
 //
 // Parameters:
 // ```scss
-// $state : Specify combination, either all, no-hover, no-active, or no-focus. Defaults to all
+// $state : Either all, no-hover, no-active, or no-focus. Defaults to all
 // ```
 // 
 // Usage:
@@ -26,7 +26,7 @@
 // }
 // ```
 //
-// Styleguide 2.9
+// Styleguide 2.7
 
 @mixin hover-active-focus($state: all) {
   @if $state == all {
