@@ -1,11 +1,11 @@
 // Positioning
 //
-// Position an element position and assign it coordinates.
+// Position an element.
 // 
 // Parameters:
 // ```scss
-// $position    : Extend position placeholders, either relative, absolute, fixed, or static
-// $coordinates : Top, right, bottom, and left values. Defaults to 0
+// $position  : Either relative, absolute, or fixed
+// $edge      : Top, right, bottom, and left. Defaults to 'top: 0'
 // ```
 // 
 // Usage:
@@ -15,25 +15,23 @@
 // }
 //
 // .example-2 {
-//   @include positioning(absolute, $coordinates: 0 0);
+//   @include positioning(absolute, $edge: 0 0);
 // }
 // ```
 //
 // **Requires** : _layoutProperties
 //
-// _**Note** : Escape coordinates using `null`._
+// _**Note** : Will not work within a media query. Escape edge values using `null`._
 //
-// Styleguide 2.10
+// Styleguide 2.8
 
-// TODO: remove null condition on last $coordinates
-
-@mixin positioning($position, $coordinates: 0) {
+@mixin positioning($position, $edge: 0) {
   @extend %position-#{$position};
   
-  @if length($coordinates) != 1 {
-    @if length($coordinates) == 2 {
-      $top: nth($coordinates, 1);
-      $right: nth($coordinates, 2);
+  @if length($edge) != 1 {
+    @if length($edge) == 2 {
+      $top: nth($edge, 1);
+      $right: nth($edge, 2);
       
       @if $top != null {
         top: $top;
@@ -41,10 +39,10 @@
       @if $right != null {
         #{map-get($direction, end)}: $right;
       }
-    } @else if length($coordinates) == 3 {
-      $top: nth($coordinates, 1);
-      $right: nth($coordinates, 2);
-      $bottom: nth($coordinates, 3);
+    } @else if length($edge) == 3 {
+      $top: nth($edge, 1);
+      $right: nth($edge, 2);
+      $bottom: nth($edge, 3);
       
       @if $top != null {
         top: $top;
@@ -55,11 +53,11 @@
       @if $bottom != null {
         bottom: $bottom;
       }
-    } @else if length($coordinates) == 4 {
-      $top: nth($coordinates, 1);
-      $right: nth($coordinates, 2);
-      $bottom: nth($coordinates, 3);
-      $left: nth($coordinates, 4);
+    } @else if length($edge) == 4 {
+      $top: nth($edge, 1);
+      $right: nth($edge, 2);
+      $bottom: nth($edge, 3);
+      $left: nth($edge, 4);
       
       @if $top != null {
         top: $top;
@@ -74,10 +72,10 @@
         #{map-get($direction, start)}: $left;
       }
     } @else {
-      @warn 'Position coordinates are out of bounds. Properties omitted.';
+      @warn 'Edge values are out of bounds. Properties omitted.';
     }
   } @else {
-    top: $coordinates;
+    top: $edge;
   }
 }
 
