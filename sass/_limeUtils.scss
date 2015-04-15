@@ -25,7 +25,7 @@
 @import 'mixins/loopMap';
 @import 'mixins/fontFace';
 @import 'mixins/mediaQuery';
-@import 'mixins/calcFallback'; // 78% support, with no support for ie8, partial for 9
+@import 'mixins/calcFallback';
 @import 'mixins/opacityFallback'; // 95% support, with partial support for ie8. remove?
 @import 'mixins/hoverActiveFocus';
 @import 'mixins/positioning';

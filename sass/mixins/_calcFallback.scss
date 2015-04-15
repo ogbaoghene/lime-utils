@@ -6,22 +6,26 @@
 // ```scss
 // $property    : CSS property
 // $expression  : arithmetic expression
-// $default     : fallback value. Optional
+// $fallback    : fallback value
 // ```
 // 
 // Usage:
 // ```scss
 // .example {
-//   @include calc(width, "100% - #{12px * 2}", $default: 98%);
+//   @include calc(width, '100% - #{12px * 2}', $fallback: 98%);
+// }
+//
+// .example2 {
+//   @include calc(width, '100% - 3em', $fallback: 90%);
 // }
 // ```
 //
 // Adapted from [Livingston Samuel](https://coderwall.com/p/qac-og)
 //
-// Styleguide 2.7
+// Styleguide 2.6
 
-@mixin calc($property, $expression, $default: null) {
-  #{$property}: $default;
+@mixin calc($property, $expression, $fallback) {
+  #{$property}: $fallback;
   #{$property}: calc(#{$expression});
 }
 
