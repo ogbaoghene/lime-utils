@@ -5,7 +5,7 @@
 // Parameters:
 // ```scss
 // $width     : border-width
-// $style     : extends border-style placeholders, dotted, dashed, solid, double, none
+// $style     : border-style. extends placeholders, dotted, dashed, solid, double, and none
 // $position  : border-position. Optional
 // $color     : border-color. Optional
 // ```
@@ -13,15 +13,15 @@
 // Usage:
 // ```scss
 // .example {
-//   @include smart-border(5px, $style: dotted);
+//   @include border(5px, $style: dotted);
 // }
 //
 // .example-2 {
-//   @include smart-border(5px, $style: solid, $position: bottom);
+//   @include border(5px, $style: solid, $position: bottom);
 // }
 //
 // .example-3 {
-//   @include smart-border(5px, $style: dotted, $position: top left, $color: red);
+//   @include border(5px, $style: dotted, $position: top left, $color: red);
 // }
 // ```
 //
@@ -29,7 +29,7 @@
 //
 // Styleguide 2.12
 
-@mixin smart-border($width, $style, $position: null, $color: null) {
+@mixin border($width, $style, $position: null, $color: null) {
   @if $position != null {
     @if length($position) != 1 {
       @if length($position) == 2 {
