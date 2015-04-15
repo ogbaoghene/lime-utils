@@ -27,7 +27,7 @@
 //
 // **Requires** : _boxProperties
 //
-// Styleguide 2.12
+// Styleguide 2.10
 
 @mixin border($width, $style, $position: null, $color: null) {
   @if $position != null {
