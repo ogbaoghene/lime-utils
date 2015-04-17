@@ -1,10 +1,10 @@
 // px to rem
 //
-// Converts a px value to rem, accepts a list.
+// Converts a px value to rem, accepts an array.
 //
 // Parameters:
 // ```scss
-// $values : Number in px
+// $values : number in px
 // ```
 // 
 // Usage:
@@ -35,8 +35,7 @@
       $list: append($list, $value);
     }
   }
-  // Return a single value instead of a list,
-  // so it can be used in calculations
+  // Return a single value that can be used in calculations
   @if length($list) == 1 {
     @return nth($list, 1);
   } @else {
