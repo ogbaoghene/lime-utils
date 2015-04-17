@@ -1,11 +1,11 @@
 // px to em
 //
-// Converts a px value to em, accepts a list.
+// Converts a px value to em, accepts an array.
 //
 // Parameters:
 // ```scss
-// $values  : Number in px
-// $context : Base font size, in em or px. Predefined as $doc-font-size
+// $values  : number in px
+// $context : base font size, in em or px. Predefined as $doc-font-size
 // ```
 // 
 // Usage:
@@ -27,8 +27,6 @@
 // Styleguide 1.2
 
 @function px-to-em($values, $context: $doc-font-size) {
-  // Adjust accordingly to create a $divisor that
-  // serves as context for $pixels.
   $multiplier: if(unit($context) == em, $doc-font-size, 1);
   $divisor: strip-unit($context) * $multiplier;
   $list: ();
@@ -41,12 +39,12 @@
       $list: append($list, $value);
     }
   }
-  // Return a single value instead of a list,
-  // so it can be used in calculations
+  // Return a single value that can be used in calculations
   @if length($list) == 1 {
     @return nth($list, 1);
   } @else {
     @return $list;
   }
 }
+
 
