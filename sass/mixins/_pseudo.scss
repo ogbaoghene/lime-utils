@@ -1,101 +1,55 @@
 // Pseudo
 //
-// Shorthand for writing &:before, &:after.
+// Use ::after and ::before pseudo-elements.
 //
 // Parameters:
 // ```scss
-// $element   : Pseudo element, before, after, or both
-// $content   : Insert generated content. Optional
-// $display   : Extend display property placeholder. Optional
-// $position  : Extend position property placeholder. Optional
+// $element : either aft, fore, or both. Defaults to both
+// $cont    : CSS generated content
 // ```
 //
 // Usage:
 // ```scss
-// .test {
-//   @include pseudo($element: both, $display: show, $position: absolute) {
-//     height: 20px;
-//   }
-// }
-//
-// .test2 {
-//   @include pseudo($element: after,$content: 'GO!') {
-//     clear: both;
+// .example {
+//   @include pseudo(fore, $cont: 'GO');
+//   @include pseudo(aft, $cont: 'HELL!');
+//   @include pseudo($cont: null) {
+//     display: inline-block;
+// 
+//     color: red;
+//     font-weight: bold;
 //   }
 // }
 // ```
 // 
-// **Requires** : _layoutProperties
-// 
 // Adapted from [Team Treehouse](http://blog.teamtreehouse.com/)
 //
-// Styleguide 2.15
+// Styleguide 2.12
 
-@mixin pseudo($element, $content: null, $display: null, $position: null) {
-  @if $element == before or $element == after {
-    @if $content != null {
-      &:#{$element} {
-        content: $content;
-
-        @if $display != null {
-          @extend %do-#{$display};
-        }
-
-        @if $position != null {
-          @extend %position-#{$position};
-        }
-
+@mixin pseudo($element: both, $cont: '') {
+  @if $element != both {
+    @if $element == aft {
+      &:after {
+        content: $cont;
+        
+        @content;
+      }
+    } @else if $element == fore {
+      &:before {
+        content: $cont;
+        
         @content;
       }
     } @else {
-      &:#{$element} {
-        content: '';
-
-        @if $display != null {
-          @extend %do-#{$display};
-        }
-
-        @if $position != null {
-          @extend %position-#{$position};
-        }
-
-        @content;
-      }
-    }
-  } @else if $element == both {
-    @if $content != null {
-      &:before,
-      &:after {
-        content: $content;
-
-        @if $display != null {
-          @extend %do-#{$display};
-        }
-
-        @if $position != null {
-          @extend %position-#{$position};
-        }
-
-        @content;
-      }
-    } @else {
-      &:before,
-      &:after {
-        content: '';
-
-        @if $display != null {
-          @extend %do-#{$display};
-        }
-
-        @if $position != null {
-          @extend %position-#{$position};
-        }
-
-        @content;
-      }
+      @warn '`#{$element}` is not a valid option. Properties omitted.';
     }
   } @else {
-    @warn '`#{$element}` is not a valid pseudo-element.';
+    &:before,
+    &:after {
+      content: $cont;
+      
+      @content;
+    }
   }
 }
 
