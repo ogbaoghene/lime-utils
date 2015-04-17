@@ -81,7 +81,8 @@
     }
   } @else {
     display: flex;
-    flex-flow: row wrap;
+    flex-direction: row;
+    flex-wrap: wrap;
     align-items: stretch;
     letter-spacing: normal;
     text-align: inherit;
