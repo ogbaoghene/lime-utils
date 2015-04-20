@@ -87,7 +87,15 @@
       @warn 'Values are out of bounds. Properties omitted.';
     }
   } @else {
-    @warn '2 or 4 values are required.';
+    $value1: $values;
+    $value2: $values;
+    $value3: $values;
+    $value4: $values;
+    
+    #{$property}-top: $value1;
+    #{$property}-#{map-get($direction, end)}: $value2;
+    #{$property}-bottom: $value3;
+    #{$property}-#{map-get($direction, start)}: $value4;
   }
 }
 
