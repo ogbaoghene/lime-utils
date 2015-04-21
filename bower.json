@@ -1,7 +1,7 @@
 {
   "name": "lime-utils",
-  "version": "0.1.2",
-  "description": "A library of Sass modules - functions, mixins, placeholders and variables",
+  "version": "1.0.0",
+  "description": "A collection of minimal Sass utilities.",
   "main": "sass/_limeUtils.scss",
   "moduleType": [
     "globals"
@@ -25,6 +25,7 @@
     "bower.json",
     "Gruntfile.js",
     "package.json",
-    "README.md"
+    "README.md",
+    "sass/styleguide.md"
   ]
 }
