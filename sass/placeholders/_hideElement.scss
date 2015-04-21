@@ -8,9 +8,9 @@
 // 
 // Placeholders:
 // ```text
-// Hide text off screen
-// Hide only visually, but have it available for screenreaders
-// Extend %hide-element-visually, while allowing the element to be focusable when navigated to via the keyboard
+// Hide text offscreen
+// Hide visually
+// Hide visually but focusable
 // ```
 //
 // _Tested : IE6-9, Firefox, Chrome, Safari_
@@ -28,7 +28,7 @@
   text-indent: 100%;
 }
 
-// Hide only visually, but have it available for screenreaders
+// Hide only visually, but have it available for screen readers: http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
 %hide-visually {
   @extend %position-absolute;
   @extend %overflow-hidden;
@@ -41,11 +41,11 @@
   width: 1px;
 }
 
-// Extend %hide-element-visually, while allowing the element to be focusable when navigated to via the keyboard
+// Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: https://www.drupal.org/node/897638
 %hide-visually-focusable {
   @include hover-active-focus($state: no-hover) {
-    @extend %position-static;
     @extend %hide-visually;
+    @extend %position-static;
     @extend %height-auto;
     @extend %width-auto;
     @extend %margin-reset;
