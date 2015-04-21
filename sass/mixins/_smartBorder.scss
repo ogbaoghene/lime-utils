@@ -27,6 +27,8 @@
 //
 // **Requires** : _boxProperties
 //
+// _**Note** : Will not work within a media query._
+//
 // Styleguide 2.10
 
 @mixin border($width, $style, $position: null, $color: null) {
