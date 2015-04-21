@@ -1,15 +1,13 @@
-// To encourage clarity, use a two-tier system where applicable. Define descriptive variables with actual values, then assign functional variables to those descriptive variables.
+// Where applicable a two-tier system is used, descriptive variables are set to actual values, then assigned to functional variables.
 
 
 // Type
 $base-font-size: 16; // Default font size on html element is 100%, equivalent to 16px;
-
 $doc-font-size: 16; // Font size on body element
 
 
 // Modular Scale
 $imprt-no: 528; // Gldilocks approach
-
 $ratio: 1.618; // The Golden ratio
 
 
@@ -29,7 +27,6 @@ $direction: (
 // Font-family
 $pri-font-family: Georgia, 'Nimbus Roman No9 L', Times, "Times New Roman", serif;
 $sec-font-family: 'Helvetica Neue W02 55 Roman', HelveticaNeue-Roman, 'Helvetica Neue Roman', HelveticaNeue, Helvetica, Arial, sans-serif;
-
 
 $font: (
   body: $pri-font-family,
@@ -74,7 +71,7 @@ $font-size: (
 
 // Vertical Rhythm
 $doc-vertical-margin: ceil($doc-font-size * $ratio) * 1px;
-$doc-line-height: $ratio;
+$doc-line-height: $ratio * 1em;
 
 $line-height: (
   giga: 1.178em,
@@ -84,8 +81,8 @@ $line-height: (
   beta: 1.238em,
   gamma: 2em,
   delta: 1.444em,
-  epsilon: inherit,
-  zeta: inherit,
+  epsilon: $doc-line-height,
+  zeta: $doc-line-height,
   milli: 2.167em,
   mini: 2.889em,
 );
@@ -146,4 +143,11 @@ $shadows: (
   depth-4 : (0 14px 12px 0 rgba(0, 0, 0, .17), 0 20px 40px 0 rgba(0, 0, 0, .3)),
   depth-5 : (0 17px 17px 0 rgba(0, 0, 0, .15), 0 27px 55px 0 rgba(0, 0, 0, .3)),
 );
+
+
+// Colors
+$true-black: #000;
+$gray20: #333;
+$gray40: #666;
+$white: #fff;
 
