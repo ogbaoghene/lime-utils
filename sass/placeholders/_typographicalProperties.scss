@@ -25,7 +25,7 @@
 // Styleguide 3.4
 
 // font-family
-@include loop-map($font, font-family, $namespace: font);
+@include loop($font, font-family, $namespace: font);
 
 
 // font-size & line-height
@@ -86,31 +86,22 @@
 
 
 // font-weight
-@include loop-map($type, font-weight, $namespace: type);
+@include loop($type, font-weight, $namespace: type);
 
 
 // font-style
-%italics {
-  font-style: italic;
-}
-
 %normal {
   font-style: normal;
 }
 
+%italics {
+  font-style: italic;
+}
+
 
 // text-align
-%text-center {
-  text-align: center;
-}
-
-%text-justify {
-  text-align: justify;
-}
-
-%text-end {
-  text-align: map-get($direction, end); // as backup
-  text-align: end;
+%text-inherit {
+  text-align: inherit;
 }
 
 %text-start {
@@ -118,8 +109,17 @@
   text-align: start;
 }
 
-%text-inherit {
-  text-align: inherit;
+%text-end {
+  text-align: map-get($direction, end); // as backup
+  text-align: end;
+}
+
+%text-center {
+  text-align: center;
+}
+
+%text-justify {
+  text-align: justify;
 }
 
 
@@ -217,6 +217,6 @@
 }
 
 %line-height-normal {
-  line-height: $doc-line-height * 1em;
+  line-height: $doc-line-height;
 }
 
