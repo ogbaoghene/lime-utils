@@ -35,22 +35,22 @@
 // 
 // .example-cell {
 //   @include cell(33.333%, $align: center, $no-flexbox: true);
-  
+//  
 //   &.collapsed {
 //     @include cell(33.333%, $collapsed: true, $no-flexbox: true);
 //   }
-  
+// 
 //   &.offset-20 {
 //     @include cell(33.333%, $offset: 20%, $no-flexbox: true);
 //   }
-  
+//  
 //   .flexbox & {
 //     @include cell(33.333%, $align: center);
-    
+//    
 //     &.collapsed {
 //       @include cell(33.333%, $collapsed: true);
 //     }
-  
+//  
 //     &.offset-20 {
 //       @include cell(33.333%, $offset: 20%);
 //     }
