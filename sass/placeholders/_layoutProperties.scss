@@ -65,7 +65,7 @@
 
 
 // Float
-@include loop-map($direction, float, float);
+@include loop($direction, float, float);
 
 %float-none {
   float: none;
@@ -73,7 +73,7 @@
 
 
 // Clear
-@include loop-map($direction, clear, clear);
+@include loop($direction, clear, clear);
 
 %clear-both {
   clear: both;
@@ -99,21 +99,21 @@
 
 
 // Position Coordinates
-%coord-all {  
+%pos-zero-all {  
   @include chain(top right bottom left, 0);
 }
 
-%coord-top-bottom {
+%pos-zero-vert {
   @include chain(top bottom, 0);
 }
 
-%coord-right-left {
+%pos-zero-hor {
   @include chain(right left, 0);
 }
 
 
 // z-index
-@include loop-map($z, z-index, z);
+@include loop($z, z-index, z);
 
 
 // Overflow
