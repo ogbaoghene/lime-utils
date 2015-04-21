@@ -4,7 +4,7 @@
 
 // Clearfix
 //
-// Used project wide to clear floats and create a new formatting context.
+// Clear floats and create a new formatting context.
 // 
 // Placeholders:
 // ```text
@@ -25,44 +25,15 @@
   zoom: 1;
 }
 
-%clearfix-facebook {
-  @extend %do-cell;
-  @extend %align-top;
-  
-  width: 10000px !important;
-  *display: block; // <=IE7
-  *zoom: 1; // <=IE7
-  *width: auto !important; // <=IE7
-}
-
 %clearfix-micro {
   zoom: 1; // @include has-layout;
 
-  &:before,
-  &:after {
+  @include pseudo() {
     @extend %do-table;
-
-    content: '';
   }
 
   &:after {
     @extend %clear-both;
-  }
-}
-
-%clearfix-stubborn {
-  @extend %do-cell;
-
-  &:after {
-    @extend %clear-both;
-    @extend %do-show;
-    @extend %visibility-hidden;
-    @extend %overflow-hidden;
-    
-    content: 'x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x';
-    font-size: xx-large;
-    height: 0 !important;
-    line-height: 0;
   }
 }
 
