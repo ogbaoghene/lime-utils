@@ -213,8 +213,3 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
-node_modules
-docs
-sass/screen.scss
-sass/styleguide.md
-Gruntfile.js
