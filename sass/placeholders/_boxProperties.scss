@@ -109,7 +109,7 @@
 
 
 // Borders Radii
-@include loop-map($radii, border-radius, $namespace: radii);
+@include loop($radii, border-radius, $namespace: radii);
 
 
 // Outline
