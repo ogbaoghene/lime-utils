@@ -16,16 +16,7 @@
   "license": "GNU V2",
   "ignore": [
     "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests",
-    "docs",
-    "screen.scss",
     "bower.json",
-    "Gruntfile.js",
-    "package.json",
-    "README.md",
-    "sass/styleguide.md"
+    "README.md"
   ]
 }
