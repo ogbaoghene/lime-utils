@@ -1,15 +1,14 @@
 // Grid
 //
-// Define behaviour for grids and cells. Uses Flexbox module when supported.
+// Define behaviour for grid rows and cells. Uses Flexbox module when supported.
 //
 // Parameters:
 // ```scss
 // $alignment : either start, opposite or center. Defaults to start
-// $nested    : nested grid. Optional
+// $nested    : nested row. Optional
 // 
 // $width     : cell width in percentages
 // $collapsed : no cell gutter. Optional
-// $align     : either top, bottom or center. Optional
 // $offset    : cell offset in percentages. Optional
 // 
 // $no-flexbox: disable flexbox module. Optional
@@ -18,23 +17,23 @@
 // Usage:
 // ```scss
 // .example {
-//   @include grid($no-flexbox: true);
+//   @include row($no-flexbox: true);
 // 
 //   &.nested {
-//     @include grid($nested: true, $no-flexbox: true);
+//     @include row($nested: true, $no-flexbox: true);
 //   }
 // 
 //   .flexbox & {
-//     @include grid();
+//     @include row();
 // 
 //     &.nested {
-//       @include grid($nested: true);
+//       @include row($nested: true);
 //     }
 //   }
 // }
 // 
 // .example-cell {
-//   @include cell(33.333%, $align: center, $no-flexbox: true);
+//   @include cell(33.333%, $no-flexbox: true);
 //  
 //   &.collapsed {
 //     @include cell(33.333%, $collapsed: true, $no-flexbox: true);
@@ -45,7 +44,7 @@
 //   }
 //  
 //   .flexbox & {
-//     @include cell(33.333%, $align: center);
+//     @include cell(33.333%);
 //    
 //     &.collapsed {
 //       @include cell(33.333%, $collapsed: true);
@@ -62,7 +61,7 @@
 //
 // Styleguide 2.11
 
-@mixin grid($alignment: start, $nested: null, $no-flexbox: null) {
+@mixin row($alignment: start, $nested: null, $no-flexbox: null) {
   @if $no-flexbox != null {
     letter-spacing: -.31em; // YUI3 grid fix for safari
   
@@ -109,37 +108,17 @@
 }
 
 
-@mixin cell($width: auto, $align: null, $offset: null, $collapsed: null, $no-flexbox: null) {
+@mixin cell($width: auto, $offset: null, $collapsed: null, $no-flexbox: null) {
   letter-spacing: normal;
     
   @if $no-flexbox != null {
     display: inline-block;
     width: $width;
-    
-    @if $align == center {
-      vertical-align: middle;
-    } @else if $align == bottom {
-      vertical-align: bottom;
-    } @else if $align == top {
-      vertical-align: top;
-    } @else {
-      @warn '`#{$align}` is not a valid option. Properties omitted.';
-    }
   } @else {
     flex: 0 1 $width;
     
     @if $width != auto { 
       max-width: $width; // IE11 box-sixing fix
-    }
-    
-    @if $align == center {
-      align-self: center;
-    } @else if $align == bottom {
-      align-self: flex-end;
-    } @else if $align == top {
-      align-self: flex-start;
-    } @else {
-      @warn '`#{$align}` is not a valid option. Properties omitted.';
     }
   }
   
