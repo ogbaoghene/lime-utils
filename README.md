@@ -1,9 +1,9 @@
 lime-utils
 ==========
 
-## A collection of minimal Sass utilities.
+## A collection of lean Sass utilities.
 
-Inspired by projects like [SCUT](http://davidtheclark.github.io/scut), [Sassifaction](https://github.com/sturobson/sassifaction), and [Bourbon](http://bourbon.io), lime-utils is for those who are all about maximizing their time in the zone and doing more quicker. Leveraging upon the already formidable powers of Sass, lime-utils brings together a collection of minimal and highly useful Sass modules. Functions, mixins and placeholders that help users avoid repetition, organize code, and re-use code; saving time and helping them stay in the zone longer.
+Inspired by projects like [SCUT](http://davidtheclark.github.io/scut), [Sassifaction](https://github.com/sturobson/sassifaction), and [Bourbon](http://bourbon.io), lime-utils is for those who are all about maximizing their time in the zone and doing more quicker. Leveraging upon the already formidable powers of Sass, lime-utils brings together a collection of lean and highly useful Sass modules. Functions, mixins and placeholders that help organize code and avoid repetition; saving time and helping you stay in the zone longer.
 
 ## Requirements
 
