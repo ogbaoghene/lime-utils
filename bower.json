@@ -1,7 +1,7 @@
 {
   "name": "lime-utils",
   "version": "1.0.0",
-  "description": "A collection of lean Sass utilities.",
+  "description": "The most handy Sass utilities in one place.",
   "main": "sass/_limeUtils.scss",
   "moduleType": [
     "globals"
