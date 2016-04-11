@@ -1,24 +1,3 @@
-/*--------------------------------------------------------------
-  $BOX PROPERTIES
---------------------------------------------------------------*/
-/*--------------------------------------------------------------
-  $LAYOUT PROPERTIES
---------------------------------------------------------------*/
-/*--------------------------------------------------------------
-  $LIST PROPERTIES
---------------------------------------------------------------*/
-/*--------------------------------------------------------------
-  $TYPOGRAPHICAL PROPERTIES
---------------------------------------------------------------*/
-/*--------------------------------------------------------------
-  $HIDE ELEMENT
---------------------------------------------------------------*/
-/*--------------------------------------------------------------
-  $CLEARFIX
---------------------------------------------------------------*/
-/*--------------------------------------------------------------
-  $PRESENTATIONAL EFFECTS
---------------------------------------------------------------*/
 .no-cssgradients .header,
 .no-csstransforms3d .header,
 .csstransitions .header {
@@ -29,4 +8,15 @@
   display: flex;
   transition: .1s; }
 
-/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNjcmVlbi5taW4uY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOztnRUFFZ0U7QUFDaEU7O2dFQUVnRTtBQUNoRTs7Z0VBRWdFO0FBQ2hFOztnRUFFZ0U7QUFDaEU7O2dFQUVnRTtBQUNoRTs7Z0VBRWdFO0FBQ2hFOztnRUFFZ0U7QUFDaEU7OztFQUdFLGFBQWE7RUFDYixZQUFZO0VBQ1osc0JBQWM7RUFBZCxxQkFBYztFQUFkLGNBQWM7RUFDZCxnQkFBZ0IsRUFBRSIsImZpbGUiOiJzY3JlZW4ubWluLmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi8qLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS1cbiAgJEJPWCBQUk9QRVJUSUVTXG4tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSovXG4vKi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tXG4gICRMQVlPVVQgUFJPUEVSVElFU1xuLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0qL1xuLyotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLVxuICAkTElTVCBQUk9QRVJUSUVTXG4tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSovXG4vKi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tXG4gICRUWVBPR1JBUEhJQ0FMIFBST1BFUlRJRVNcbi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKi9cbi8qLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS1cbiAgJEhJREUgRUxFTUVOVFxuLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0qL1xuLyotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLVxuICAkQ0xFQVJGSVhcbi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKi9cbi8qLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS1cbiAgJFBSRVNFTlRBVElPTkFMIEVGRkVDVFNcbi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKi9cbi5uby1jc3NncmFkaWVudHMgLmhlYWRlcixcbi5uby1jc3N0cmFuc2Zvcm1zM2QgLmhlYWRlcixcbi5jc3N0cmFuc2l0aW9ucyAuaGVhZGVyIHtcbiAgcGFkZGluZzogMWVtO1xuICBtYXJnaW46IDFlbTtcbiAgZGlzcGxheTogZmxleDtcbiAgdHJhbnNpdGlvbjogLjFzOyB9XG4iXX0= */
+.remFallback {
+  height: 160px;
+  height: 10rem;
+  font: 32px Arial;
+  font: 2rem Arial; }
+
+.remFallback::before {
+  content: '';
+  line-height: 16px;
+  line-height: 1rem; }
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNjcmVlbi5taW4uY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOzs7RUFHRSxhQUFhO0VBQ2IsWUFBWTtFQUNaLHNCQUFjO0VBQWQscUJBQWM7RUFBZCxjQUFjO0VBQ2QsZ0JBQWdCLEVBQUU7O0FBRXBCO0VBQ0UsY0FBYztFQUFkLGNBQWM7RUFDZCxpQkFBaUI7RUFBakIsaUJBQWlCLEVBQUU7O0FBRXJCO0VBQ0UsWUFBWTtFQUNaLGtCQUFrQjtFQUFsQixrQkFBa0IsRUFBRSIsImZpbGUiOiJzY3JlZW4ubWluLmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5uby1jc3NncmFkaWVudHMgLmhlYWRlcixcbi5uby1jc3N0cmFuc2Zvcm1zM2QgLmhlYWRlcixcbi5jc3N0cmFuc2l0aW9ucyAuaGVhZGVyIHtcbiAgcGFkZGluZzogMWVtO1xuICBtYXJnaW46IDFlbTtcbiAgZGlzcGxheTogZmxleDtcbiAgdHJhbnNpdGlvbjogLjFzOyB9XG5cbi5yZW1GYWxsYmFjayB7XG4gIGhlaWdodDogMTByZW07XG4gIGZvbnQ6IDJyZW0gQXJpYWw7IH1cblxuLnJlbUZhbGxiYWNrOjpiZWZvcmUge1xuICBjb250ZW50OiAnJztcbiAgbGluZS1oZWlnaHQ6IDFyZW07IH1cbiJdfQ== */
