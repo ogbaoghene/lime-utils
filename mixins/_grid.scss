@@ -100,10 +100,8 @@
   }
   
   @if $nested != null {
-    @include rem-fallback((
-      (margin-right, -$doc-gutter),
-      (margin-left, -$doc-gutter),
-    ));
+    margin-right: -$doc-gutter;
+    margin-left: -$doc-gutter;
   }
 }
 
@@ -127,10 +125,8 @@
   }
   
   @if $collapsed == null {
-    @include rem-fallback((
-      (padding-right, $doc-gutter),
-      (padding-left, $doc-gutter),
-    ));
+    padding-right: $doc-gutter;
+    padding-left: $doc-gutter;
   }
 }
 
