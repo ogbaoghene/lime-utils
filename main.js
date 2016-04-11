@@ -8,3 +8,4 @@ $(document).ready(function($) {
 	// external links
 	$('a[rel="external"]').attr('target', '_blank');
 });
+
