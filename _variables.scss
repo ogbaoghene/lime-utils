@@ -1,40 +1,20 @@
 // Variables
 //
-// Collection of lime-utils variables and their values.
-// 
-// _**Note** : Where applicable a two-tier system is used, descriptive variables are set to actual values, then assigned to functional variables._
+// Use a two-tier system, with both functional and descriptive variable names
 
 
 // Type
-$base-font-size: 16; // Default font size on html element is 100%, equivalent to 16px;
-$doc-font-size: 16; // Font size on body element
+$doc-font-size: 16; // font size on root element
 
 
-// Modular Scale
-$imprt-no: 528; // Gldilocks approach
-$ratio: 1.618; // The Golden ratio
-
-
-// Grids
-$gutter-width: 16;
-
-$doc-gutter: $gutter-width * 1px;
+// Grid
+$doc-gutter: 16px;
 
 
 // Directionality
 $direction: (
   start: left,
   end: right,
-);
-
-
-// Font-family
-$pri-font-family: Georgia, 'Nimbus Roman No9 L', Times, "Times New Roman", serif;
-$sec-font-family: 'Helvetica Neue W02 55 Roman', HelveticaNeue-Roman, 'Helvetica Neue Roman', HelveticaNeue, Helvetica, Arial, sans-serif;
-
-$font: (
-  body: $pri-font-family,
-  title: $sec-font-family,
 );
 
 
@@ -57,38 +37,42 @@ $type: (
 );
 
 
+// Modular Scale
+$ratio: 1.618; // http://www.modularscale.com/?16,528&&1.618&web&text
+
+
 // Font-size
 $font-size: (
-  giga: 17.938em,
-  mega: 11.063em,
-  kilo: 6.875em,
-  alpha: 4.25em,
+  giga: 6.875em,
+  mega: 4.813em,
+  kilo: 4.25em,
+  alpha: 3em,
   beta: 2.625em,
-  gamma: 1.625em,
-  delta: 1.125em,
-  epsilon: 1em,
+  gamma: 1.813em,
+  delta: 1.625em,
+  epsilon: 1.125em,
   zeta: 1em,
-  milli: .75em,
-  mini: .563em,
+  milli: .625em,
 );
 
 
 // Vertical Rhythm
-$doc-vertical-margin: ceil($doc-font-size * $ratio) * 1px;
-$doc-line-height: $ratio * 1em;
+$doc-baseline: ceil($doc-font-size * $ratio) * 1px;
+$doc-line-height: 1.625rem;
 
+
+// Line height
 $line-height: (
-  giga: 1.178em,
-  mega: 1.627em,
-  kilo: 1.182em,
-  alpha: 1.147em,
-  beta: 1.238em,
-  gamma: 2em,
-  delta: 1.444em,
+  giga: 7.313rem,
+  mega: 4.875rem,
+  kilo: 4.875rem,
+  alpha: 3.25rem,
+  beta: 3.25rem,
+  gamma: 2.438rem,
+  delta: 2.438rem,
   epsilon: $doc-line-height,
   zeta: $doc-line-height,
-  milli: 2.167em,
-  mini: 2.889em,
+  milli: .813rem,
 );
 
 
@@ -119,7 +103,7 @@ $radii: (
 );
 
 
-// Z-index (0: canvas; 1: base; 2: raised, in flow; 3: raised, out of flow; 4: overlay; 5: max;)
+// Z-index
 $z: (
   depth-0: 0,
   depth-1: 1,

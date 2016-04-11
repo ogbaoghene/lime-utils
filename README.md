@@ -1,10 +1,10 @@
 # LIME UTILS
-==========
+
 The word "**lime**" originates with its earliest use as building mortar and has the sense of "***sticking or adhering.***"
 
 > **util** ‎(plural **utils**)
 > 
-> 1. (informal, computing) A utility.
+> 1. (*informal*, *computing*) A utility.
 
 **The most handy Sass utilities in one place.**
 
@@ -57,7 +57,7 @@ Here are some guidelines on how to go about writing your own:
 - **Begin each file with a multi-line comment (each line an inline // comment, not a block comment) naming and briefly describing the module.** Follow this with a list of parameters, a usage example and any dependencies, e.g:
 
 	```
-	// PX TO EM
+	// PX to EM
 	// Converts a px value to em, accepts an 	array.
 
 	// Requires : _variables, _strip-unit

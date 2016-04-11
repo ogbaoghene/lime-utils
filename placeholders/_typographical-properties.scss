@@ -24,9 +24,6 @@
 //
 // Styleguide 3.4
 
-// font-family
-@include loop($font, font-family, $namespace: font);
-
 
 // font-size & line-height
 %giga {
@@ -77,11 +74,6 @@
 %milli {
   font-size: map-get($font-size, milli);
   line-height: map-get($line-height, milli);
-}
-
-%mini {
-  font-size: map-get($font-size, mini);
-  line-height: map-get($line-height, mini);
 }
 
 
