@@ -4,11 +4,7 @@
 
 
 // Type
-$doc-font-size: 16; // font size on root element
-
-
-// Grid
-$doc-gutter: 16px;
+$doc-font-size: 16px; // font size on root element
 
 
 // Directionality
@@ -37,9 +33,11 @@ $type: (
 );
 
 
-// Modular Scale
-$ratio: 1.618; // http://www.modularscale.com/?16,528&&1.618&web&text
+// Grid
+$doc-gutter: 1rem;
 
+
+// Modular Scale - http://www.modularscale.com/?16,528&&1.618&web&text
 
 // Font-size
 $font-size: (
@@ -57,7 +55,7 @@ $font-size: (
 
 
 // Vertical Rhythm
-$doc-baseline: ceil($doc-font-size * $ratio) * 1px;
+$doc-baseline: 1.625rem;
 $doc-line-height: 1.625rem;
 
 

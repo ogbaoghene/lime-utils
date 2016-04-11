@@ -1,7 +1,3 @@
-/*--------------------------------------------------------------
-  $LAYOUT PROPERTIES
---------------------------------------------------------------*/
-
 // Layout Properties
 //
 // Control visibility, position, and behavior of the generated boxes for document elements.
@@ -99,15 +95,15 @@
 
 
 // Position Coordinates
-%pos-zero-all {  
+%position-all {  
   @include chain(top right bottom left, 0);
 }
 
-%pos-zero-vert {
+%position-vertical {
   @include chain(top bottom, 0);
 }
 
-%pos-zero-hor {
+%position-horizontal {
   @include chain(right left, 0);
 }
 
