@@ -8,7 +8,7 @@ The word "**lime**" originates with its earliest use as building mortar and has 
 
 **The most handy Sass utilities in one place.**
 
-Sometimes the right framework is no framework. That’s why Lime Utils can be used to [draw on all the great sources out there] in an effective way.
+Sometimes the right framework is no framework. That’s why Lime Utils can be used to draw on all the great sources out there in an effective way.
 
 **Do more with less.**
 
