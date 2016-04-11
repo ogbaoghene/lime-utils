@@ -1,2 +1,13 @@
 @import 'lime';
 
+.no-cssgradients,
+.no-csstransforms3d,
+.csstransitions {
+	.header {
+		padding: 1em;
+		margin: 1em;
+		display: flex;
+		transition: .1s;
+	}
+}
+
