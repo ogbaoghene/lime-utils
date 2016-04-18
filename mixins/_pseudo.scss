@@ -29,13 +29,13 @@
 @mixin pseudo($element: both, $cont: '') {
   @if $element != both {
     @if $element == aft {
-      &:after {
+      &::after {
         content: $cont;
         
         @content;
       }
     } @else if $element == fore {
-      &:before {
+      &::before {
         content: $cont;
         
         @content;
@@ -44,8 +44,8 @@
       @warn '`#{$element}` is not a valid option. Properties omitted.';
     }
   } @else {
-    &:before,
-    &:after {
+    &::before,
+    &::after {
       content: $cont;
       
       @content;
