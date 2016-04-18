@@ -2,7 +2,7 @@
 
 The word "**lime**" originates with its earliest use as building mortar and has the sense of "***sticking or adhering.***"
 
-> **util** ‎(plural **utils**)
+> **util** (plural **utils**)
 > 
 > 1. (*informal*, *computing*) A utility.
 
