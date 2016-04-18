@@ -1,23 +1,108 @@
+/*--------------------------------------------------------------
+  $RESET
+--------------------------------------------------------------*/
+
+/*  CSS Device Adaptation*/
+@-ms-viewport {
+  width: device-width;
+}
+
+@media print {
+  /* Ensures that no images reach the outer bounds of the normal page view */
+  img {
+    max-width: 100% !important;
+  }
+
+  /* Prevents widows and orphans on heading and paragraph tags */
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+}
+
+html {
+  font-size: 100%; /* Corrects text resizing oddly in IE6/7 when body font-size is set using em units http://clagnut.com/blog/348/#c790 */
+  overflow-y: scroll; /* Keeps page centered in all browsers regardless of content height */
+}
+
+/* Transitions only after page load, requires attendant JS */
+.preload * {
+  transition: none !important;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+
+  vertical-align: baseline;
+
+  border: 0;
+  outline: 0;
+}
+
+
+/* Apply a natural box layout model to all elements; see http://www.paulirish.com/2012/box-sizing-border-box-ftw/ */ 
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+/* Fix image scaling in IE7 */
+img {
+  -ms-interpolation-mode: bicubic;
+}
+
+/* Remove the tap highlight color on touchscreens */
+a:link {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: transparent; // For some Androids
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+
+  border: none;
+}
+
+
+// Lime Utiles
 @import 'lime';
 
-.no-cssgradients,
-.no-csstransforms3d,
-.csstransitions {
-	.header {
-		padding: 1em;
-		margin: 1em;
-		display: flex;
-		transition: .1s;
-	}
+
+// Custom Variables
+$text-color: (
+	body: $gray20,
+);
+
+
+/*--------------------------------------------------------------
+  $TYPOGRAPHY
+--------------------------------------------------------------*/
+
+// Font-family
+$pri-font-family: Georgia, 'Nimbus Roman No9 L', Times, "Times New Roman", serif;
+$sec-font-family: 'Helvetica Neue W02 55 Roman', HelveticaNeue-Roman, 'Helvetica Neue Roman', HelveticaNeue, Helvetica, Arial, sans-serif;
+
+$font: (
+  body: $pri-font-family,
+  title: $sec-font-family,
+);
+
+@include loop($font, font-family, $namespace: font);
+
+body {
+  @extend %font-body;
+  @extend %type-body;
+  @extend %line-height-normal;
+
+  // color: map-get($text-color, body);
 }
 
-.remFallback {
-    height: 10rem;
-    font: 2rem Arial;
-}
- 
-.remFallback::before {
-    content: '';
-    line-height: 1rem;
+* + * {
+  margin-top: $doc-baseline;
 }
 

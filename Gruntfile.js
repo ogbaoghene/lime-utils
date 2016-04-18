@@ -55,7 +55,7 @@ module.exports = function (grunt) {
       },
       dist: {
         options: {
-          style: 'compressed'
+          outputStyle: 'compressed'
         },
         files: {
           'screen.min.css': 'screen.scss'
