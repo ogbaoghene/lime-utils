@@ -61,6 +61,12 @@ a:link {
   -webkit-tap-highlight-color: transparent; // For some Androids
 }
 
+/* Responsive images */
+img,
+object[type="image/svg+xml"] {
+  max-width: 100%;
+}
+
 fieldset {
   margin: 0;
   padding: 0;
@@ -69,40 +75,312 @@ fieldset {
 }
 
 
-// Lime Utiles
+@import 'variables';
+
+// Custom Variables
+$type: (
+  heading: $black,
+  body: $normal,
+  bold: $bold,
+);
+
+$gray94: #eee;
+
+$text-color: (
+  body: $gray20,
+  link: $gray20,
+  active-link: $true-black,
+  border: $gray94,
+);
+
+$btn-color: (
+  bg: $white,
+  color: $gray20,
+  border: $gray20,
+  hover: $true-black,
+);
+
+/* Lime %placeholders */
 @import 'lime';
 
 
-// Custom Variables
-$text-color: (
-	body: $gray20,
-);
-
-
 /*--------------------------------------------------------------
-  $TYPOGRAPHY
+  $ATOMS
 --------------------------------------------------------------*/
 
 // Font-family
-$pri-font-family: Georgia, 'Nimbus Roman No9 L', Times, "Times New Roman", serif;
-$sec-font-family: 'Helvetica Neue W02 55 Roman', HelveticaNeue-Roman, 'Helvetica Neue Roman', HelveticaNeue, Helvetica, Arial, sans-serif;
+@include lime-font(montserrat, 'fonts/montserrat-black-webfont', $weight: 800);
+@include lime-font(montserrat, 'fonts/montserrat-semibold-webfont', $weight: 700);
+// @include lime-font(montserrat, 'fonts/montserrat-light-webfont', $weight: 400);
+@include lime-font(montserrat, 'fonts/montserrat-ultralight-webfont', $weight: 400);
+
+  $pri-font: 'montserrat', Arial, sans-serif;
 
 $font: (
-  body: $pri-font-family,
-  title: $sec-font-family,
+  body: $pri-font,
 );
 
 @include loop($font, font-family, $namespace: font);
 
 body {
   @extend %font-body;
-  @extend %type-body;
   @extend %line-height-normal;
 
-  // color: map-get($text-color, body);
+  color: map-get($text-color, body);
 }
 
 * + * {
   margin-top: $doc-baseline;
+}
+
+h1, h2, h3, h4, h5, h6 {  
+  > a {
+    color: inherit;
+  }
+}
+
+h3, h4, h5, h6 {
+  & + * {
+    @extend %margin-reset;
+  }
+}
+
+.giga {
+  @extend %giga;
+}
+
+.mega {
+  @extend %mega;
+}
+
+.kilo {
+  @extend %kilo;
+}
+
+h1,
+.alpha {
+  @extend %alpha;
+}
+
+h2,
+.beta {
+  @extend %beta;
+}
+
+h3,
+.gamma {
+  @extend %gamma;
+}
+
+h4,
+.delta {
+  @extend %delta;
+}
+
+h5,
+.epsilon {
+  @extend %epsilon;
+}
+
+h6,
+.zeta {
+  @extend %zeta;
+}
+
+small,
+.milli {
+  @extend %milli;
+}
+
+* + small,
+* + .milli {
+  margin-top: $doc-baseline / 2;
+}
+
+a {
+  &:link, &:visited {
+    @extend %text-decoration-none;
+    @extend %outline-none;
+    @extend %transit-fade;
+
+    color: map-get($text-color, link);
+
+    @include lime-border($position: bottom, $color: transparent);
+  }
+    
+  &:hover {
+    border-color: map-get($text-color, link);
+  }
+
+  &:active {
+    border-color: map-get($text-color, active-link);
+  }
+
+  &.case {
+    @extend %do-inline;
+    @extend %position-relative;
+    
+    @include lime-border(0, $position: bottom);
+    @include lime-pseudo(aft) {
+      @extend %position-absolute;
+
+      @include lime-chain(top right bottom left, 0);
+    };
+
+    > * {
+      @extend %align-btm;
+    }
+  }
+}
+
+button,
+a[class*="btns"] {
+  @extend %align-btm;
+  @extend %do-inline;
+  @extend %white-space-nowrap;
+  @extend %epsilon;
+  @extend %padding-default;
+  @extend %transit-fade;
+  @extend %text-center;
+  @extend %type-bold;
+  @extend %radii-xh;
+  @extend %shadow-depth-2;
+
+  background-color: map-get($btn-color, bg);
+  color: map-get($btn-color, color);
+  line-height: $doc-line-height - .25rem;
+  user-select: none;
+
+  @include lime-border(2px, $color: map-get($btn-color, border));
+  
+  &:hover {
+    @extend %text-decoration-none;
+
+    border-color: map-get($btn-color, hover);
+    color: map-get($btn-color, hover);
+  }
+
+  &:active {
+    @extend %shadow-depth-1;
+  }
+}
+
+ul,
+ol {
+  @extend %list-inside;
+
+  li + li {
+    @extend %margin-reset;
+  }
+}
+
+.half-rule {
+  @extend %margin-center;
+
+  width: px-to-rem(100px);
+
+  @include lime-border($position: top, $color: map-get($text-color, border));
+
+  &,
+  & + * {
+    margin-top: $doc-baseline * 2;
+  }
+}
+
+
+/*--------------------------------------------------------------
+  $LAYOUT
+--------------------------------------------------------------*/
+
+section {
+  @extend %position-relative;
+
+  min-height: 100vh;
+
+  h1 {
+    @extend %type-heading;
+    @extend %text-transform-upper;
+  }
+
+  h2, h3 {
+    @extend %type-body;
+  }
+}
+
+.goldi {
+  @extend %margin-auto;
+  @extend %width-min;
+  @extend %padding-full;
+  @extend %overflow-hidden;
+
+  max-width: px-to-em(map-get($breakpoints, goldilocks));
+}
+
+.hero {
+  @extend %do-flex;
+
+  padding-bottom: px-to-rem(104px);
+
+  p + ul {
+    @extend %margin-reset;
+  }
+
+  .cta {
+    @extend %position-absolute;
+
+    bottom: $doc-baseline;
+
+    @include lime-chain(left right, $doc-gutter);
+  }
+}
+
+.cta,
+.features {
+  @extend %text-center; 
+}
+
+#do-more,
+#painless {
+  object {
+    @extend %do-show;
+    @extend %margin-auto;
+    @extend %transit-move;
+  }
+}
+
+@include lime-break(map-get($breakpoints, goldilocks), $query1: max-width) {
+  #do-more {
+    text-align: map-get($direction, end);
+
+    object {
+      transform: translate(-30%);
+    }
+  }
+
+  #painless object {
+    transform: translate(30%);
+  }
+}
+
+@include lime-break(map-get($breakpoints, standard), $query1: max-width) {
+  #do-more,
+  #painless {
+    object {
+      max-width: px-to-em(map-get($breakpoints, very-small));
+    }
+  }
+}
+
+footer {
+  @extend %text-center;
+
+  nav + .copy {
+   @extend %margin-reset;
+  }
+
+  .copy {
+    @extend %milli;
+    @extend %text-transform-upper;
+  }
 }
 

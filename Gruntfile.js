@@ -18,7 +18,7 @@ module.exports = function (grunt) {
       },
       sass: {
         files: ['**/*.{scss,sass}'],
-        tasks: ['sass:dist', 'postcss:dist', 'modernizr:dist']
+        tasks: ['sass:dev', 'postcss:dev', 'modernizr:dev']
       },
       livereload: {
         options: {
@@ -27,7 +27,7 @@ module.exports = function (grunt) {
         files: [
           '{,*/}*.js',
           '{,*/}*.html',
-          'screen.min.css'
+          'screen.post.css'
         ]
       }
     },
@@ -53,6 +53,11 @@ module.exports = function (grunt) {
       options: {
         sourcemap: false
       },
+      dev: {
+        files: {
+          'screen.css': 'screen.scss'
+        }
+      },
       dist: {
         options: {
           outputStyle: 'compressed'
@@ -63,54 +68,75 @@ module.exports = function (grunt) {
       }
     },
 
-    // Respond to browser features
-    modernizr: {
-      dist: {
-        "dest": "modernizr-output.js",
-        "files": {
-          src: [
-            'screen.min.css',
-          ]
-        },
-        "options": [
-          "domPrefixes",
-          "prefixes",
-          "addTest",
-          "atRule",
-          "hasEvent",
-          "mq",
-          "prefixed",
-          "prefixedCSS",
-          "prefixedCSSValue",
-          "testAllProps",
-          "testProp",
-          "testStyles",
-          "html5shiv",
-          "setClasses"
-        ],
-        "uglify": true
-      }
-    },
-
     // Apply post-processors
     postcss: {
       options: {
         map: true,
         processors: [
-          require('pixrem')(),
-          require('autoprefixer')({browsers: 'last 2 versions'})
+          require('autoprefixer')({browsers: 'last 2 versions'}),
+          require('postcss-pseudoelements')(),
+          require('pixrem')()
         ]
+      },
+      dev: {
+        files: [{
+          src: 'screen.css',
+          dest: 'screen.post.css'
+        }]
       },
       dist: {
         src: 'screen.min.css'
       }
-    }
+    },
 
+    // Respond to browser features
+    modernizr: {
+      "dest": "modernizr-output.js",
+      "options": [
+        "domPrefixes",
+        "prefixes",
+        "addTest",
+        "atRule",
+        "hasEvent",
+        "mq",
+        "prefixed",
+        "prefixedCSS",
+        "prefixedCSSValue",
+        "testAllProps",
+        "testProp",
+        "testStyles",
+        "html5shiv",
+        "setClasses"
+      ],
+      "uglify": true,
+      dev: {
+        "files": {
+          src: ['screen.post.css']
+        },
+      },
+      dist: {
+        "files": {
+          src: ['screen.min.css']
+        },
+      }
+    }
   });
+
+  grunt.registerTask('dist', [
+    'sass:dist',
+    'postcss:dist',
+    'modernizr:dist'
+  ]);
+
+  grunt.registerTask('dev', [
+    'sass:dev',
+    'postcss:dev',
+    'modernizr:dev'
+  ]);
 
   grunt.registerTask('serve', 'start the server and preview your project', function (target) {
     grunt.task.run([
-      'sass:dist',
+      'dev',
       'connect:livereload',
       'watch'
     ]);
