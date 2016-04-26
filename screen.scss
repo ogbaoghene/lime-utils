@@ -75,7 +75,7 @@ fieldset {
 }
 
 
-@import 'variables';
+@import 'modules/variables';
 
 // Custom Variables
 $type: (
@@ -100,8 +100,12 @@ $btn-color: (
   hover: $true-black,
 );
 
+$bg-color: (
+  feature: $white,
+);
+
 /* Lime %placeholders */
-@import 'lime';
+@import 'modules/lime';
 
 
 /*--------------------------------------------------------------
@@ -246,18 +250,20 @@ a[class*="btns"] {
   @extend %radii-xh;
   @extend %shadow-depth-2;
 
-  background-color: map-get($btn-color, bg);
-  color: map-get($btn-color, color);
   line-height: $doc-line-height - .25rem;
+
   user-select: none;
+
+  color: map-get($btn-color, color);
+  background-color: map-get($btn-color, bg);
 
   @include lime-border(2px, $color: map-get($btn-color, border));
   
   &:hover {
     @extend %text-decoration-none;
 
-    border-color: map-get($btn-color, hover);
     color: map-get($btn-color, hover);
+    border-color: map-get($btn-color, hover);
   }
 
   &:active {
@@ -294,8 +300,13 @@ ol {
 
 section {
   @extend %position-relative;
+  @extend %do-flex;
 
   min-height: 100vh;
+  padding-top: $doc-baseline * 2;
+  padding-bottom: $doc-baseline * 4;
+
+  justify-content: center;
 
   h1 {
     @extend %type-heading;
@@ -305,74 +316,198 @@ section {
   h2, h3 {
     @extend %type-body;
   }
+
+  p {
+    @extend %margin-center;
+
+    max-width: px-to-rem(map-get($breakpoints, goldilocks));
+  }
 }
 
 .goldi {
-  @extend %margin-auto;
+  @extend %margin-center;
   @extend %width-min;
-  @extend %padding-full;
   @extend %overflow-hidden;
 
-  max-width: px-to-em(map-get($breakpoints, goldilocks));
+  max-width: px-to-rem(map-get($breakpoints, goldilocks));
+
+  @include lime-chain(padding-right padding-left, $doc-gutter);
 }
 
+.cta {
+  @extend %position-absolute;
+  @extend %text-center;
+
+  bottom: $doc-baseline;
+
+  @include lime-chain(left right, 0);
+}
+
+
 .hero {
-  @extend %do-flex;
-
-  padding-bottom: px-to-rem(104px);
-
   p + ul {
     @extend %margin-reset;
   }
 
-  .cta {
-    @extend %position-absolute;
+  @include lime-break(map-get($breakpoints, baby-bear), $query1: min-width) {
+    .flex-wrap {
+      justify-content: space-between;
+      align-content: center;
+    }
 
-    bottom: $doc-baseline;
+    .site-title.flex-item {
+      flex-basis: 100%;
+    }
 
-    @include lime-chain(left right, $doc-gutter);
+    .aside.flex-item {
+      flex-basis: 25%;
+      text-align: map-get($direction, end);
+      text-align: end;
+    }
   }
-}
-
-.cta,
-.features {
-  @extend %text-center; 
 }
 
 #do-more,
 #painless {
-  object {
+  .aside object {
     @extend %do-show;
     @extend %margin-auto;
     @extend %transit-move;
-  }
-}
 
-@include lime-break(map-get($breakpoints, goldilocks), $query1: max-width) {
-  #do-more {
-    text-align: map-get($direction, end);
+    transform: translate(30%);
 
-    object {
-      transform: translate(-30%);
+    @include lime-break(map-get($breakpoints, goldilocks), $query1: min-width) {
+      transform: none;
     }
   }
 
-  #painless object {
-    transform: translate(30%);
+  @include lime-break(map-get($breakpoints, goldilocks), $query1: min-width, $break2: map-get($breakpoints, baby-bear), $query2: max-width) {
+    text-align: center;
   }
 }
 
-@include lime-break(map-get($breakpoints, standard), $query1: max-width) {
+#painless {
+  padding-bottom: $doc-baseline * 7;
+}
+
+.features {
+  @extend %text-center;
+}
+
+.feature {
+  @extend %transit-transform;
+  
+  @include lime-break(map-get($breakpoints, wee), $query1: min-width) {
+    padding-left: px-to-rem(107px);
+
+    background: url("imgs/features.png") no-repeat;
+    background-position: 0 -97px;
+    background-size: 91px 285px;
+
+    &:first-of-type {
+      background-position-y: 0;
+    }
+
+    &:nth-of-type(3) {
+      background-position-y: -194px;
+    }
+
+    .no-svg & {
+      background-image: url("imgs/features.svg");
+    }
+  }
+
+  @include lime-break(map-get($breakpoints, goldilocks), $query1: min-width) {
+    margin-bottom: $doc-baseline;
+    padding-top: px-to-rem(96px);
+    padding-left: 0;
+
+    background-position-x: center;
+
+    > * {
+      background-color: map-get($bg-color, feature);
+    }
+
+    &-list.flex-wrap {
+      display: flex;
+
+      align-items: flex-start;
+      flex-wrap: wrap;
+
+      @include lime-chain(margin-right margin-left, -$doc-gutter);
+      @include lime-chain(padding-right padding-left, 0);
+    }
+
+    &.flex-item {
+      flex-basis: 50%;
+
+      @include lime-chain(padding-right padding-left, $doc-gutter);
+    }
+
+    * + &.flex-item {
+      margin-top: 0;
+    }
+  }
+
+  @include lime-break(map-get($breakpoints, baby-bear), $query1: min-width) {
+    &-list.flex-wrap {
+      flex-wrap: nowrap;
+    }
+
+    &.flex-item {
+      flex-basis: 25%;
+    }
+  }
+}
+
+@include lime-break(map-get($breakpoints, wee), $query1: min-width, $break2: map-get($breakpoints, goldilocks), $query2: max-width) {
+  .feature-list {
+    text-align: map-get($direction, start);
+    text-align: start;
+  }
+}
+
+@include lime-break(map-get($breakpoints, baby-bear), $query1: min-width) {
+  .hero,
   #do-more,
   #painless {
-    object {
-      max-width: px-to-em(map-get($breakpoints, very-small));
+    @include lime-chain(padding-right padding-left, $doc-gutter);
+  }
+
+  // #do-more,
+  // #painless,
+  // .features {
+    .goldi {
+      max-width: px-to-rem(map-get($breakpoints, middle-sized));
     }
+  // }
+  
+  .flex-wrap {
+    display: flex;
+
+    align-items: center;
+    flex-wrap: wrap;
+
+    @include lime-chain(margin-right margin-left, -$doc-gutter);
+    @include lime-chain(padding-right padding-left, 0);
+  }
+
+  .flex-item {
+    flex-basis: 50%;
+
+    @include lime-chain(padding-right padding-left, $doc-gutter);
+  }
+
+  * + .flex-item {
+    margin-top: 0;
   }
 }
 
 footer {
   @extend %text-center;
+
+  padding-top: $doc-baseline;
+  padding-bottom: $doc-baseline * 3;
 
   nav + .copy {
    @extend %margin-reset;
@@ -380,7 +515,6 @@ footer {
 
   .copy {
     @extend %milli;
-    @extend %text-transform-upper;
   }
 }
 

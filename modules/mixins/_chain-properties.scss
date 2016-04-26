@@ -17,7 +17,7 @@
 //
 // Styleguide 2.2
 
-@mixin chain($properties, $value) {
+@mixin lime-chain($properties, $value) {
   @each $property in $properties {
     #{$property}: #{$value};
   }

@@ -22,7 +22,7 @@
 %clearfix-micro {
   zoom: 1; // @include has-layout;
 
-  @include pseudo() {
+  @include lime-pseudo() {
     @extend %do-table;
   }
 

@@ -96,15 +96,15 @@
 
 // Position Coordinates
 %position-all {  
-  @include chain(top right bottom left, 0);
+  @include lime-chain(top right bottom left, 0);
 }
 
 %position-vertical {
-  @include chain(top bottom, 0);
+  @include lime-chain(top bottom, 0);
 }
 
 %position-horizontal {
-  @include chain(right left, 0);
+  @include lime-chain(right left, 0);
 }
 
 

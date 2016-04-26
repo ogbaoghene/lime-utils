@@ -6,7 +6,9 @@ module.exports = function (grunt) {
   require('time-grunt')(grunt);
 
   // Autoload grunt plugins
-  require('jit-grunt')(grunt);
+  require('jit-grunt')(grunt, {
+    htmlbuild: 'grunt-html-build' // taskname: grunt-plugin-name
+  });
 
   // Define the configuration for all the tasks
   grunt.initConfig({
@@ -18,7 +20,7 @@ module.exports = function (grunt) {
       },
       sass: {
         files: ['**/*.{scss,sass}'],
-        tasks: ['sass:dev', 'postcss:dev', 'modernizr:dev']
+        tasks: ['sass:dev', 'modernizr:dist']
       },
       livereload: {
         options: {
@@ -27,7 +29,7 @@ module.exports = function (grunt) {
         files: [
           '{,*/}*.js',
           '{,*/}*.html',
-          'screen.post.css'
+          'screen.css'
         ]
       }
     },
@@ -51,7 +53,7 @@ module.exports = function (grunt) {
     // Compile Sass to CSS
     sass: {
       options: {
-        sourcemap: false
+        sourceMap: true
       },
       dev: {
         files: {
@@ -63,7 +65,7 @@ module.exports = function (grunt) {
           outputStyle: 'compressed'
         },
         files: {
-          'screen.min.css': 'screen.scss'
+          'screen.css': 'screen.scss'
         }
       }
     },
@@ -74,49 +76,37 @@ module.exports = function (grunt) {
         map: true,
         processors: [
           require('autoprefixer')({browsers: 'last 2 versions'}),
-          require('postcss-pseudoelements')(),
-          require('pixrem')()
+          require('postcss-pseudoelements')()
         ]
       },
-      dev: {
-        files: [{
-          src: 'screen.css',
-          dest: 'screen.post.css'
-        }]
-      },
       dist: {
-        src: 'screen.min.css'
+        src: 'screen.css'
       }
     },
 
     // Respond to browser features
     modernizr: {
-      "dest": "modernizr-output.js",
-      "options": [
-        "domPrefixes",
-        "prefixes",
-        "addTest",
-        "atRule",
-        "hasEvent",
-        "mq",
-        "prefixed",
-        "prefixedCSS",
-        "prefixedCSSValue",
-        "testAllProps",
-        "testProp",
-        "testStyles",
-        "html5shiv",
-        "setClasses"
-      ],
-      "uglify": true,
-      dev: {
-        "files": {
-          src: ['screen.post.css']
-        },
-      },
       dist: {
+        "dest" : 'js/modernizr-custom.js',
+        "options": [
+          "domPrefixes",
+          "prefixes",
+          "addTest",
+          "atRule",
+          "hasEvent",
+          "mq",
+          "prefixed",
+          "prefixedCSS",
+          "prefixedCSSValue",
+          "testAllProps",
+          "testProp",
+          "testStyles",
+          "html5shiv",
+          "setClasses"
+        ],
+        "uglify": true,
         "files": {
-          src: ['screen.min.css']
+          src: ['screen.css']
         },
       }
     }
@@ -130,8 +120,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('dev', [
     'sass:dev',
-    'postcss:dev',
-    'modernizr:dev'
+    'modernizr:dist'
   ]);
 
   grunt.registerTask('serve', 'start the server and preview your project', function (target) {

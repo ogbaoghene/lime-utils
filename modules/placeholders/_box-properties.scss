@@ -31,13 +31,13 @@
 }
 
 %width-min {
-  min-width: px-to-em(map-get($breakpoints, very-small));
+  min-width: px-to-rem(map-get($breakpoints, small));
 }
 
 
 // Margins
 %margin-reset {
-  margin: 0;
+  margin-top: 0;
 }
 
 %margin-auto {
@@ -45,7 +45,7 @@
 }
 
 %margin-center {
-  @include chain(margin-#{map-get($direction, end)} margin-#{map-get($direction, start)}, auto);
+  @include lime-chain(margin-right margin-left, auto);
 }
 
 

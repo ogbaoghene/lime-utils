@@ -22,7 +22,7 @@
 //
 // Styleguide 2.4
 
-@mixin font($font, $path, $weight: normal, $style: normal) {
+@mixin lime-font($font, $path, $weight: 400, $style: normal) {
   @font-face {
     font: {
       family: '#{$font}';

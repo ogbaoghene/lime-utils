@@ -26,7 +26,7 @@
 //
 // Styleguide 2.12
 
-@mixin pseudo($element: both, $cont: '') {
+@mixin lime-pseudo($element: both, $cont: '') {
   @if $element != both {
     @if $element == aft {
       &::after {

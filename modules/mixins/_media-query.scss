@@ -31,7 +31,7 @@
 //
 // Styleguide 2.5
 
-@mixin break($break, $query1: min-width, $break2: null, $query2: null) {
+@mixin lime-break($break, $query1: min-width, $break2: null, $query2: null) {
   // Default font size on html element is 100%, equivalent to 16px;
   $bp: px-to-em($break, $context: $doc-font-size);
 

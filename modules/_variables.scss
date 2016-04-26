@@ -76,18 +76,16 @@ $line-height: (
 
 // Breakpoints
 $breakpoints: (
-  very-small: 360px,
-  small: 480px,
   goldilocks: 528px,
-  baby-bear: 768px,
-  standard: 980px,
-  mama-bear: 1080px,
-  papa-bear: 1280px,
-  large: 1366px,
-  desktop: 1440px,
-  very-large: 1600px,
-  extra-large: 1760px,
-  widescreen: 1920px,
+  little: 320px,
+  small: 360px,
+  wee: 480px,
+  baby-bear: 800px,
+  middle-sized: 1024px,
+  mama-bear: 1152px,
+  great: 1280px,
+  huge: 1600px,
+  papa-bear: 1920px,
 );
 
 

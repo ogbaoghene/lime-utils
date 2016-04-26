@@ -1,5 +1,3 @@
-@import 'variables';
-
 // Functions
 //
 // Write more readable and DRY Sass with abstracted reusable logic.
@@ -25,7 +23,7 @@
 @import 'mixins/hover-active-focus';
 @import 'mixins/positioning';
 @import 'mixins/margin-or-padding';
-@import 'mixins/smart-border';
+@import 'mixins/borders';
 @import 'mixins/grid';
 @import 'mixins/pseudo';
 @import 'mixins/hi-res';

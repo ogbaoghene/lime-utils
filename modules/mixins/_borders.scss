@@ -4,8 +4,8 @@
 // 
 // Parameters:
 // ```scss
-// $width     : border-width
-// $style     : border-style. extends placeholders, dotted, dashed, solid, double, and none
+// $width     : border-width. Defaults to 1px
+// $style     : border-style, extends placeholders, dotted, dashed, solid, double, and none. Defaults to solid
 // $position  : border-position. Optional
 // $color     : border-color. Optional
 // ```
@@ -31,7 +31,7 @@
 //
 // Styleguide 2.10
 
-@mixin border($width, $style, $position: null, $color: null) {
+@mixin lime-border($width: 1px, $style: solid, $position: null, $color: null) {
   @if $position != null {
     @if length($position) != 1 {
       @if length($position) == 2 {
@@ -56,8 +56,8 @@
     @extend %border-#{$style};
     
     @if $color != null {
-      border-color: $color;
       border-width: $width;
+      border-color: $color;
     } @else {
       border-width: $width;
     }
