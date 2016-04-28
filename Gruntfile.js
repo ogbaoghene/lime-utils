@@ -6,9 +6,7 @@ module.exports = function (grunt) {
   require('time-grunt')(grunt);
 
   // Autoload grunt plugins
-  require('jit-grunt')(grunt, {
-    htmlbuild: 'grunt-html-build' // taskname: grunt-plugin-name
-  });
+  require('jit-grunt')(grunt);
 
   // Define the configuration for all the tasks
   grunt.initConfig({
@@ -109,13 +107,56 @@ module.exports = function (grunt) {
           src: ['screen.css']
         },
       }
+    },
+
+    // Optimise with ImageOptim-CLI
+    imageoptim: {
+      options: {
+        quitAfter: true
+      },
+      allPngs: {
+        options: {
+          imageAlpha: true,
+          jpegMini: false
+        },
+        src: ['imgs/*.png']
+      },
+      allJpgs: {
+        options: {
+          imageAlpha: false,
+          jpegMini: true
+        },
+        src: ['imgs/*.jpg']
+      }
+    },
+
+    // Optimise with SVGO
+    svgmin: {
+      options: {
+        plugins: [
+          {removeViewBox: false},
+          {removeUselessStrokeAndFill: false},
+        ]
+      },
+      dist: {
+        files: [
+          {
+            expand: true,
+            cwd: 'imgs/',
+            src: '*.svg',
+            dest: 'imgs/'
+          }
+        ]
+      }
     }
   });
 
   grunt.registerTask('dist', [
     'sass:dist',
     'postcss:dist',
-    'modernizr:dist'
+    'modernizr:dist',
+    'newer:imageoptim',
+    'newer:svgmin'
   ]);
 
   grunt.registerTask('dev', [

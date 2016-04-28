@@ -85,23 +85,33 @@ $type: (
 );
 
 $gray94: #eee;
+$lime-green: #32cd32;
+$dark-lime-green: #2ebd2e;
+$lemon-lime: #e3ff00;
+$black-bean: #030c03;
+$gray98: #fafafa;
 
 $text-color: (
   body: $gray20,
   link: $gray20,
   active-link: $true-black,
   border: $gray94,
+  alt: $white,
+  off: $gray40,
 );
 
 $btn-color: (
-  bg: $white,
-  color: $gray20,
-  border: $gray20,
-  hover: $true-black,
+  bg: $lime-green,
+  color: $white,
+  bg-hover: $dark-lime-green,
+  color-hover: $lemon-lime,
 );
 
 $bg-color: (
-  feature: $white,
+  feature: $gray98,
+  body: $black-bean,
+  section: $white,
+  hero: $true-black,
 );
 
 /* Lime %placeholders */
@@ -131,6 +141,7 @@ body {
   @extend %line-height-normal;
 
   color: map-get($text-color, body);
+  background-color: map-get($bg-color, body);
 }
 
 * + * {
@@ -257,13 +268,14 @@ a[class*="btns"] {
   color: map-get($btn-color, color);
   background-color: map-get($btn-color, bg);
 
-  @include lime-border(2px, $color: map-get($btn-color, border));
+  @include lime-border(2px, $color: transparent);
   
   &:hover {
     @extend %text-decoration-none;
 
-    color: map-get($btn-color, hover);
-    border-color: map-get($btn-color, hover);
+    color: map-get($btn-color, color-hover);
+    background-color: map-get($btn-color, bg-hover);
+    border-color: transparent;
   }
 
   &:active {
@@ -322,6 +334,10 @@ section {
 
     max-width: px-to-rem(map-get($breakpoints, goldilocks));
   }
+
+  * + & {
+    @extend %margin-reset;
+  }
 }
 
 .goldi {
@@ -345,8 +361,16 @@ section {
 
 
 .hero {
+  color: map-get($text-color, alt);
+  background: map-get($bg-color, hero) url('imgs/hero.jpg') center no-repeat;
+  background-size: cover;
+
   p + ul {
     @extend %margin-reset;
+  }
+
+  .aside {
+    color: transparentize(map-get($text-color, alt), .4);
   }
 
   @include lime-break(map-get($breakpoints, baby-bear), $query1: min-width) {
@@ -369,6 +393,8 @@ section {
 
 #do-more,
 #painless {
+  background-color: map-get($bg-color, section);
+
   .aside object {
     @extend %do-show;
     @extend %margin-auto;
@@ -392,6 +418,10 @@ section {
 
 .features {
   @extend %text-center;
+
+  background-color: map-get($bg-color, feature);
+
+  @include lime-border($position: top, $color: map-get($text-color, border));
 }
 
 .feature {
@@ -400,7 +430,8 @@ section {
   @include lime-break(map-get($breakpoints, wee), $query1: min-width) {
     padding-left: px-to-rem(107px);
 
-    background: url("imgs/features.png") no-repeat;
+    background-image: url('imgs/features.png');
+    background-repeat: no-repeat;
     background-position: 0 -97px;
     background-size: 91px 285px;
 
@@ -412,8 +443,8 @@ section {
       background-position-y: -194px;
     }
 
-    .no-svg & {
-      background-image: url("imgs/features.svg");
+    .svg & {
+      background-image: url('imgs/features.svg');
     }
   }
 
@@ -474,13 +505,9 @@ section {
     @include lime-chain(padding-right padding-left, $doc-gutter);
   }
 
-  // #do-more,
-  // #painless,
-  // .features {
-    .goldi {
-      max-width: px-to-rem(map-get($breakpoints, middle-sized));
-    }
-  // }
+  .goldi {
+    max-width: px-to-rem(map-get($breakpoints, middle-sized));
+  }
   
   .flex-wrap {
     display: flex;
@@ -508,6 +535,16 @@ footer {
 
   padding-top: $doc-baseline;
   padding-bottom: $doc-baseline * 3;
+
+  &,
+  a:link, a:visited {
+    color: map-get($text-color, off);
+  }
+
+  a:hover, a:active {
+    color: map-get($text-color, alt);
+    border-color: map-get($text-color, alt);
+  }
 
   nav + .copy {
    @extend %margin-reset;
