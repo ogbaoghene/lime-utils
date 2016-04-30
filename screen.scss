@@ -96,6 +96,7 @@ $text-color: (
   link: $gray20,
   active-link: $true-black,
   border: $gray94,
+  alt-border: $lemon-lime,
   alt: $white,
   off: $gray40,
 );
@@ -107,9 +108,14 @@ $btn-color: (
   color-hover: $lemon-lime,
 );
 
+$svg-color: (
+  fill: $lemon-lime,
+  stroke: $lemon-lime,
+);
+
 $bg-color: (
   feature: $gray98,
-  body: $black-bean,
+  footer: $black-bean,
   section: $white,
   hero: $true-black,
 );
@@ -125,7 +131,6 @@ $bg-color: (
 // Font-family
 @include lime-font(montserrat, 'fonts/montserrat-black-webfont', $weight: 800);
 @include lime-font(montserrat, 'fonts/montserrat-semibold-webfont', $weight: 700);
-// @include lime-font(montserrat, 'fonts/montserrat-light-webfont', $weight: 400);
 @include lime-font(montserrat, 'fonts/montserrat-ultralight-webfont', $weight: 400);
 
   $pri-font: 'montserrat', Arial, sans-serif;
@@ -141,7 +146,6 @@ body {
   @extend %line-height-normal;
 
   color: map-get($text-color, body);
-  background-color: map-get($bg-color, body);
 }
 
 * + * {
@@ -236,14 +240,16 @@ a {
     @extend %position-relative;
     
     @include lime-border(0, $position: bottom);
-    @include lime-pseudo(aft) {
+    @include lime-pseudo(fore) {
       @extend %position-absolute;
+      @extend %z-depth-0;
 
       @include lime-chain(top right bottom left, 0);
     };
 
     > * {
       @extend %align-btm;
+      @extend %z-depth-1;
     }
   }
 }
@@ -357,23 +363,43 @@ section {
   bottom: $doc-baseline;
 
   @include lime-chain(left right, 0);
-}
 
+  &-prompt {
+    @extend %transit-fade;
+    @extend %visibility-hidden;
+
+    opacity: 0;
+  }
+
+  a:hover ~ &-prompt {
+    @extend %visibility-visible;
+
+    opacity: 1;
+  }
+}
 
 .hero {
   color: map-get($text-color, alt);
   background: map-get($bg-color, hero) url('imgs/hero.jpg') center no-repeat;
   background-size: cover;
 
+  padding-bottom: $doc-baseline * 5;
+
   p + ul {
     @extend %margin-reset;
   }
 
+  blockquote {
+    @include lime-border(0, $position: right);
+  }
+
   .aside {
+    @extend %milli;
+
     color: transparentize(map-get($text-color, alt), .4);
   }
 
-  @include lime-break(map-get($breakpoints, baby-bear), $query1: min-width) {
+  @include lime-break(map-get($breakpoints, baby-bear), $query: min-width) {
     .flex-wrap {
       justify-content: space-between;
       align-content: center;
@@ -388,12 +414,20 @@ section {
       text-align: map-get($direction, end);
       text-align: end;
     }
+
+    blockquote {
+      @include lime-border($doc-gutter / 2, $position: right, $color: map-get($text-color, alt-border));
+
+      padding-right: $doc-gutter;
+    }
   }
 }
 
 #do-more,
 #painless {
   background-color: map-get($bg-color, section);
+
+  padding-bottom: $doc-baseline * 7;
 
   .aside object {
     @extend %do-show;
@@ -402,18 +436,20 @@ section {
 
     transform: translate(30%);
 
-    @include lime-break(map-get($breakpoints, goldilocks), $query1: min-width) {
+    @include lime-break(map-get($breakpoints, goldilocks), $query: min-width) {
       transform: none;
     }
   }
 
-  @include lime-break(map-get($breakpoints, goldilocks), $query1: min-width, $break2: map-get($breakpoints, baby-bear), $query2: max-width) {
+  @include lime-break(map-get($breakpoints, goldilocks), $query: min-width, $break2: map-get($breakpoints, baby-bear), $query2: max-width) {
     text-align: center;
   }
 }
 
-#painless {
-  padding-bottom: $doc-baseline * 7;
+@include lime-break($break: map-get($breakpoints, baby-bear), $query: max-width) {
+  #painless {
+    @include lime-border($position: top, $color: map-get($text-color, border));
+  }
 }
 
 .features {
@@ -427,7 +463,7 @@ section {
 .feature {
   @extend %transit-transform;
   
-  @include lime-break(map-get($breakpoints, wee), $query1: min-width) {
+  @include lime-break(map-get($breakpoints, wee), $query: min-width) {
     padding-left: px-to-rem(107px);
 
     background-image: url('imgs/features.png');
@@ -448,7 +484,7 @@ section {
     }
   }
 
-  @include lime-break(map-get($breakpoints, goldilocks), $query1: min-width) {
+  @include lime-break(map-get($breakpoints, goldilocks), $query: min-width) {
     margin-bottom: $doc-baseline;
     padding-top: px-to-rem(96px);
     padding-left: 0;
@@ -480,7 +516,7 @@ section {
     }
   }
 
-  @include lime-break(map-get($breakpoints, baby-bear), $query1: min-width) {
+  @include lime-break(map-get($breakpoints, baby-bear), $query: min-width) {
     &-list.flex-wrap {
       flex-wrap: nowrap;
     }
@@ -491,14 +527,14 @@ section {
   }
 }
 
-@include lime-break(map-get($breakpoints, wee), $query1: min-width, $break2: map-get($breakpoints, goldilocks), $query2: max-width) {
+@include lime-break(map-get($breakpoints, wee), $query: min-width, $break2: map-get($breakpoints, goldilocks), $query2: max-width) {
   .feature-list {
     text-align: map-get($direction, start);
     text-align: start;
   }
 }
 
-@include lime-break(map-get($breakpoints, baby-bear), $query1: min-width) {
+@include lime-break(map-get($breakpoints, baby-bear), $query: min-width) {
   .hero,
   #do-more,
   #painless {
@@ -532,13 +568,20 @@ section {
 
 footer {
   @extend %text-center;
+  @extend %padding-default;
+  @extend %position-relative;
 
-  padding-top: $doc-baseline;
-  padding-bottom: $doc-baseline * 3;
+  background-color: map-get($bg-color, footer);
+
+  @include lime-chain(padding-top padding-bottom, $doc-baseline * 3);
 
   &,
   a:link, a:visited {
     color: map-get($text-color, off);
+  }
+
+  * + & {
+    @extend %margin-reset;
   }
 
   a:hover, a:active {
@@ -552,6 +595,95 @@ footer {
 
   .copy {
     @extend %milli;
+  }
+}
+
+/*--------------------------------------------------------------
+  $BEHAVIOUR
+--------------------------------------------------------------*/
+
+.scroll-down {
+  * {
+    @extend %transit-transform;
+  }
+
+  path {
+    fill: map-get($svg-color, fill);
+    stroke-width: 0;
+    stroke: map-get($svg-color, stroke);
+  }
+}
+
+a:hover .scroll-down path:first-of-type {
+  stroke-width: 1;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.waypoint,
+.sticky-wrapper {
+  @extend %margin-reset;
+}
+
+.waypoint {
+  height: 0;
+}
+
+.feature {
+  @extend %animated;
+  @extend %transit-move;
+}
+
+@include lime-break(map-get($breakpoints, baby-bear), $query: min-width) {
+  .stuck {
+    position: fixed;
+
+    @include lime-chain(top right left, 0);
+  }
+
+  #do-more,
+  #painless {
+    will-change: position;
+  }
+  
+  #do-more.stuck,  
+  .features,
+  footer {
+    z-index: 2;
+  }
+
+  #painless.stuck {
+    z-index: 1;
+  }
+
+  .features {
+    margin-top: $doc-baseline * 20;
+  }
+
+  .cssanimations .feature {
+    opacity: 0;
+  }
+
+  .fade-out {
+    visibility: hidden;
+
+    transition: .3s ease-out;
+
+    opacity: 0;
+  }
+
+  .fadeInUp {
+    animation-name: fadeInUp;
   }
 }
 

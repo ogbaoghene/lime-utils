@@ -33,10 +33,6 @@
 	<link rel="stylesheet" href="screen.css">
 	<!-- modernizer -->
 	<script src="js/modernizr-custom.js" async></script>
-	<!-- jquery -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
-	<!-- scripts -->
-	<script src="js/main.js" defer></script>
 </head>
 <body class="preload">
 	<!-- section -->
@@ -47,7 +43,7 @@
 				<h2>The most handy Sass utilities in one place.</h2>
 				<p>Sometimes the right framework is no framework. That’s why Lime-utils can be used to draw on all the great sources out there in an effective way.</p>
 			</div>
-			<div class="aside milli flex-item">
+			<div class="aside flex-item">
 				<blockquote>
 					<p>The word "lime" originates with its earliest use as building mortar and has the sense of "sticking or adhering."</p>
 					<div>
@@ -60,19 +56,19 @@
 			</div>
 			<div class="cta">
 				<a href="#do-more" class="case">
-					<object data="imgs/scroll-down.svg" type="image/svg+xml">
-						<img src="imgs/scroll-down.png" alt="Do more...">
-					</object>
+					<svg xmlns="http://www.w3.org/2000/svg" class="scroll-down" width="52" height="52" viewBox="0 0 52 52"><path d="M33.838 19.958l-7.47 7.47a.556.556 0 0 1-.369.16.554.554 0 0 1-.369-.16l-7.469-7.47c-.098-.098-.161-.242-.161-.371s.063-.272.161-.369l.801-.801a.52.52 0 0 1 .369-.161.546.546 0 0 1 .369.161l6.3 6.3 6.301-6.3a.548.548 0 0 1 .369-.161c.128 0 .271.064.369.161l.8.801c.097.097.161.241.161.369s-.064.273-.162.371zm0 6.155l-7.47 7.471a.556.556 0 0 1-.369.16.556.556 0 0 1-.369-.16l-7.469-7.471c-.098-.096-.161-.24-.161-.368s.063-.272.161-.369l.801-.801a.52.52 0 0 1 .369-.161.546.546 0 0 1 .369.161l6.3 6.298 6.301-6.298a.548.548 0 0 1 .369-.161c.128 0 .271.064.369.161l.8.801c.097.096.161.24.161.369s-.064.272-.162.368z"/><path d="M26 52C11.664 52 0 40.337 0 26 0 11.664 11.664 0 26 0c14.337 0 26 11.664 26 26 0 14.337-11.663 26-26 26zm0-50.074C12.726 1.926 1.926 12.725 1.926 26c0 13.273 10.8 24.075 24.074 24.075 13.275 0 24.074-10.802 24.074-24.075C50.074 12.725 39.275 1.926 26 1.926z"/></svg>
 				</a>
+				<p class="milli cta-prompt">Scroll to continue</p>
 			</div>
 		</div>
 	</section>
 	<!-- /section -->
+	<div id="waypoint-1" class="waypoint">&nbsp;</div>
 	<!-- section -->
-	<section id="do-more">
+	<section id="do-more" class="">
 		<div class="goldi flex-wrap">
 			<div class="aside flex-item">
-				<object data="imgs/logo-outline.svg" type="image/svg+xml">
+				<object id="logo-outline" data="imgs/logo-outline.svg" type="image/svg+xml">
 					<img src="imgs/logo-outline.png" alt="Lime-utils logo outline">
 				</object>
 			</div>
@@ -80,16 +76,17 @@
 				<h2>Do more with less.</h2>
 				<p>Lime-utils is curated from a variety of sources, stripped down so only the absolute necessities remain, those must-haves.</p>
 			</div>
-			<div class="cta">
+			<!-- <div class="cta">
 				<a href="#painless" class="case">
 					<object data="imgs/scroll-down.svg" type="image/svg+xml">
 						<img src="imgs/scroll-down.png" alt="Painless...">
 					</object>
 				</a>
-			</div>
+			</div> -->
 		</div>
 	</section>
 	<!-- /section -->
+	<div  id="waypoint-2" class="waypoint">&nbsp;</div>
 	<!-- section -->
 	<section id="painless">
 		<div class="goldi flex-wrap">
@@ -155,13 +152,21 @@
 				<p class="copy">LIME-UTILS IS A PROJECT BY <a href="https://twitter.com/Ogb_O" rel="external">OGB_O</a>.</p>
 			</div>
 			<div class="madein">
-				<a href="#0" class="case">
-					<object data="imgs/made-in-ng.svg" type="image/svg+xml">
-						<img src="imgs/made-in-ng.png" alt="Proudly Made in Nigeria">
-					</object>
-				</a>
+				<object data="imgs/made-in-ng.svg" type="image/svg+xml">
+					<img src="imgs/made-in-ng.png" alt="Proudly Made in Nigeria">
+				</object>
 			</div>
 		</div>
 	</footer>
+
+	<!-- jquery -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+	<!-- waypoints -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.0/jquery.waypoints.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.0/shortcuts/sticky.min.js"></script>
+	<!-- vivus -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vivus/0.3.0/vivus.min.js"></script>
+	<!-- scripts -->
+	<script src="js/main.js" defer></script>
 </body>
 </html>
