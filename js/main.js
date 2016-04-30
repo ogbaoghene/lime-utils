@@ -31,7 +31,7 @@ $(document).ready(function($) {
 	new Vivus('logo-outline', {
 	  start: 'inViewport',
 		type: 'delayed',
-		duration: 300,
+		duration: 200,
 		pathTimingFunction: Vivus.LINEAR,
 		animTimingFunction: Vivus.EASE
 	});
