@@ -320,11 +320,14 @@ section {
   @extend %position-relative;
   @extend %do-flex;
 
+  flex-direction: column;
+
   min-height: 100vh;
-  padding-top: $doc-baseline * 2;
-  padding-bottom: $doc-baseline * 4;
 
   justify-content: center;
+  align-items: center;
+
+  @include lime-chain(padding-top padding-bottom, $doc-baseline * 2);
 
   h1 {
     @extend %type-heading;
@@ -427,8 +430,6 @@ section {
 #painless {
   background-color: map-get($bg-color, section);
 
-  padding-bottom: $doc-baseline * 7;
-
   .aside object {
     @extend %do-show;
     @extend %margin-auto;
@@ -446,8 +447,16 @@ section {
   }
 }
 
-@include lime-break($break: map-get($breakpoints, baby-bear), $query: max-width) {
-  #painless {
+@include lime-break(map-get($breakpoints, baby-bear), $query: min-width) {
+  #do-more {
+    padding-bottom: $doc-baseline * 7;
+  }
+}
+
+#painless {
+  padding-bottom: $doc-baseline * 7;
+
+  @include lime-break($break: map-get($breakpoints, baby-bear), $query: max-width) {
     @include lime-border($position: top, $color: map-get($text-color, border));
   }
 }
@@ -457,12 +466,12 @@ section {
 
   background-color: map-get($bg-color, feature);
 
+  padding-bottom: $doc-baseline * 4;
+
   @include lime-border($position: top, $color: map-get($text-color, border));
 }
 
 .feature {
-  @extend %transit-transform;
-  
   @include lime-break(map-get($breakpoints, wee), $query: min-width) {
     padding-left: px-to-rem(107px);
 
@@ -642,6 +651,18 @@ a:hover .scroll-down path:first-of-type {
 .feature {
   @extend %animated;
   @extend %transit-move;
+
+  &:nth-of-type(2) {
+    animation-delay: .1s;
+  }
+
+  &:nth-of-type(3) {
+    animation-delay: .3s;
+  }
+
+  &:last-of-type {
+    animation-delay: .2s;
+  }
 }
 
 @include lime-break(map-get($breakpoints, baby-bear), $query: min-width) {
