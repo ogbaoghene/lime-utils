@@ -319,6 +319,7 @@ ol {
 section {
   @extend %position-relative;
   @extend %do-flex;
+  @extend %width-min;
 
   flex-direction: column;
 
@@ -351,7 +352,6 @@ section {
 
 .goldi {
   @extend %margin-center;
-  @extend %width-min;
   @extend %overflow-hidden;
 
   max-width: px-to-rem(map-get($breakpoints, goldilocks));
@@ -579,6 +579,7 @@ footer {
   @extend %text-center;
   @extend %padding-default;
   @extend %position-relative;
+  @extend %width-min;
 
   background-color: map-get($bg-color, footer);
 
