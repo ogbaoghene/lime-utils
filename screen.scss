@@ -650,7 +650,7 @@ a:hover .scroll-down path:first-of-type {
 
 .feature {
   @extend %animated;
-  @extend %transit-move;
+  @extend %transit-enter;
 
   &:nth-of-type(2) {
     animation-delay: .1s;
