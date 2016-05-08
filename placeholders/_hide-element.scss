@@ -15,37 +15,41 @@
 //
 // Styleguide 3.5
 
-// Hide text off screen
-%hide-text-offscreen {
+// Hide text offscreen
+%hide-offscreen {
   @extend %do-show;
-  @extend %overflow-hidden;
-  @extend %white-space-nowrap;
+  @extend %ovf-hidden;
+  @extend %ws-nowrap;
 
   text-indent: 100%;
 }
 
 // Hide only visually, but have it available for screen readers: http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
 %hide-visually {
-  @extend %position-absolute;
-  @extend %overflow-hidden;
-  @extend %padding-reset;
-  @extend %border-none;
+  @extend %pos-absolute;
+  @extend %ovf-hidden;
 
   clip: rect(0 0 0 0);
+
+  width: 1px;
   height: 1px;
   margin: -1px;
-  width: 1px;
+  padding: 0;
+
+  border: 0;
 }
 
+
 // Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: https://www.drupal.org/node/897638
-%hide-visually-focusable {
+%hide-focusable {
   @include hover-active-focus($state: no-hover) {
     @extend %hide-visually;
-    @extend %position-static;
-    @extend %height-auto;
-    @extend %width-auto;
-    @extend %margin-reset;
-    @extend %overflow-visible;
+    @extend %pos-static;
+    @extend %ovf-visible;
+
+    width: auto;
+    height: auto;
+    margin: 0;
   
     clip: auto;
   }
