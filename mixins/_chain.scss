@@ -1,4 +1,4 @@
-// Chain Properties
+// Chain
 //
 // Chain CSS properties with common values. 
 //
@@ -11,13 +11,13 @@
 // Usage:
 // ```scss
 // .example {
-//   @include chain(font-size font-weight font-family, inherit);
+//   @include lime-chain(font-size font-weight font-family, inherit);
 // }
 // ```
 //
 // Styleguide 2.2
 
-@mixin chain($properties, $value) {
+@mixin lime-chain($properties, $value) {
   @each $property in $properties {
     #{$property}: #{$value};
   }

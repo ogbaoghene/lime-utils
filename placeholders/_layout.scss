@@ -14,7 +14,7 @@
 // Overflow
 // ```
 //
-// **Requires** : _variables, _loop
+// **Requires** : _variables, _loop, _chain
 //
 // Styleguide 3.2
 
@@ -98,7 +98,7 @@
 
 // Coordinates
 %pos-all {  
-  @include chain(top right bottom left, 0);
+  @include lime-chain(top right bottom left, 0);
 }
 
 
