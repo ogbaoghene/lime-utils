@@ -18,7 +18,7 @@
 // }
 // ```
 //
-// **Requires** : _variables, _stripUnit
+// **Requires** : _variables, _strip-unit
 //
 // Adapted from [OOCSS](https://github.com/stubbornella/oocss)
 //
@@ -29,7 +29,7 @@
   @each $value in $values {
     // Ignore unitless values, auto and other units except px
     @if $value != auto and unit($value) == px {
-      $rem-value: (strip-unit($value) / strip-unit($doc-font-size)) * 1rem;
+      $rem-value: (lime-strip-unit($value) / lime-strip-unit($doc-font-size)) * 1rem;
       $list: append($list, $rem-value);
     } @else {
       $list: append($list, $value);

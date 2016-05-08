@@ -19,7 +19,7 @@
 // }
 // ```
 //
-// **Requires** : _variables, _stripUnit
+// **Requires** : _variables, _strip-unit
 //
 // Adapted from [SCUT](http://davidtheclark.github.io/scut)
 // and [OOCSS](https://github.com/stubbornella/oocss)
@@ -28,12 +28,12 @@
 
 @function px-to-em($values, $context: $doc-font-size) {
   $multiplier: if(unit($context) == em, $doc-font-size, 1);
-  $divisor: strip-unit($context) * $multiplier;
+  $divisor: lime-strip-unit($context) * $multiplier;
   $list: ();
   @each $value in $values {
     // Ignore unitless values, auto and other units except px
     @if $value != auto and unit($value) == px {
-      $em-value: strip-unit($value) / $divisor * 1em;
+      $em-value: lime-strip-unit($value) / $divisor * 1em;
       $list: append($list, $em-value);
     } @else {
       $list: append($list, $value);
