@@ -21,6 +21,10 @@
 // Styleguide 3.4
 
 
+// font-family
+@include loop($font, font-family, $namespace: font);
+
+
 // font-size & line-height
 %giga {
   font-size: map-get($font-size, giga);

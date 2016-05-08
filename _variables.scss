@@ -7,6 +7,19 @@
 $doc-font-size: 16px; // font size on root element
 
 
+// Font-family
+$pri-font: Georgia, 'Nimbus Roman No9 L', Times, "Times New Roman", serif;
+$sec-font: 'Helvetica Neue W02 55 Roman', HelveticaNeue-Roman, 'Helvetica Neue Roman', HelveticaNeue, Helvetica, Arial, sans-serif;
+
+$font: (
+  body: $pri-font,
+  title: $sec-font,
+);
+
+// To create font-family placeholders:
+// @include loop($font, font-family, $namespace: font);
+
+
 // Directionality
 $direction: (
   start: left,
@@ -99,6 +112,7 @@ $radii: (
   xxh: 6px,
   full: 50%,
 );
+
 
 // 0: canvas, 1: background, 2: base; 3: fore; 4: overlay; 5: peak;
 
