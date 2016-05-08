@@ -33,10 +33,10 @@
 
 @mixin break($break, $query1: min-width, $break2: null, $query2: null) {
   // Default font size on html element is 100%, equivalent to 16px;
-  $bp: px-to-em($break, $context: $doc-font-size);
+  $bp: lime-em($break, $context: $doc-font-size);
 
   @if $break2 {
-    $bp2: px-to-em($break2, $context: $doc-font-size);
+    $bp2: lime-em($break2, $context: $doc-font-size);
   }
   
   @if $break2 != null and $query2 != null {

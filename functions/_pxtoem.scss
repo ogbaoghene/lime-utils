@@ -1,4 +1,4 @@
-// px to em
+// Pixel to em
 //
 // Converts a px value to em, accepts an array.
 //
@@ -11,22 +11,22 @@
 // Usage:
 // ```scss
 // .example {
-//   padding: px-to-em(12px, 16) * 3;
+//   padding: lime-em(12px, 16) * 3;
 // }
 //
 // .example2 {
-//   padding: px-to-em(16px 20 20% 1em, 1em);
+//   padding: lime-em(16px 20 20% 1em, 1em);
 // }
 // ```
 //
 // **Requires** : _variables, _strip-unit
 //
-// Adapted from [SCUT](http://davidtheclark.github.io/scut)
+// Adapted from [SCUT](http://davidtheclark.github.io/scut/em.html)
 // and [OOCSS](https://github.com/stubbornella/oocss)
 //
 // Styleguide 1.2
 
-@function px-to-em($values, $context: $doc-font-size) {
+@function lime-em($values, $context: $doc-font-size) {
   $multiplier: if(unit($context) == em, $doc-font-size, 1);
   $divisor: lime-strip-unit($context) * $multiplier;
   $list: ();

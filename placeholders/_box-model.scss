@@ -19,7 +19,7 @@
 }
 
 %width-min {
-  min-width: px-to-em(map-get($breakpoints, small));
+  min-width: lime-em(map-get($breakpoints, small));
 }
 
 
