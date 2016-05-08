@@ -13,7 +13,7 @@
 // Styleguide 3.6
 
 %clearfix-overflow {
-  @extend %overflow-hidden;
+  @extend %ovf-hidden;
 
   *overflow: visible;
   zoom: 1;
