@@ -100,15 +100,16 @@ $radii: (
   full: 50%,
 );
 
+// 0: canvas, 1: background, 2: base; 3: fore; 4: overlay; 5: peak;
 
 // Z-index
 $z: (
-  depth-0: 0,
-  depth-1: 1,
-  depth-2: 2,
-  depth-3: 3,
-  depth-4: 4,
-  depth-5: 5,
+  0: 0,
+  1: 1,
+  2: 2,
+  3: 3,
+  4: 4,
+  5: 5,
 );
 
 

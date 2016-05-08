@@ -109,7 +109,7 @@
 
 
 // z-index
-@include loop($z, z-index, z);
+@include loop($z, z-index, depth);
 
 
 // Overflow
