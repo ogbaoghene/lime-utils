@@ -133,7 +133,7 @@ $bg-color: (
 @include lime-font(montserrat, 'fonts/montserrat-semibold-webfont', $weight: 700);
 @include lime-font(montserrat, 'fonts/montserrat-ultralight-webfont', $weight: 400);
 
-  $pri-font: 'montserrat', Arial, sans-serif;
+$pri-font: 'montserrat', Arial, sans-serif;
 
 $font: (
   body: $pri-font,
@@ -707,4 +707,3 @@ a:hover .scroll-down path:first-of-type {
     animation-name: fadeInUp;
   }
 }
-
