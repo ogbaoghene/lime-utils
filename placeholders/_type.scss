@@ -4,14 +4,13 @@
 // 
 // Properties:
 // ```css
+// font-size
 // font-family
-// font-size & line-height
 // font-weight
 // font-style
 // text-align
 // text-decoration
 // text-transform
-// text-shadow
 // vertical-align
 // white-space
 // text-overflow
@@ -21,11 +20,7 @@
 // Styleguide 3.4
 
 
-// font-family
-@include loop($font, font-family, $namespace: font);
-
-
-// font-size & line-height
+// font-size
 %giga {
   font-size: map-get($font-size, giga);
   line-height: map-get($line-height, giga);
@@ -77,68 +72,68 @@
 }
 
 
+// font-family
+@include loop($font, font-family, $namespace: font);
+
+
 // font-weight
 @include loop($type, font-weight, $namespace: type);
 
 
 // font-style
-%normal {
+%txt-normal {
   font-style: normal;
 }
 
-%italics {
+%txt-italics {
   font-style: italic;
 }
 
 
 // text-align
-%text-inherit {
-  text-align: inherit;
-}
-
-%text-start {
+%txt-start {
   text-align: map-get($direction, start); // as backup
   text-align: start;
 }
 
-%text-end {
+%txt-end {
   text-align: map-get($direction, end); // as backup
   text-align: end;
 }
 
-%text-center {
+%txt-center {
   text-align: center;
 }
 
-%text-justify {
+%txt-justify {
   text-align: justify;
 }
 
 
 // text-decoration
-%text-decoration-none {
+%txt-nodecoration {
   text-decoration: none;
 }
 
-%text-decoration-underline {
+%txt-underline {
   text-decoration: underline;
 }
 
 
 // text-transform
-%text-transform-upper {
+%txt-uppercase {
   text-transform: uppercase;
 }
 
-%text-transform-lower {
+%txt-lowercase {
   text-transform: lowercase;
 }
 
-%text-transform-cap {
+%txt-cap {
   text-transform: capitalize;
 }
 
-%text-transform-none {
+%txt-notransform {
   text-transform: none;
 }
 
@@ -146,14 +141,6 @@
 // vertical-align
 %align-top {
   vertical-align: top;
-}
-
-%align-text-top {
-  vertical-align: text-top;
-}
-
-%align-text-btm {
-  vertical-align: text-bottom;
 }
 
 %align-mid {
@@ -170,27 +157,21 @@
 
 
 // white-space
-%white-space-normal {
+%ws-normal {
   white-space: normal;
 }
 
-%white-space-nowrap {
+%ws-nowrap {
   white-space: nowrap;
 }
 
 
-// text-overflow
-%text-overflow-ellipsis {
-  text-overflow: ellipsis;
-}
-
-
 // line-height
-%line-height-reset {
+%lh-reset {
   line-height: 100%;
 }
 
-%line-height-normal {
-  line-height: $doc-line-height;
+%lh-normal {
+  line-height: map-get($line-height, zeta);
 }
 
