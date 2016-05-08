@@ -7,11 +7,11 @@
 // $num : number to strip
 // ```
 //
-// Adapted from [SCUT](http://davidtheclark.github.io/scut)
+// Adapted from [SCUT](http://davidtheclark.github.io/scut/strip-unit.html)
 //
 // Styleguide 1.1
 
-@function strip-unit($num) {
+@function lime-strip-unit($num) {
   @return $num / ($num * 0 + 1);
 }
 
