@@ -11,6 +11,8 @@
 // Outline
 // ```
 // 
+// **Requires** : _variables, _loop, _pxtoem, _chain
+// 
 // Styleguide 3.1
 
 // Width
@@ -68,7 +70,7 @@
 
 
 // Border Radii
-@include loop($radii, border-radius, $namespace: radii);
+@include lime-loop($radii, border-radius, $namespace: radii);
 
 
 // Outline

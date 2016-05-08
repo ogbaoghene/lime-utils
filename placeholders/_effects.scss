@@ -8,6 +8,7 @@
 // Shadows
 // Transitions
 // ```
+// **Requires** : _variables, _loop
 // 
 // Styleguide 3.7
 
@@ -19,11 +20,11 @@
 
 
 // Shadows
-@include loop($shadows, box-shadow, $namespace: shadow);
+@include lime-loop($shadows, box-shadow, $namespace: shadow);
 
 
 // Transitions
-@include loop($transitions, transition, $namespace: transit);
+@include lime-loop($transitions, transition, $namespace: transit);
 
 %transit-none {
   transition: none;

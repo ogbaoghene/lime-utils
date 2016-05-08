@@ -17,6 +17,8 @@
 // line-height
 // ```
 //
+// **Requires** : _variables, _loop
+// 
 // Styleguide 3.4
 
 
@@ -73,11 +75,11 @@
 
 
 // font-family
-@include loop($font, font-family, $namespace: font);
+@include lime-loop($font, font-family, $namespace: font);
 
 
 // font-weight
-@include loop($type, font-weight, $namespace: type);
+@include lime-loop($type, font-weight, $namespace: type);
 
 
 // font-style

@@ -30,7 +30,7 @@ $radii: (
   full: 50%,
 );
 // radii placeholders
-// @include loop($radii, border-radius, $namespace: radii);
+// @include lime-loop($radii, border-radius, $namespace: radii);
 
 
 // Directionality
@@ -39,8 +39,8 @@ $direction: (
   end: right,
 );
 // float and clear placeholders
-// @include loop($direction, float, float);
-// @include loop($direction, clear, clear);
+// @include lime-loop($direction, float, float);
+// @include lime-loop($direction, clear, clear);
 
 
 // Z-index : 0=canvas, 1=background, 2=base; 3=fore; 4=overlay; 5=peak;
@@ -53,7 +53,7 @@ $z: (
   5: 5,
 );
 // z-index placeholders
-// @include loop($z, z-index, depth);
+// @include lime-loop($z, z-index, depth);
 
 
 // Type : [modular scale](http://www.modularscale.com/?16,528&&1.618&web&text)
@@ -103,7 +103,7 @@ $font: (
   title: $sec-font,
 );
 // font-family placeholders
-// @include loop($font, font-family, $namespace: font);
+// @include lime-loop($font, font-family, $namespace: font);
 
 
 // Font-weight
@@ -124,7 +124,7 @@ $type: (
   bold: $bold,
 );
 // font-weight placeholders
-// @include loop($type, font-weight, $namespace: type);
+// @include lime-loop($type, font-weight, $namespace: type);
 
 
 // Shadows
@@ -136,7 +136,7 @@ $shadows: (
   depth-5: (0 17px 17px 0 rgba(0, 0, 0, .15), 0 27px 55px 0 rgba(0, 0, 0, .3)),
 );
 // box-shadow placeholders
-// @include loop($shadows, box-shadow, $namespace: shadow);
+// @include lime-loop($shadows, box-shadow, $namespace: shadow);
 
 
 // Transitions
@@ -147,7 +147,7 @@ $transitions: (
   transform: .2s,
 );
 // transition placeholders
-// @include loop($transitions, transition, $namespace: transit);
+// @include lime-loop($transitions, transition, $namespace: transit);
 
 
 // Colors

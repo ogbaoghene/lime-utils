@@ -14,6 +14,8 @@
 // Overflow
 // ```
 //
+// **Requires** : _variables, _loop
+//
 // Styleguide 3.2
 
 // Display
@@ -61,7 +63,7 @@
 
 
 // Float
-@include loop($direction, float, float);
+@include lime-loop($direction, float, float);
 
 %float-none {
   float: none;
@@ -69,7 +71,7 @@
 
 
 // Clear
-@include loop($direction, clear, clear);
+@include lime-loop($direction, clear, clear);
 
 %clear-both {
   clear: both;
@@ -101,7 +103,7 @@
 
 
 // z-index
-@include loop($z, z-index, depth);
+@include lime-loop($z, z-index, depth);
 
 
 // Overflow

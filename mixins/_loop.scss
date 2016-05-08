@@ -1,22 +1,22 @@
-// Loop Map
+// Loop
 //
-// Create namespaced Sass placeholders using each key/value pair in a map.
+// Create namespaced `%placeholders` using the key/value pairs in a Sass map.
 //
 // Parameters:
 // ```scss
 // $map         : Sass map
 // $property    : CSS property
-// $namespace   : prefix.
+// $namespace   : prefix
 // ```
 // 
 // Usage:
 // ```scss
-// @include loop($type, font-weight, type);
+// @include lime-loop($type, font-weight, type);
 // ```
 //
-// Styleguide 2.3
+// Styleguide 2.1
 
-@mixin loop($map, $property, $namespace) {
+@mixin lime-loop($map, $property, $namespace) {
   @each $key, $value in $map {
     %#{$namespace}-#{$key} {
       #{$property}: $value;

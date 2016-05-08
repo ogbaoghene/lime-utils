@@ -17,8 +17,9 @@
 //
 // Styleguide 2.0
 
+@import 'mixins/loop';
+
 @import 'mixins/chain-properties';
-@import 'mixins/loop-map';
 @import 'mixins/font-face';
 @import 'mixins/media-query';
 @import 'mixins/calc-fallback';
