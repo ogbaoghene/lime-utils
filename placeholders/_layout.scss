@@ -9,7 +9,7 @@
 // Float
 // Clear
 // Visibility
-// Position Coordinates
+// Coordinates
 // z-index
 // Overflow
 // ```
@@ -43,19 +43,19 @@
 
 
 // Position
-%position-relative {
+%pos-relative {
   position: relative;
 }
 
-%position-absolute {
+%pos-absolute {
   position: absolute;
 }
 
-%position-fixed {
+%pos-fixed {
   position: fixed;
 }
 
-%position-static {
+%pos-static {
   position: static;
 }
 
@@ -81,30 +81,22 @@
 
 
 // Visibility
-%visibility-visible {
+%v-visible {
   visibility: visible;
 }
 
-%visibility-collapse {
+%v-collapse {
   visibility: collapse;
 }
 
-%visibility-hidden {
+%v-hidden {
   visibility: hidden;
 }
 
 
-// Position Coordinates
-%position-all {  
+// Coordinates
+%pos-all {  
   @include chain(top right bottom left, 0);
-}
-
-%position-vertical {
-  @include chain(top bottom, 0);
-}
-
-%position-horizontal {
-  @include chain(right left, 0);
 }
 
 
@@ -113,15 +105,15 @@
 
 
 // Overflow
-%overflow-visible {
+%ovf-visible {
   overflow: visible;
 }
 
-%overflow-auto {
+%ovf-auto {
   overflow: auto;
 }
 
-%overflow-hidden {
+%ovf-hidden {
   overflow: hidden;
 }
 
