@@ -1,10 +1,97 @@
 // Variables
 //
-// Use a two-tier system, with both functional and descriptive variable names
+// Use a two-tier system — with both functional and descriptive variable names, as appropriate.
 
 
-// Type
+// Breakpoints
+$breakpoints: (
+  goldilocks: 528px,
+  little: 320px,
+  small: 360px,
+  wee: 480px,
+  baby-bear: 800px,
+  middle-sized: 1024px,
+  mama-bear: 1152px,
+  great: 1280px,
+  huge: 1600px,
+  papa-bear: 1920px,
+);
+
+
+// Grid
+$doc-gutter: 1rem;
+
+
+// Radii
+$radii: (
+  h: 3px,
+  xh: 6px,
+  xxh: 10px,
+  full: 50%,
+);
+// radii placeholders
+// @include loop($radii, border-radius, $namespace: radii);
+
+
+// Directionality
+$direction: (
+  start: left,
+  end: right,
+);
+// float and clear placeholders
+// @include loop($direction, float, float);
+// @include loop($direction, clear, clear);
+
+
+// Z-index : 0=canvas, 1=background, 2=base; 3=fore; 4=overlay; 5=peak;
+$z: (
+  0: 0,
+  1: 1,
+  2: 2,
+  3: 3,
+  4: 4,
+  5: 5,
+);
+// z-index placeholders
+// @include loop($z, z-index, depth);
+
+
+// Type : [modular scale](http://www.modularscale.com/?16,528&&1.618&web&text)
 $doc-font-size: 16px; // font size on root element
+
+
+// Font-size
+$font-size: (
+  giga: 6.875em,
+  mega: 4.813em,
+  kilo: 4.25em,
+  alpha: 3em,
+  beta: 2.625em,
+  gamma: 1.813em,
+  delta: 1.625em,
+  epsilon: 1.125em,
+  zeta: 1em,
+  milli: .625em,
+);
+
+
+// Vertical Rhythm
+$doc-baseline: 1.625rem;
+
+
+// Line height
+$line-height: (
+  giga: 7.313rem,
+  mega: 4.875rem,
+  kilo: 4.875rem,
+  alpha: 3.25rem,
+  beta: 3.25rem,
+  gamma: 2.438rem,
+  delta: 2.438rem,
+  epsilon: $doc-baseline,
+  zeta: $doc-baseline,
+  milli: .813rem,
+);
 
 
 // Font-family
@@ -15,16 +102,8 @@ $font: (
   body: $pri-font,
   title: $sec-font,
 );
-
-// To create font-family placeholders:
+// font-family placeholders
 // @include loop($font, font-family, $namespace: font);
-
-
-// Directionality
-$direction: (
-  start: left,
-  end: right,
-);
 
 
 // Font-weight
@@ -44,95 +123,8 @@ $type: (
   body: $normal,
   bold: $bold,
 );
-
-
-// Grid
-$doc-gutter: 1rem;
-
-
-// Modular Scale - http://www.modularscale.com/?16,528&&1.618&web&text
-
-// Font-size
-$font-size: (
-  giga: 6.875em,
-  mega: 4.813em,
-  kilo: 4.25em,
-  alpha: 3em,
-  beta: 2.625em,
-  gamma: 1.813em,
-  delta: 1.625em,
-  epsilon: 1.125em,
-  zeta: 1em,
-  milli: .625em,
-);
-
-
-// Vertical Rhythm
-$doc-baseline: 1.625rem;
-$doc-line-height: 1.625rem;
-
-
-// Line height
-$line-height: (
-  giga: 7.313rem,
-  mega: 4.875rem,
-  kilo: 4.875rem,
-  alpha: 3.25rem,
-  beta: 3.25rem,
-  gamma: 2.438rem,
-  delta: 2.438rem,
-  epsilon: $doc-line-height,
-  zeta: $doc-line-height,
-  milli: .813rem,
-);
-
-
-// Breakpoints
-$breakpoints: (
-  very-small: 360px,
-  small: 480px,
-  goldilocks: 528px,
-  baby-bear: 768px,
-  standard: 980px,
-  mama-bear: 1080px,
-  papa-bear: 1280px,
-  large: 1366px,
-  desktop: 1440px,
-  very-large: 1600px,
-  extra-large: 1760px,
-  widescreen: 1920px,
-);
-
-
-// Radii
-$radii: (
-  h: 3px,
-  xh: 6px,
-  xxh: 10px,
-  full: 50%,
-);
-
-
-// 0: canvas, 1: background, 2: base; 3: fore; 4: overlay; 5: peak;
-
-// Z-index
-$z: (
-  0: 0,
-  1: 1,
-  2: 2,
-  3: 3,
-  4: 4,
-  5: 5,
-);
-
-
-// Transitions
-$transitions: (
-  fade: .3s ease-out,
-  move: .8s cubic-bezier(.25, .05, .5, .9),
-  enter: .8s cubic-bezier(0, .24, .5, 1),
-  transform: .2s,
-);
+// font-weight placeholders
+// @include loop($type, font-weight, $namespace: type);
 
 
 // Shadows
@@ -143,10 +135,23 @@ $shadows: (
   depth-4: (0 14px 12px 0 rgba(0, 0, 0, .17), 0 20px 40px 0 rgba(0, 0, 0, .3)),
   depth-5: (0 17px 17px 0 rgba(0, 0, 0, .15), 0 27px 55px 0 rgba(0, 0, 0, .3)),
 );
+// box-shadow placeholders
+// @include loop($shadows, box-shadow, $namespace: shadow);
+
+
+// Transitions
+$transitions: (
+  fade: .3s ease-out,
+  move: .8s cubic-bezier(.25, .05, .5, .9),
+  enter: .8s cubic-bezier(0, .24, .5, 1),
+  transform: .2s,
+);
+// transition placeholders
+// @include loop($transitions, transition, $namespace: transit);
 
 
 // Colors
-$true-black: #000;
+$black: #000;
 $gray20: #333;
 $gray40: #666;
 $white: #fff;
