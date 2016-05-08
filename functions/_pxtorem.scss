@@ -1,4 +1,4 @@
-// px to rem
+// Pixel to rem
 //
 // Converts a px value to rem, accepts an array.
 //
@@ -10,21 +10,21 @@
 // Usage:
 // ```scss
 // .example {
-//   font-size: px-to-rem(16px) * 4;
+//   font-size: lime-rem(16px) * 4;
 // }
 //
 // .example2 {
-//   padding: px-to-rem(16px 12 20% 1em);
+//   padding: lime-rem(16px 12 20% 1em);
 // }
 // ```
 //
 // **Requires** : _variables, _strip-unit
 //
-// Adapted from [OOCSS](https://github.com/stubbornella/oocss)
+// Adapted from [OOCSS](http://davidtheclark.github.io/scut/rem.html)
 //
 // Styleguide 1.3
 
-@function px-to-rem($values) {
+@function lime-rem($values) {
   $list: ();
   @each $value in $values {
     // Ignore unitless values, auto and other units except px
