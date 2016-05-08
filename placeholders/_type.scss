@@ -143,24 +143,6 @@
 }
 
 
-// text-shadow
-%text-shadow-basic {
-  text-shadow: 2px 4px 3px rgba(#000, .3);
-}
-
-%text-shadow-letterpress {
-  text-shadow: 0 1px rgba(#fff, .87);
-}
-
-%text-shadow-hard {
-  text-shadow: 6px 6px rgba(#000, .2);
-}
-
-%text-shadow-glowing {
-  text-shadow: 0 0 6px rgba(#fff, .7);
-}
-
-
 // vertical-align
 %align-top {
   vertical-align: top;
