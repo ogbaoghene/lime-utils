@@ -14,16 +14,8 @@
 // Styleguide 3.1
 
 // Height & Width
-%height-auto {
-  height: auto;
-}
-
 %height-100 {
   height: 100%;
-}
-
-%width-auto {
-  width: auto;
 }
 
 %width-100 {
@@ -31,13 +23,13 @@
 }
 
 %width-min {
-  min-width: px-to-em(map-get($breakpoints, very-small));
+  min-width: px-to-em(map-get($breakpoints, small));
 }
 
 
-// Margins
+// Margin
 %margin-reset {
-  margin: 0;
+  margin-top: 0;
 }
 
 %margin-auto {
@@ -45,15 +37,11 @@
 }
 
 %margin-center {
-  @include chain(margin-#{map-get($direction, end)} margin-#{map-get($direction, start)}, auto);
+  @include lime-chain(margin-right margin-left, auto);
 }
 
 
-// Paddings
-%padding-reset {
-  padding: 0;
-}
-
+// Padding
 %padding-default {
   padding-top: ($doc-baseline / 2);
   padding-right: $doc-gutter;
@@ -76,7 +64,7 @@
 }
 
 
-// Borders
+// Border
 %border-dotted {
   border-style: dotted;
 }
@@ -93,12 +81,8 @@
   border-style: double;
 }
 
-%border-none {
-  border: 0;
-}
 
-
-// Borders Radii
+// Border Radii
 @include loop($radii, border-radius, $namespace: radii);
 
 
