@@ -9,7 +9,7 @@
 // Float
 // Clear
 // Visibility
-// Coordinates
+// Offset
 // z-index
 // Overflow
 // ```
@@ -96,8 +96,8 @@
 }
 
 
-// Coordinates
-%pos-all {  
+// Offset
+%offset-all {
   @include lime-chain(top right bottom left, 0);
 }
 

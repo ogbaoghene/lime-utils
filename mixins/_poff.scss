@@ -1,0 +1,113 @@
+// Position & Offset
+//
+// Position an element and sets all offset properties in one declaration. Like a shorthand property the `$offset` parameter can have from one to four values.
+// 
+// Parameters:
+// ```scss
+// $pos       : `relative`, `absolute`, `fixed` or `static`
+// $offset    : `top`, `right`, `bottom`, and `left`
+// ```
+// 
+// Usage:
+// ```scss
+// .example {
+//   @include lime-poff(absolute, $offset: 0);
+// }
+// 
+// @media (min-width: 30em) {
+//   .example-2 {
+//     @include lime-poff($pos: null, $offset: 0 0 null) {
+//       position: absolute;
+//     };
+//   }
+// }
+// 
+// .example-3 {
+//   @include lime-poff(absolute, $offset: 26px 16px);
+// }
+// ```
+//
+// ***Note** :  Escape values of $offset parameters with `null`. Don’t use within a media query; `@extend` don’t work. Escape the `$pos` parameter and use a content block.*
+//
+// **Requires** : _variables, _layout
+//
+// Styleguide 2.8
+
+@mixin lime-poff($pos, $offset: 0) {
+  @if $pos == null {
+    @content;
+  } @else {
+    @extend %pos-#{$pos} !optional;
+  }
+  
+  @if length($offset) != 1 {
+    @if length($offset) == 2 {
+      $value1: nth($offset, 1);
+      $value2: nth($offset, 2);
+      $value3: nth($offset, 1);
+      $value4: nth($offset, 2);
+      
+      @if $value1 != null {
+        top: $value1;
+      }
+      @if $value2 != null {
+        #{map-get($direction, end)}: $value2;
+      }
+      @if $value3 != null {
+        bottom: $value3;
+      }
+      @if $value4 != null {
+        #{map-get($direction, start)}: $value4;
+      }
+    } @else if length($offset) == 3 {
+      $value1: nth($offset, 1);
+      $value2: nth($offset, 2);
+      $value3: nth($offset, 3);
+      $value4: nth($offset, 2);
+      
+      @if $value1 != null {
+        top: $value1;
+      }
+      @if $value2 != null {
+        #{map-get($direction, end)}: $value2;
+      }
+      @if $value3 != null {
+        bottom: $value3;
+      }
+      @if $value4 != null {
+        #{map-get($direction, start)}: $value4;
+      }
+    } @else if length($offset) == 4 {
+      $value1: nth($offset, 1);
+      $value2: nth($offset, 2);
+      $value3: nth($offset, 3);
+      $value4: nth($offset, 4);
+      
+      @if $value1 != null {
+        top: $value1;
+      }
+      @if $value2 != null {
+        #{map-get($direction, end)}: $value2;
+      }
+      @if $value3 != null {
+        bottom: $value3;
+      }
+      @if $value4 != null {
+        #{map-get($direction, start)}: $value4;
+      }
+    } @else {
+      @warn 'Values are out of bounds. Properties omitted.';
+    }
+  } @else {
+    $value1: $offset;
+    $value2: $offset;
+    $value3: $offset;
+    $value4: $offset;
+    
+    top: $value1;
+    #{map-get($direction, end)}: $value2;
+    bottom: $value3;
+    #{map-get($direction, start)}: $value4;
+  }
+}
+
