@@ -1,18 +1,18 @@
-// Pseudo
+// Pseudo-elements
 //
 // Use ::after and ::before pseudo-elements.
 //
 // Parameters:
 // ```scss
-// $element   : either `aft`, `fore`, or `both`. Defaults to `both`
+// $element   : `aft`, `fore`, or `both`. Defaults to `both`
 // $cont      : CSS generated content
 // ```
 //
 // Usage:
 // ```scss
 // .example {
-//   @include lime-pseudo(fore, $cont: 'GO');
-//   @include lime-pseudo(aft, $cont: 'STOP!');
+//   @include lime-pseudo(fore, 'GO');
+//   @include lime-pseudo(aft, 'STOP!');
 //   @include lime-pseudo($cont: null) {
 //     display: inline-block;
 // 

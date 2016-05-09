@@ -1,6 +1,6 @@
 // Box Model
 //
-// Set margins or paddings explicitly.
+// Sets all the margin or padding properties in one declaration. Like a shorthand property the `$values` parameter can have from one to four values.
 // 
 // Parameters:
 // ```scss
@@ -23,7 +23,7 @@
 // }
 // ```
 //
-// ***Note** : Escape `$values` parameter with `null`.*
+// ***Note** : Escape values of `$values` parameter with `null`.*
 // 
 // **Requires** : _variables
 //
