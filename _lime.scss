@@ -19,8 +19,9 @@
 
 @import 'mixins/loop';
 @import 'mixins/chain';
-@import 'mixins/res';
+@import 'mixins/hidpi';
 @import 'mixins/haf';
+@import 'mixins/pseudo';
 
 @import 'mixins/font-face';
 @import 'mixins/media-query';
@@ -28,7 +29,6 @@
 @import 'mixins/margin-or-padding';
 @import 'mixins/smart-border';
 @import 'mixins/grid';
-@import 'mixins/pseudo';
 
 
 // Placeholders
