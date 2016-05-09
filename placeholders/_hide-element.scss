@@ -12,6 +12,8 @@
 // _Tested : IE6-9, Firefox, Chrome, Safari_
 //
 // Adapted from [HTML5 Boilerplate](http://html5boilerplate.com/)
+// 
+// **Requires** : _type, _layout, _haf
 //
 // Styleguide 3.5
 
@@ -42,7 +44,7 @@
 
 // Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: https://www.drupal.org/node/897638
 %hide-focusable {
-  @include hover-active-focus($state: no-hover) {
+  @include lime-haf($state: no-hover) {
     @extend %hide-visually;
     @extend %pos-static;
     @extend %ovf-visible;

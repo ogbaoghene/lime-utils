@@ -1,10 +1,10 @@
-// Hover, Active, Focus
+// Hover-Active-Focus
 //
 // Group :hover, :active, :focus.
 //
 // Parameters:
 // ```scss
-// $state : either all, no-hover, no-active, or no-focus. Defaults to all
+// $state : either `all`, `no-hover`, `no-active`, or `no-focus`. Defaults to `all`
 // ```
 // 
 // Usage:
@@ -12,23 +12,23 @@
 // .example {
 //   text-decoration: none;
 //   
-//   @include hover-active-focus(no-active) {
+//   @include lime-haf(no-active) {
 //     text-decoration: underline;
 //   }
 //
-//   @include hover-active-focus(no-hover) {
+//   @include lime-haf(no-hover) {
 //     outline: 5px dashed pink;
 //   }
 // 
-//   @include hover-active-focus {
+//   @include lime-haf {
 //     cursor: pointer;
 //   }
 // }
 // ```
 //
-// Styleguide 2.7
+// Styleguide 2.4
 
-@mixin hover-active-focus($state: all) {
+@mixin lime-haf($state: all) {
   @if $state == all {
     &:hover,
     &:active,
