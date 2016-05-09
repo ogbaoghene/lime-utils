@@ -22,9 +22,11 @@
 // }
 // ```
 // 
+// ***Note** : Escape `$cont` parameter with `null`.*
+// 
 // Adapted from [Team Treehouse](http://blog.teamtreehouse.com/modular-pseudo-elements-sass)
 //
-// Styleguide 2.12
+// Styleguide 2.5
 
 @mixin lime-pseudo($element: both, $cont: '') {
   @if $element != both {
