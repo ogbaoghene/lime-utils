@@ -16,14 +16,14 @@
 // }
 // 
 // @media (min-width: 30em) {
-//   .example-2 {
+//   .example-1 {
 //     @include lime-brdr(6px, null, red) {
 //       border-style: solid;
 //     };
 //   }
 // }
 // 
-// .example-3 {
+// .example-2 {
 //   @include lime-brdr(10px);
 // }
 // ```
@@ -32,7 +32,7 @@
 //
 // **Requires** : _box-model
 //
-// Styleguide 2.9
+// Styleguide 2.8
 
 @mixin lime-brdr($width, $style: solid, $color: null) {
   border-width: $width;

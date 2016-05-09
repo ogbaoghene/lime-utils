@@ -15,14 +15,14 @@
 // }
 // 
 // @media (min-width: 30em) {
-//   .example-2 {
+//   .example-1 {
 //     @include lime-poff($pos: null, $offset: 0 0 null) {
 //       position: absolute;
 //     };
 //   }
 // }
 // 
-// .example-3 {
+// .example-2 {
 //   @include lime-poff(absolute, $offset: 26px 16px);
 // }
 // ```
@@ -31,7 +31,7 @@
 //
 // **Requires** : _variables, _layout
 //
-// Styleguide 2.8
+// Styleguide 2.9
 
 @mixin lime-poff($pos, $offset: 0) {
   @if $pos == null {
