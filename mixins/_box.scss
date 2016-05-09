@@ -1,33 +1,35 @@
-// Margin or Padding
+// Box Model
 //
 // Set margins or paddings explicitly.
 // 
 // Parameters:
 // ```scss
-// $property  : margin or padding
-// $values    : top, right, bottom, and left
+// $property  : `margin` or `padding`
+// $values    : `top`, `right`, `bottom`, and `left`
 // ```
 // 
 // Usage:
 // ```scss
 // .example {
-//   @include marg-or-pad(padding, 10px 3px);
+//   @include lime-box(padding, 10px 3px);
 // }
 // 
 // .example-1 {
-//   @include marg-or-pad(margin, 2px 12px 3px);
+//   @include lime-box(margin, 2px 12px 3px);
 // }
 // 
 // .example-2 {
-//   @include marg-or-pad(margin, 2px null 3px null );
+//   @include lime-box(margin, 2px null 3px null );
 // }
 // ```
 //
-// _**Note** : Escape values using `null`._
+// ***Note** : Escape `$values` parameter with `null`.*
+// 
+// **Requires** : _variables
 //
-// Styleguide 2.9
+// Styleguide 2.7
 
-@mixin marg-or-pad($property, $values) {
+@mixin lime-box($property, $values) {
   @if length($values) != 1 {
     @if length($values) == 2 {
       $value1: nth($values, 1);
