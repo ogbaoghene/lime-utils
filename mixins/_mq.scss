@@ -1,0 +1,55 @@
+// Media Query
+//
+// Define breakpoints in pixels (automatically converted to EMs).
+//
+// Parameters:
+// ```scss
+// $bp   : key from `$breakpoints` map. Defaults to 'baby-bear'
+// $ftr  : media feature. Defaults to `min-width`
+// ```
+//
+// Usage:
+// ```scss
+// .example {
+//   @include lime-mq() {
+//     display: none;
+//   }
+// }
+// 
+// .example-1 {
+//   @include lime-mq(768px, max-height) {
+//     display: none;
+//   }
+// }
+// 
+// .example-2 {
+//   @include lime-mq(goldilocks) {
+//     @include lime-mq(huge, max-width) {
+//       display: block;
+//     }
+//   }
+// }
+// ```
+//
+// **Requires** : _variables, _pxtoem
+//
+// Adapted from [Sassifaction](http://alwaystwisted.com/post.php?s=2013-04-01-my-media-query-mixin)
+//
+// Styleguide 2.10
+
+@mixin lime-mq($bp: baby-bear, $ftr: min-width) {
+  @if type-of($bp) == number {
+    $value: lime-em($bp);
+    
+    @media screen and (#{$ftr}: $value) {
+      @content;
+    }
+  } @else {
+    $value: lime-em(map-get($breakpoints, $bp));
+    
+    @media screen and (#{$ftr}: $value) {
+      @content;
+    }
+  }
+}
+
