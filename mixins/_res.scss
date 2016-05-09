@@ -1,16 +1,16 @@
-// High-resolution
+// Resolution
 //
 // Resolution-based media queries.
 //
 // Parameters:
 // ```scss
-// $ratio : physical pixels to logical pixels. Defaults to 2 (retina)
+// $ratio 	: physical to logical pixels. Defaults to 2 (retina)
 // ```
 //
 // Usage:
 // ```scss
 // .example {
-//   @include res() {
+//   @include lime-res() {
 //     background-image: image-url('sprites@2x.png');
 //   };
 // }
@@ -18,9 +18,9 @@
 // 
 // Adapted from [Bourbon](http://bourbon.io)
 //
-// Styleguide 2.13
+// Styleguide 2.3
 
-@mixin hi-res($ratio: 2) {
+@mixin lime-res($ratio: 2) {
   @media only screen and (-webkit-min-device-pixel-ratio: $ratio),
   only screen and (min-resolution: round($ratio * 96dpi)),
   only screen and (min-resolution: $ratio * 1dppx) {
