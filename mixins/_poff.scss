@@ -5,7 +5,7 @@
 // Parameters:
 // ```scss
 // $pos       : `relative`, `absolute`, `fixed` or `static`
-// $offset    : `top`, `right`, `bottom`, and `left`
+// $offset    : property value
 // ```
 // 
 // Usage:
@@ -27,7 +27,7 @@
 // }
 // ```
 //
-// ***Note** :  Escape values of $offset parameters with `null`. Don’t use within a media query; `@extend` don’t work. Escape the `$pos` parameter and use a content block.*
+// ***Note** :  Escape values of $offset parameters with `null`. For use within a media query, escape the `$pos` parameter and pass `@content`.*
 //
 // **Requires** : _variables, _layout
 //
@@ -37,7 +37,7 @@
   @if $pos == null {
     @content;
   } @else {
-    @extend %pos-#{$pos} !optional;
+    @extend %pos-#{$pos};
   }
   
   @if length($offset) != 1 {
