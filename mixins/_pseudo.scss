@@ -4,16 +4,16 @@
 //
 // Parameters:
 // ```scss
-// $element : either aft, fore, or both. Defaults to both
+// $element : either `aft`, `fore`, or `both`. Defaults to `both`
 // $cont    : CSS generated content
 // ```
 //
 // Usage:
 // ```scss
 // .example {
-//   @include pseudo(fore, $cont: 'GO');
-//   @include pseudo(aft, $cont: 'HELL!');
-//   @include pseudo($cont: null) {
+//   @include lime-pseudo(fore, $cont: 'GO');
+//   @include lime-pseudo(aft, $cont: 'STOP!');
+//   @include lime-pseudo($cont: null) {
 //     display: inline-block;
 // 
 //     color: red;
@@ -22,11 +22,11 @@
 // }
 // ```
 // 
-// Adapted from [Team Treehouse](http://blog.teamtreehouse.com/)
+// Adapted from [Team Treehouse](http://blog.teamtreehouse.com/modular-pseudo-elements-sass)
 //
 // Styleguide 2.12
 
-@mixin pseudo($element: both, $cont: '') {
+@mixin lime-pseudo($element: both, $cont: '') {
   @if $element != both {
     @if $element == aft {
       &::after {
