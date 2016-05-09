@@ -1,0 +1,50 @@
+// Border
+//
+// Sets all border properties in one declaration.
+// 
+// Parameters:
+// ```scss
+// $width     : property value
+// $style     : `dotted`, `dashed`, `solid` or `double`. Defaults to `solid`
+// $color     : property value. Optional
+// ```
+// 
+// Usage:
+// ```scss
+// .example {
+//   @include lime-brdr(3px, $color: green);
+// }
+// 
+// @media (min-width: 30em) {
+//   .example-2 {
+//     @include lime-brdr(6px, null, red) {
+//       border-style: solid;
+//     };
+//   }
+// }
+// 
+// .example-3 {
+//   @include lime-brdr(10px);
+// }
+// ```
+//
+// ***Note** : For use within a media query, escape the `$style` parameter and pass `@content`.*
+//
+// **Requires** : _box-model
+//
+// Styleguide 2.9
+
+@mixin lime-brdr($width, $style: solid, $color: null) {
+  border-width: $width;
+    
+  @if $style == null {
+    @content;
+  } @else {
+    @extend %brdr-#{$style};
+  }
+  
+  @if $color != null {
+    border-color: $color;
+  }
+}
+
