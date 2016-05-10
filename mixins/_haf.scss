@@ -51,7 +51,7 @@
       @content;
     }
   } @else {
-    @warn '`#{$state}` is not an accepted option';
+    @warn '`#{$state}` is not a valid option. Properties omitted.';
   }
 }
 
