@@ -1,0 +1,139 @@
+// Flexbox Grid
+//
+// A grid system based on the flex display property.
+//
+// Parameters:
+// ```scss
+// $item    : `row` or `col`
+// $size    : width in percentage. Defaults to `auto`
+// $aln     : `top`, `bottom`, `middle or `stretch`. Optional
+// $rev     : reverses order of columns. Optional
+// $dist    : `end`, `center`, `between` or `around`. Optional
+// $clps    : remove column gutters. Optional
+// $ofst    : `margin-left` to column (in percentages). Optional
+// $ro      : `first` or `last`. Optional
+// ```
+//
+// Usage:
+// ```scss
+// .example {
+//   @include lime-flex(row)
+// }
+// 
+// .example-1 {
+//   @include lime-flex(cell, 30%, $ofst: 30%, $ro: first);
+// }
+// ```
+//
+// **Requires** : _variables, _lime-chain
+// 
+// Adapted from [Solved by Flexbox](https://philipwalton.github.io/solved-by-flexbox/demos/grids/), [Zurb Foundation](http://foundation.zurb.com/sites/docs/flex-grid.html) and [Flexbox Grid](http://flexboxgrid.com/)
+//
+// Styleguide 2.11
+
+@mixin lime-flex($item, $size: auto, $aln: null, $rev: null, $dist: null, $clps: null, $ofst: null, $ro: null) {
+  @if $item == row {
+    display: flex;
+    
+    @if $rev != null {
+      flex-direction: row-reverse;
+    } @else {
+      flex-direction: row;
+    }
+    
+    flex-wrap: wrap;
+    
+    @if $aln != null {
+      @if $aln == top {
+        align-items: flex-start;
+      } @else if $aln == bottom {
+        align-items: flex-end;
+      } @else if $aln == middle {
+        align-items: center;
+      } @else if $aln == stretch {
+        align-items: stretch;
+      } @else {
+        @warn '`#{$aln}` is not a valid option. Properties omitted.';
+      }
+    } @else {
+      align-items: stretch;
+    }
+    
+    @if $dist != null {
+      @if $dist == end {
+        justify-content: flex-end;
+      } @else if $dist == center {
+        justify-content: center;
+      } @else if $dist == between {
+        justify-content: space-between;
+      } @else if $dist == around {
+        justify-content: space-around;
+      } @else {
+        @warn '`#{$dist}` is not a valid option. Properties omitted.';
+      }
+    } @else {
+      justify-content: flex-start;
+    }
+    
+    @if $clps != null {
+      @include lime-chain(margin-right margin-left, 0);
+    } @else {
+      @include lime-chain(margin-right margin-left, -$doc-gutter);
+    }
+    
+    > * {
+      @if $size != auto and unit($size) == '%' {
+        max-width: $size;
+        
+        flex-grow: $size;
+      } @else {
+        flex-grow: 1;
+      }
+      
+      @if $clps != null {
+        @include lime-chain(padding-right padding-left, 0);
+      } @else {
+        @include lime-chain(padding-right padding-left, $doc-gutter);
+      }
+    }
+  } @else if $item == col {
+    @if $size != auto and unit($size) == '%' {
+      max-width: $size;
+    }
+    
+    @if $ofst != null and unit($ofst) == '%' {
+      margin-#{map-get($direction, start)}: $ofst;
+    }
+    
+    @if $size != auto and unit($size) == '%' { 
+      flex-basis: $size;
+    } 
+    
+    @if $ro != null {
+      @if $ro == first {
+        order: -1;
+      } @else if $ro == last {
+        order: 1;
+      } @else {
+        @warn '`#{$ro}` is not a valid option. Properties omitted.';
+      }
+    }
+    
+    @if $aln != null {
+      @if $aln == top {
+        align-items: flex-start;
+      } @else if $aln == bottom {
+        align-items: flex-end;
+      } @else if $aln == middle {
+        align-items: center;
+      } @else if $aln == stretch {
+        align-items: stretch;
+      } @else {
+        @warn '`#{$aln}` is not a valid option. Properties omitted.';
+      }
+    }
+  } @else {
+    @warn '`#{$item}` is not a valid option. Properties omitted.';
+  }
+}
+
