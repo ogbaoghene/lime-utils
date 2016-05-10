@@ -57,10 +57,11 @@ Here are some guidelines on how to go about writing your own:
 - **Begin each file with a multi-line comment (each line an inline // comment, not a block comment) naming and briefly describing the module.** Follow this with a list of parameters, a usage example and any dependencies, e.g:
 
 	```
-	// PX to EM
-	// Converts a px value to em, accepts an 	array.
+	// Pixel to em
+    //
+    // Converts a px value to em, accepts an array.
 
-	// Requires : _variables, _strip-unit
+	// **Requires** : _variables, _strip-unit
 	```
 
 - **Credit the source when a module is adapted from elsewhere,** by including a link to the original in your top comments. For example:
@@ -69,7 +70,7 @@ Here are some guidelines on how to go about writing your own:
     // Adapted from [SCUT](http://davidtheclark.github.io/scut/#pixels-to-ems)
 	```
 	
-- **Add a `lime-` prefix to all module names** to prevent conflicts.
+- To prevent conflicts, **prefix functions and mixins with `lime-`**.
 - **Use soft-tabs with a two space indent.**
 - **List arguments, declarations and their closing braces on their own lines.**
 - **Space liberally.** Use line breaks to section code according to role.

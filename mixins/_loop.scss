@@ -14,7 +14,7 @@
 // @include lime-loop($type, font-weight, type);
 // ```
 //
-// Styleguide 2.1
+// Styleguide 3.1
 
 @mixin lime-loop($map, $property, $namespace) {
   @each $key, $value in $map {

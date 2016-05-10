@@ -29,7 +29,7 @@
 // 
 // Adapted from [Solved by Flexbox](https://philipwalton.github.io/solved-by-flexbox/demos/grids/), [Zurb Foundation](http://foundation.zurb.com/sites/docs/flex-grid.html) and [Flexbox Grid](http://flexboxgrid.com/)
 //
-// Styleguide 2.11
+// Styleguide 3.11
 
 @mixin lime-flex($item, $size: auto, $aln: null, $rev: null, $dist: null, $clps: null, $ofst: null, $ro: null) {
   @if $item == row {

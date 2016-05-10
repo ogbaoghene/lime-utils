@@ -18,7 +18,7 @@
 // 
 // Adapted from [Bourbon](http://bourbon.io/docs/#hidpi-media-query)
 //
-// Styleguide 2.3
+// Styleguide 3.3
 
 @mixin lime-hidpi($ratio: 2) {
   @media only screen and (-webkit-min-device-pixel-ratio: $ratio),
