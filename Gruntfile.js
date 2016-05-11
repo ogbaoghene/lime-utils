@@ -6,7 +6,9 @@ module.exports = function (grunt) {
   require('time-grunt')(grunt);
 
   // Autoload grunt plugins
-  require('jit-grunt')(grunt);
+  require('jit-grunt')(grunt, {
+    htmlbuild: 'grunt-html-build'
+  });
 
   // Define the configuration for all the tasks
   grunt.initConfig({
@@ -19,6 +21,14 @@ module.exports = function (grunt) {
       sass: {
         files: ['**/*.{scss,sass}'],
         tasks: ['sass:dev', 'modernizr:dist']
+      },
+      uglify: {
+        files: ['js/main.js'],
+        tasks: ['uglify:dev']
+      },
+      htmlbuild: {
+        files: ['index.dev.html'],
+        tasks: ['htmlbuild']
       },
       livereload: {
         options: {
@@ -44,6 +54,22 @@ module.exports = function (grunt) {
         options: {
           open: true,
           base: ['./']
+        }
+      }
+    },
+
+    uglify: {
+      dev: {
+        options: {
+          beautify: true
+        },
+        files: {
+          'js/main-prod.js': ['js/main.js']
+        }
+      },
+      dist: {
+        files: {
+          'js/main-prod.js': ['js/main.js']
         }
       }
     },
@@ -148,20 +174,49 @@ module.exports = function (grunt) {
           }
         ]
       }
-    }
+    },
+
+    critical: {
+      dist: {
+        options: {
+          base: './',
+          minify: true
+        },
+        src: 'index.html', // The source file
+        dest: 'index.html' // The destination file
+      }
+    },
+
+    htmlbuild: {
+      dist: {
+        src: 'index.dev.html',
+        dest: 'index.html',
+        options: {
+          scripts: {
+            main: 'js/main-prod.js'
+          }
+        }
+      }
+    },
+
   });
 
   grunt.registerTask('dist', [
+    'uglify:dist',
     'sass:dist',
     'postcss:dist',
     'modernizr:dist',
     'newer:imageoptim',
-    'newer:svgmin'
+    'newer:svgmin',
+    'htmlbuild',
+    'critical'
   ]);
 
   grunt.registerTask('dev', [
+    'uglify:dev',
     'sass:dev',
-    'modernizr:dist'
+    'modernizr:dist',
+    'htmlbuild'
   ]);
 
   grunt.registerTask('serve', 'start the server and preview your project', function (target) {
