@@ -180,7 +180,8 @@ module.exports = function (grunt) {
       dist: {
         options: {
           base: './',
-          minify: true
+          minify: true,
+          pathPrefix: ''
         },
         src: 'index.html', // The source file
         dest: 'index.html' // The destination file
