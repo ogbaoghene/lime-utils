@@ -16,7 +16,7 @@
 // @include lime-font(SourceSansPro, '/fonts/Source_Sans_Pro/SourceSansPro-italic', $style: italic);
 // ```
 //
-// ***Note** : Assumes font’s file formats are `eot woff2 woff ttf svg`.*
+// ***Note** : To support all modern browsers while optimizing for performance and speed, assumed font file formats are `woff2 woff`.
 //
 // Adapted from [Bourbon](http://bourbon.io/docs/#font-face)
 //
@@ -25,12 +25,11 @@
 @mixin lime-font($font, $path, $weight: normal, $style: normal) {
   @font-face {
     font: {
-      family: '#{$font}';
-      weight: $weight;
-      style: $style;
+			family: '#{$font}';
+			weight: $weight;
+			style: $style;
     }
-    src: url('#{$path}.eot');
-    src: url('#{$path}.eot?#iefix') format('embedded-opentype'), url('#{$path}.woff') format('woff'), url('#{$path}.ttf') format('truetype'), url('#{$path}.svg##{$font}') format('svg');
+    src: url('#{$path}.woff2') format('woff2'), url('#{$path}') format('woff');
   }
 }
 
