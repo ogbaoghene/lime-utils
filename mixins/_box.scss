@@ -27,7 +27,7 @@
 // 
 // **Requires** : _variables
 //
-// Styleguide 3.7
+// Styleguide 2.7
 
 @mixin lime-box($property, $values) {
   @if length($values) != 1 {

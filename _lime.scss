@@ -11,26 +11,11 @@
 @import 'functions/pxtorem';
 
 
-// Placeholders
-//
-// Mix and match little bits of style while avoiding code bloat and repetition.
-//
-// Styleguide 2.0
-
-@import 'placeholders/box-model';
-@import 'placeholders/layout';
-@import 'placeholders/lists';
-@import 'placeholders/type';
-@import 'placeholders/hide-element';
-@import 'placeholders/clearfix';
-@import 'placeholders/effects';
-
-
 // Mixins
 //
 // Combine arguments and @extend to generate context-specific declarations.
 //
-// Styleguide 3.0
+// Styleguide 2.0
 
 @import 'mixins/loop';
 @import 'mixins/chain';
@@ -43,4 +28,19 @@
 @import 'mixins/poff';
 @import 'mixins/mq';
 @import 'mixins/flex';
+
+
+// Placeholders
+//
+// Mix and match little bits of style while avoiding code bloat and repetition.
+//
+// Styleguide 3.0
+
+@import 'placeholders/box-model';
+@import 'placeholders/layout';
+@import 'placeholders/lists';
+@import 'placeholders/type';
+@import 'placeholders/hide-element';
+@import 'placeholders/clearfix';
+@import 'placeholders/effects';
 
