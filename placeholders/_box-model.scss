@@ -36,10 +36,8 @@
 
 
 // Padding
-%padding-default {
-  padding-top: ($doc-baseline / 2);
+%padding-dflt {
   padding-right: $doc-gutter;
-  padding-bottom: ($doc-baseline / 2);
   padding-left: $doc-gutter;
 }
 

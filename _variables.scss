@@ -3,7 +3,7 @@
 // Use a two-tier system — with both functional and descriptive variable names, as appropriate.
 
 
-// Breakpoints
+// breakpoints
 $breakpoints: (
   goldilocks: 528px,
   little: 320px,
@@ -18,32 +18,32 @@ $breakpoints: (
 );
 
 
-// Grid
+// grid
 $doc-gutter: 1rem;
 
 
-// Radii
+// radii
 $radii: (
   h: 3px,
   xh: 6px,
   xxh: 10px,
   full: 50%,
 );
-// radii placeholders
+// used by radii placeholders:
 // @include lime-loop($radii, border-radius, $namespace: radii);
 
 
-// Directionality
+// direction
 $direction: (
   start: left,
   end: right,
 );
-// float and clear placeholders
+// used by float and clear placeholders:
 // @include lime-loop($direction, float, float);
 // @include lime-loop($direction, clear, clear);
 
 
-// Z-index : 0=canvas, 1=background, 2=base; 3=fore; 4=overlay; 5=peak;
+// z-index : 0=canvas, 1=background, 2=base; 3=fore; 4=overlay; 5=peak;
 $z: (
   0: 0,
   1: 1,
@@ -52,15 +52,15 @@ $z: (
   4: 4,
   5: 5,
 );
-// z-index placeholders
+// used by z-index placeholders:
 // @include lime-loop($z, z-index, depth);
 
 
-// Type : [modular scale](http://www.modularscale.com/?16,528&&1.618&web&text)
+// type : [modular scale](http://www.modularscale.com/?16,528&&1.618&web&text)
 $doc-font-size: 16px; // font size on root element
 
 
-// Font-size
+// font-size
 $font-size: (
   giga: 6.875em,
   mega: 4.813em,
@@ -75,11 +75,11 @@ $font-size: (
 );
 
 
-// Vertical Rhythm
+// vertical rhythm
 $doc-baseline: 1.625rem;
 
 
-// Line height
+// line height
 $line-height: (
   giga: 7.313rem,
   mega: 4.875rem,
@@ -94,7 +94,7 @@ $line-height: (
 );
 
 
-// Font-family
+// font-family
 $pri-font: Georgia, 'Nimbus Roman No9 L', Times, "Times New Roman", serif;
 $sec-font: 'Helvetica Neue W02 55 Roman', HelveticaNeue-Roman, 'Helvetica Neue Roman', HelveticaNeue, Helvetica, Arial, sans-serif;
 
@@ -102,11 +102,11 @@ $font: (
   body: $pri-font,
   title: $sec-font,
 );
-// font-family placeholders
+// used by font-family placeholders:
 // @include lime-loop($font, font-family, $namespace: font);
 
 
-// Font-weight
+// font-weight
 $extra-light: 100;
 $light: 200;
 $demi: 300;
@@ -123,11 +123,11 @@ $type: (
   body: $normal,
   bold: $bold,
 );
-// font-weight placeholders
+// used by font-weight placeholders:
 // @include lime-loop($type, font-weight, $namespace: type);
 
 
-// Shadows
+// shadows
 $shadows: (
   depth-1: 0 1px 4px 0 rgba(0, 0, 0, .37),
   depth-2: (0 2px 2px 0 rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .3)),
@@ -135,22 +135,22 @@ $shadows: (
   depth-4: (0 14px 12px 0 rgba(0, 0, 0, .17), 0 20px 40px 0 rgba(0, 0, 0, .3)),
   depth-5: (0 17px 17px 0 rgba(0, 0, 0, .15), 0 27px 55px 0 rgba(0, 0, 0, .3)),
 );
-// box-shadow placeholders
+// used by box-shadow placeholders:
 // @include lime-loop($shadows, box-shadow, $namespace: shadow);
 
 
-// Transitions
+// transitions
 $transitions: (
   fade: .3s ease-out,
   move: .8s cubic-bezier(.25, .05, .5, .9),
   enter: .8s cubic-bezier(0, .24, .5, 1),
   transform: .2s,
 );
-// transition placeholders
+// used by transition placeholders:
 // @include lime-loop($transitions, transition, $namespace: transit);
 
 
-// Colors
+// colors
 $black: #000;
 $gray20: #333;
 $gray40: #666;

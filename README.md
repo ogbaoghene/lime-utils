@@ -26,19 +26,38 @@ The best framework is a custom one, tailored to your needs, it’s easy to use L
 
 - You can install Lime Utils by:
     - Using Bower: `bower install lime-utils`
-    - Downloading the file from the [latest release](https://github.com/ogbaoghene/lime-utils/releases/tag/v1.0.1).
-- Import Lime Utils with a simple Sass import: `@import ‘path/to/lime-utils/_lime’;`
+    - Downloading the file from the [latest release](https://github.com/ogbaoghene/lime-utils/releases/tag/v1.1.13).
+- Import Lime Utils with a simple Sass import: `@import 'path/to/lime-utils/lime';`
 
 **Pro Tip**: Grunt users can set an import path, referenced in the Grunt file as an option within the Sass function.
 
 ```
 options: {
-     includePaths: ['path/to/lime-utils’]     // grunt-sass
+     includePaths: ['path/to/lime-utils']     // grunt-sass
      loadPath: ['path/to/lime-utils']         // grunt-contrib-sass
 }
 ```
 
-Now that it’s in the Grunt file, simply reference the base file, like so: ` @import ‘_lime’;`
+Now that it’s in the Grunt file, simply reference the base file, like so: `@import 'lime';`
+
+### Variables
+
+Assigning custom values to default variables is easy. Begin by copying and pasting the default variable into your sass file. Edit the variable value and/or the key/value pairs if it's a Sass map. Then finish by updating any placeholders that need the variable. For example:
+
+    ```
+    // font-family
+    $pri-font: 'montserrat', Arial, sans-serif;
+    $sec-font: 'libre_baskerville', serif;
+    $alt-font: 'bebas_neue', sans-serif;
+
+    $font: (
+      body: $pri-font,
+      title: $alt-font,
+      copy: $sec-font,
+    );
+
+    @include lime-loop($font, font-family, $namespace: font);
+    ```
 
 ## CONTRIBUTING
 
@@ -48,7 +67,7 @@ If you have any questions, suggestions for improvement, find anything unclear or
 
 ### Guidelines
 
-Lime Utilis are modules, **Sass code that doesn't immediately output CSS.**
+Lime Utils are modules, **Sass code that doesn't immediately output CSS.**
 
 Here are some guidelines on how to go about writing your own:
 
