@@ -41,6 +41,13 @@
   padding-left: $doc-gutter;
 }
 
+%padding-half {
+  padding-top: $doc-baseline / 2;
+  padding-right: $doc-gutter;
+  padding-bottom: $doc-baseline / 2;
+  padding-left: $doc-gutter;
+}
+
 %padding-full {
   padding-top: $doc-baseline;
   padding-right: $doc-gutter;
