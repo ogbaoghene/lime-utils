@@ -75,12 +75,6 @@
       justify-content: flex-start;
     }
     
-    @if $clps != null {
-      @include lime-chain(margin-right margin-left, 0);
-    } @else {
-      @include lime-chain(margin-right margin-left, -$doc-gutter);
-    }
-    
     > * {
       @if $size != auto and unit($size) == '%' {
         max-width: $size;

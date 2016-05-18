@@ -34,6 +34,10 @@
   @include lime-chain(margin-right margin-left, auto);
 }
 
+%margin-nest {
+  @include lime-chain(margin-right margin-left, -$doc-gutter);
+}
+
 
 // Padding
 %padding-dflt {
