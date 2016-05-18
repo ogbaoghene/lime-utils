@@ -121,13 +121,13 @@
     
     @if $aln != null {
       @if $aln == top {
-        align-items: flex-start;
+        align-self: flex-start;
       } @else if $aln == bottom {
-        align-items: flex-end;
+        align-self: flex-end;
       } @else if $aln == middle {
-        align-items: center;
+        align-self: center;
       } @else if $aln == stretch {
-        align-items: stretch;
+        align-self: stretch;
       } @else {
         @warn '`#{$aln}` is not a valid option. Properties omitted.';
       }
