@@ -21,7 +21,7 @@
 // }
 // 
 // .example-1 {
-//   @include lime-flex(cell, 30%, $ofst: 30%, $ro: first);
+//   @include lime-flex(col, 30%, $ofst: 30%, $ro: first);
 // }
 // ```
 //
@@ -85,7 +85,7 @@
       @if $size != auto and unit($size) == '%' {
         max-width: $size;
         
-        flex-grow: $size;
+        flex-basis: $size;
       } @else {
         flex-grow: 1;
       }
