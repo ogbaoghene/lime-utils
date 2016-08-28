@@ -23,46 +23,6 @@
 
 
 // font-size
-%giga {
-  font-size: map-get($font-size, giga);
-  line-height: map-get($line-height, giga);
-}
-
-%mega {
-  font-size: map-get($font-size, mega);
-  line-height: map-get($line-height, mega);
-}
-
-%kilo {
-  font-size: map-get($font-size, kilo);
-  line-height: map-get($line-height, kilo);
-}
-
-%alpha {
-  font-size: map-get($font-size, alpha);
-  line-height: map-get($line-height, alpha);
-}
-
-%beta {
-  font-size: map-get($font-size, beta);
-  line-height: map-get($line-height, beta);
-}
-
-%gamma {
-  font-size: map-get($font-size, gamma);
-  line-height: map-get($line-height, gamma);
-}
-
-%delta {
-  font-size: map-get($font-size, delta);
-  line-height: map-get($line-height, delta);
-}
-
-%epsilon {
-  font-size: map-get($font-size, epsilon);
-  line-height: map-get($line-height, epsilon);
-}
-
 %zeta {
   font-size: map-get($font-size, zeta);
   line-height: map-get($line-height, zeta);
@@ -71,6 +31,46 @@
 %milli {
   font-size: map-get($font-size, milli);
   line-height: map-get($line-height, milli);
+}
+
+%epsilon {
+  font-size: map-get($font-size, epsilon);
+  line-height: map-get($line-height, epsilon);
+}
+
+%delta {
+  font-size: map-get($font-size, delta);
+  line-height: map-get($line-height, delta);
+}
+
+%gamma {
+  font-size: map-get($font-size, gamma);
+  line-height: map-get($line-height, gamma);
+}
+
+%beta {
+  font-size: map-get($font-size, beta);
+  line-height: map-get($line-height, beta);
+}
+
+%alpha {
+  font-size: map-get($font-size, alpha);
+  line-height: map-get($line-height, alpha);
+}
+
+%kilo {
+  font-size: map-get($font-size, kilo);
+  line-height: map-get($line-height, kilo);
+}
+
+%mega {
+  font-size: map-get($font-size, mega);
+  line-height: map-get($line-height, mega);
+}
+
+%giga {
+  font-size: map-get($font-size, giga);
+  line-height: map-get($line-height, giga);
 }
 
 
@@ -94,12 +94,12 @@
 
 // text-align
 %txt-start {
-  text-align: map-get($direction, start); // as backup
+  text-align: map-get($direction, start);
   text-align: start;
 }
 
 %txt-end {
-  text-align: map-get($direction, end); // as backup
+  text-align: map-get($direction, end);
   text-align: end;
 }
 
