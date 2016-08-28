@@ -24,6 +24,8 @@
   min-width: lime-em(map-get($breakpoints, little));
 }
 
+@include lime-loop($breakpoints, max-width, $namespace: max-w);
+
 
 // Margin
 %margin-reset {

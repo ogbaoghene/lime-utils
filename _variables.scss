@@ -16,6 +16,8 @@ $breakpoints: (
   huge: 100em,
   papa-bear: 120em,
 );
+// used by max-width placeholders:
+// @include lime-loop($breakpoints, max-width, $namespace: max-w);
 
 
 // grid
