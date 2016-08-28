@@ -4,7 +4,6 @@
 //
 // Effects:
 // ```text
-// Animations
 // Shadows
 // Transitions
 // ```
@@ -12,21 +11,22 @@
 // 
 // Styleguide 3.7
 
-// Animations
-%animated {
-  animation-duration: .3s;
-  animation-fill-mode: both;
-}
-
 
 // Shadows
 @include lime-loop($shadows, box-shadow, $namespace: shadow);
 
 
 // Transitions
-@include lime-loop($transitions, transition, $namespace: transit);
+%transit-def {
+  transition: {		
+    duration: .2s;		
+    timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);		
+  }		
+}
 
 %transit-none {
   transition: none;
 }
+
+@include lime-loop($transitions, transition-timing-function, $namespace: timing-function);
 

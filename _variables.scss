@@ -141,15 +141,14 @@ $shadows: (
 // @include lime-loop($shadows, box-shadow, $namespace: shadow);
 
 
-// transitions
-$transitions: (
-  fade: .3s ease-out,
-  move: .8s cubic-bezier(.25, .05, .5, .9),
-  enter: .8s cubic-bezier(0, .24, .5, 1),
-  transform: .2s,
+// transition-timing-function 
+$timing-function: (
+  exit: cubic-bezier(0.4, 0.0, 1, 1),
+  return: cubic-bezier(0.4, 0.0, 0.6, 1),
+  enter: cubic-bezier(0.0, 0.0, 0.2, 1),
 );
-// used by transition placeholders:
-// @include lime-loop($transitions, transition, $namespace: transit);
+// used by timing-function placeholders:
+// @include lime-loop($transitions, transition-timing-function, $namespace: timing-function);
 
 
 // colors
