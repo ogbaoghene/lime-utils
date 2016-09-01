@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<title>Lime-utils</title>
-	<meta name="description" content="The most handy Sass utilities in one place." />
+	<meta name="description" content="The most handy Sass utilities in one place.">
 	<meta name="author" content="Ogb_o">
 
 	<link rel="apple-touch-icon" sizes="57x57" href="apple-touch-icon-57x57.png">
@@ -29,8 +29,17 @@
 	<meta name="theme-color" content="#ffffff">
 
 	<!-- styles -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.0.0/normalize.min.css">
-	<link rel="stylesheet" href="screen.css">
+	<style type="text/css">
+*,body{margin:0}*,a:link{outline:0}h1,h2{line-height:3.25rem}.goldi,section p{max-width:33rem}html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;font-size:100%;overflow-y:scroll}.goldi,svg:not(:root){overflow:hidden}a{background-color:transparent}strong{font-weight:bolder}h1{margin:.67em 0;font-size:3em}img{border-style:none;-ms-interpolation-mode:bicubic}@-ms-viewport{width:device-width}*{padding:0;vertical-align:baseline;border:0}*,:after,:before{box-sizing:border-box}img,object[type="image/svg+xml"]{max-width:100%}*+section,.hero p+ul,.waypoint{margin-top:0}#do-more .aside object{margin:auto;display:block;-webkit-transform:translate(30%);transform:translate(30%)}.goldi,section p{margin-right:auto;margin-left:auto}a:link{text-decoration:none;color:#333;border-bottom:1px solid transparent}a.case{display:inline-block;border-bottom:0 solid}section{min-width:22.5rem;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;min-height:100vh;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-ms-flex-align:center;-ms-grid-row-align:center;align-items:center;padding-top:3.25rem;padding-bottom:3.25rem}a.case,section{position:relative}.cta,a.case:before{position:absolute}.cta-prompt{visibility:hidden;opacity:0}a.case:before{z-index:0;content:"";top:0;right:0;bottom:0;left:0}a.case>*{z-index:1;vertical-align:bottom}.goldi{padding-right:1rem;padding-left:1rem}ul{list-style-position:inside}h2{font-size:2.625em}.hero .aside,.milli{font-size:.625em;line-height:.813rem}section h1{font-weight:800;text-transform:uppercase}section h2{font-weight:400}.cta{text-align:center;bottom:1.625rem;left:0;right:0}body{line-height:1.625rem;font-family:montserrat,Arial,sans-serif;color:#333}@font-face{font-family:montserrat;font-weight:800;font-style:normal;src:url(fonts/montserrat-black-webfont.eot);src:url(fonts/montserrat-black-webfont.eot?#iefix) format("embedded-opentype"),url(fonts/montserrat-black-webfont.woff) format("woff"),url(fonts/montserrat-black-webfont.ttf) format("truetype"),url(fonts/montserrat-black-webfont.svg#montserrat) format("svg")}@font-face{font-family:montserrat;font-weight:700;font-style:normal;src:url(fonts/montserrat-semibold-webfont.eot);src:url(fonts/montserrat-semibold-webfont.eot?#iefix) format("embedded-opentype"),url(fonts/montserrat-semibold-webfont.woff) format("woff"),url(fonts/montserrat-semibold-webfont.ttf) format("truetype"),url(fonts/montserrat-semibold-webfont.svg#montserrat) format("svg")}@font-face{font-family:montserrat;font-weight:400;font-style:normal;src:url(fonts/montserrat-ultralight-webfont.eot);src:url(fonts/montserrat-ultralight-webfont.eot?#iefix) format("embedded-opentype"),url(fonts/montserrat-ultralight-webfont.woff) format("woff"),url(fonts/montserrat-ultralight-webfont.ttf) format("truetype"),url(fonts/montserrat-ultralight-webfont.svg#montserrat) format("svg")}*+*{margin-top:1.625rem}*+.milli{margin-top:.8125rem}.hero{color:#fff;background:url(imgs/hero.jpg) center no-repeat #000;background-size:cover;padding-bottom:8.125rem}.hero blockquote{border-right:0 solid}.hero .aside{color:rgba(255,255,255,.6)}@media screen and (min-width:50em){.hero .flex-wrap{-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;-webkit-align-content:center;-ms-flex-line-pack:center;align-content:center}.hero .site-title.flex-item{-webkit-flex-basis:100%;-ms-flex-preferred-size:100%;flex-basis:100%}.hero .aside.flex-item{-webkit-flex-basis:25%;-ms-flex-preferred-size:25%;flex-basis:25%;text-align:right;text-align:end}.hero blockquote{border-right:.5rem solid #e3ff00;padding-right:1rem}#do-more{padding-bottom:11.375rem;will-change:position}#do-more,.hero{padding-right:1rem;padding-left:1rem}.goldi{max-width:64rem}.flex-wrap{display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-ms-flex-align:center;align-items:center;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;margin-right:-1rem;margin-left:-1rem;padding-right:0;padding-left:0}.flex-item{-webkit-flex-basis:50%;-ms-flex-preferred-size:50%;flex-basis:50%;padding-right:1rem;padding-left:1rem}*+.flex-item{margin-top:0}}#do-more{background-color:#fff}@media screen and (min-width:33em){#do-more .aside object{-webkit-transform:none;transform:none}}@media screen and (min-width:33em) and (max-width:50em){#do-more{text-align:center}}.scroll-down path{fill:#e3ff00;stroke-width:0;stroke:#e3ff00}.waypoint{height:0}
+</style>
+<script id="loadcss">
+(function(u,s){!function(e){"use strict";var n=function(n,t,o){var l,r=e.document,i=r.createElement("link");if(t)l=t;else{var a=(r.body||r.getElementsByTagName("head")[0]).childNodes;l=a[a.length-1]}var d=r.styleSheets;i.rel="stylesheet",i.href=n,i.media="only x",l.parentNode.insertBefore(i,t?l:l.nextSibling);var f=function(e){for(var n=i.href,t=d.length;t--;)if(d[t].href===n)return e();setTimeout(function(){f(e)})};return i.onloadcssdefined=f,f(function(){i.media=o||"all"}),i};"undefined"!=typeof module?module.exports=n:e.loadCSS=n}("undefined"!=typeof global?global:this);for(var i in u){loadCSS(u[i],s);}}(['https://cdnjs.cloudflare.com/ajax/libs/normalize/4.0.0/normalize.min.css','screen.css'],document.getElementById("loadcss")));
+</script>
+<noscript>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.0.0/normalize.min.css">
+<link rel="stylesheet" href="screen.css">
+</noscript>
+	
 	<!-- modernizer -->
 	<script src="js/modernizr-custom.js" async></script>
 </head>
@@ -56,7 +65,7 @@
 			</div>
 			<div class="cta">
 				<a href="#do-more" class="case">
-					<svg xmlns="http://www.w3.org/2000/svg" class="scroll-down" width="52" height="52" viewBox="0 0 52 52"><path d="M33.838 19.958l-7.47 7.47a.556.556 0 0 1-.369.16.554.554 0 0 1-.369-.16l-7.469-7.47c-.098-.098-.161-.242-.161-.371s.063-.272.161-.369l.801-.801a.52.52 0 0 1 .369-.161.546.546 0 0 1 .369.161l6.3 6.3 6.301-6.3a.548.548 0 0 1 .369-.161c.128 0 .271.064.369.161l.8.801c.097.097.161.241.161.369s-.064.273-.162.371zm0 6.155l-7.47 7.471a.556.556 0 0 1-.369.16.556.556 0 0 1-.369-.16l-7.469-7.471c-.098-.096-.161-.24-.161-.368s.063-.272.161-.369l.801-.801a.52.52 0 0 1 .369-.161.546.546 0 0 1 .369.161l6.3 6.298 6.301-6.298a.548.548 0 0 1 .369-.161c.128 0 .271.064.369.161l.8.801c.097.096.161.24.161.369s-.064.272-.162.368z"/><path d="M26 52C11.664 52 0 40.337 0 26 0 11.664 11.664 0 26 0c14.337 0 26 11.664 26 26 0 14.337-11.663 26-26 26zm0-50.074C12.726 1.926 1.926 12.725 1.926 26c0 13.273 10.8 24.075 24.074 24.075 13.275 0 24.074-10.802 24.074-24.075C50.074 12.725 39.275 1.926 26 1.926z"/></svg>
+					<svg xmlns="http://www.w3.org/2000/svg" class="scroll-down" width="52" height="52" viewbox="0 0 52 52"><path d="M33.838 19.958l-7.47 7.47a.556.556 0 0 1-.369.16.554.554 0 0 1-.369-.16l-7.469-7.47c-.098-.098-.161-.242-.161-.371s.063-.272.161-.369l.801-.801a.52.52 0 0 1 .369-.161.546.546 0 0 1 .369.161l6.3 6.3 6.301-6.3a.548.548 0 0 1 .369-.161c.128 0 .271.064.369.161l.8.801c.097.097.161.241.161.369s-.064.273-.162.371zm0 6.155l-7.47 7.471a.556.556 0 0 1-.369.16.556.556 0 0 1-.369-.16l-7.469-7.471c-.098-.096-.161-.24-.161-.368s.063-.272.161-.369l.801-.801a.52.52 0 0 1 .369-.161.546.546 0 0 1 .369.161l6.3 6.298 6.301-6.298a.548.548 0 0 1 .369-.161c.128 0 .271.064.369.161l.8.801c.097.096.161.24.161.369s-.064.272-.162.368z"/><path d="M26 52C11.664 52 0 40.337 0 26 0 11.664 11.664 0 26 0c14.337 0 26 11.664 26 26 0 14.337-11.663 26-26 26zm0-50.074C12.726 1.926 1.926 12.725 1.926 26c0 13.273 10.8 24.075 24.074 24.075 13.275 0 24.074-10.802 24.074-24.075C50.074 12.725 39.275 1.926 26 1.926z"/></svg>
 				</a>
 				<p class="milli cta-prompt">Scroll to continue</p>
 			</div>
@@ -79,7 +88,7 @@
 		</div>
 	</section>
 	<!-- /section -->
-	<div  id="waypoint-2" class="waypoint">&nbsp;</div>
+	<div id="waypoint-2" class="waypoint">&nbsp;</div>
 	<!-- section -->
 	<section id="painless">
 		<div class="goldi flex-wrap">
@@ -93,8 +102,8 @@
 				<p>Lime-utils is written for efficiency. That’s why it works beautifully and conveniently right out of the box, letting you get up and running with no dependencies or conflicts.</p>
 			</div>
 			<div class="cta">
-				<a href="https://github.com/ogbaoghene/lime-utils/archive/1.1.25.zip" class="btns">Download Lime-utils</a>
-				<p class="milli">Currently v1.1.25</p>
+				<a href="https://github.com/ogbaoghene/lime-utils/archive/1.1.26.zip" class="btns">Download Lime-utils</a>
+				<p class="milli">Currently v1.1.26</p>
 				<pre><code>bower install lime-utils</code></pre>
 			</div>
 		</div>
@@ -160,35 +169,6 @@
 	<!-- vivus -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/vivus/0.3.0/vivus.min.js"></script>
 	<!-- scripts -->
-<script type="text/javascript" defer>$(window).load(function() {
-    "use strict";
-    $("body").removeClass("preload");
-}), $(document).ready(function(a) {
-    a('a[rel="external"]').attr("target", "_blank");
-    new Waypoint.Sticky({
-        element: a("#do-more")[0]
-    });
-    a("#waypoint-2").waypoint(function() {
-        a("#do-more").toggleClass("fade-out");
-    });
-    new Waypoint.Sticky({
-        element: a("#painless")[0]
-    });
-    a(".feature-list").waypoint(function() {
-        a(".feature").addClass("fadeInUp");
-    }, {
-        offset: "60%"
-    }), new Vivus("logo-outline", {
-        start: "inViewport",
-        type: "delayed",
-        duration: 200,
-        pathTimingFunction: Vivus.LINEAR,
-        animTimingFunction: Vivus.EASE
-    }), a("body").on("click", 'a[href*="#"]:not([href="#"])', function() {
-        return a("html, body").animate({
-            scrollTop: a(a(this).attr("href")).offset().top
-        }, 500), !1;
-    });
-});</script>
+<script type="text/javascript" defer>$(window).load(function(){"use strict";$("body").removeClass("preload")}),$(document).ready(function(a){a('a[rel="external"]').attr("target","_blank");new Waypoint.Sticky({element:a("#do-more")[0]});a("#waypoint-2").waypoint(function(){a("#do-more").toggleClass("fade-out")});new Waypoint.Sticky({element:a("#painless")[0]});a(".feature-list").waypoint(function(){a(".feature").addClass("fadeInUp")},{offset:"60%"}),new Vivus("logo-outline",{start:"inViewport",type:"delayed",duration:200,pathTimingFunction:Vivus.LINEAR,animTimingFunction:Vivus.EASE}),a("body").on("click",'a[href*="#"]:not([href="#"])',function(){return a("html, body").animate({scrollTop:a(a(this).attr("href")).offset().top},500),!1})});</script>
 </body>
 </html>
