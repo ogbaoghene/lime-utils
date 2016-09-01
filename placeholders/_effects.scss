@@ -28,5 +28,5 @@
   transition: none;
 }
 
-@include lime-loop($transitions, transition-timing-function, $namespace: timing-function);
+@include lime-loop($timing-function, transition-timing-function, $namespace: timing-function);
 
